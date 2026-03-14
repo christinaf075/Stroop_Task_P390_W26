@@ -105,8 +105,7 @@ def new_word():
         "correct": None
     })
 
-    # Start reaction timer
-    word_start_time = pygame.time.get_ticks()
+    word_start_time = None
 
 def save_result_to_csv(trial_num, word_num, match_status, rt, correct_status):
     """Save one trial to CSV file"""
@@ -196,9 +195,7 @@ word_count = 0
 trial_msg_shown = False
 
 new_word()
-showing_word = True
-waiting_for_response = False
-
+state = "stimulus"
 # --- Main trial loop ---
 while running:
     current_time = pygame.time.get_ticks()
@@ -211,9 +208,6 @@ while running:
         elif trial == 2:
             show_trial_message("Third Trial\nPress any key to start")
         new_word()
-        showing_word = True
-        waiting_for_response = False
-        trial_msg_shown = True
 
     # Event handling
     for event in pygame.event.get():
@@ -222,7 +216,7 @@ while running:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 running = False
-            if waiting_for_response and event.key in (pygame.K_r, pygame.K_g, pygame.K_b, pygame.K_y):
+            if state == "stimulus" and evenet.key in key_to_color:
                 reaction_time = pygame.time.get_ticks() - word_start_time
                 results[-1]["reaction_time"] = reaction_time
 
@@ -244,22 +238,14 @@ while running:
                 if trial >= num_trials:
                     running = False
                 new_word()
-                showing_word = True
-                waiting_for_response = False
 
-    # Display word for 500 ms
-    if running and showing_word:
-        mywindow.fill((255, 255, 255))
-        mywindow.blit(test_text, test_text_pos)
-        pygame.display.flip()
-        if current_time - word_start_time >= 500:
-            showing_word = False
-            waiting_for_response = True
-            mywindow.fill((255, 255, 255))
-            pygame.display.flip()
-    elif running and waiting_for_response:
-        pass  # Blank screen until key press
-
+                if running and state == "stimulus":
+                    mywindow.fill((255,255,255))
+                    mywindow.blit(test_text, test_text_pos)
+                    pygame.display.flip()
+                    if word_start_time is None:
+                        word_start_time = pygame.time.get_ticks()
+                    
 pygame.quit()
 sys.exit()
 
