@@ -3,18 +3,23 @@ pygame.init()
 from itertools import compress
 import random
 import csv
+import datetime
 
 # data storage setup
 def init_csv():
     """Initialize CSV file with headers"""
-    filename = f"stroop_results.csv"
+    participant_id = input("Enter participant ID: ")
+    
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    filename = f"stroop_{participant_id}_{timestamp}.csv"
     
     # Create file with headers
     with open(filename, 'w', newline='') as csvfile:
         fieldnames = ["trial", "word_number", "match", "reaction_time", "correct"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-    
+    print("Saving results to:", filename)
     return filename
 
 # Initialize CSV
@@ -142,7 +147,7 @@ def show_trial_message(text):
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    print(f"Saving results to: {csv_filename}")
+                    print("Saving results to:", csv_filename)
                     pygame.quit()
                     sys.exit()
                 else:
@@ -150,11 +155,16 @@ def show_trial_message(text):
 
 # Instructions before first trial
 win_width, win_height = mywindow.get_size()
-instruction_text = ("Welcome to the Stroop Task. You will be presented with a series of colored words for a few seconds. "
-                    "State the colour of the word you see by pressing the letter key of the first letter of the color. "
-                    "For example, if the color of the word you see is yellow, you would press the 'y' key. "
-                    "Always go by the COLOR of the word and not the color the word itself is referring to. "
-                    "There are 3 trials of this.")
+instruction_text = (
+"Welcome to the Stroop Task. "
+"You will be presented with the name of a color written on the screen for 500ms. "
+"Your task is to identify the color of the letters, not the word itself by pressing "
+"'r' for red, 'b' for blue, 'g' for green, and 'y' for yellow. "
+"For example, if the word is 'red' but the colour of the letters are blue you press 'b'. "
+"There will be 3 trials. "
+"Press the 'esc' key to exit the task at any point."
+)
+
 # Wrap the instruction text
 wrapped_lines = wrap_text(instruction_text, instr_font, win_width - 100)
 mywindow.fill((255, 255, 255))
