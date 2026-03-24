@@ -1,0 +1,20 @@
+---
+title: "A Stroop Task Study Replication"
+author: "Christina Fan"
+format: revealjs
+---
+
+# Introduction
+
+## Background
+::: {.incremental}
+- Stroop Task is a task designed to assess executive function, specifically inhibitory control.
+- Blah blah
+:::
+
+# Methods
+
+## Computer Task Deisgn
+
+- Get in bed
+- Count sheep
