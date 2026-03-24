@@ -1,0 +1,4 @@
+Revealjs:
+1. Tutorial: https://quarto.org/docs/presentations/revealjs/
+2. Documentation: https://quarto.org/docs/reference/formats/presentations/revealjs.html
+3. Example Presentation + Code: https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd
