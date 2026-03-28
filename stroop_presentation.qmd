@@ -1,6 +1,6 @@
 ---
 title: "A Stroop Task Study Replication"
-author: "Christina Fan"
+author: "Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan"
 format: revealjs
 ---
 
@@ -9,12 +9,38 @@ format: revealjs
 ## Background
 ::: {.incremental}
 - Stroop Task is a task designed to assess executive function, specifically inhibitory control.
-- Blah blah
+- Blah blah 1
+- Blah blah 2
 :::
 
 # Methods
 
-## Computer Task Deisgn
+## Stroop Task Design
 
-- Get in bed
-- Count sheep
+- The task is designed to present participants with color words of various colors
+- Congruency blah blah
+- Reaction time blah blah
+
+
+# Results
+
+## Descriptives
+- Mean reaction time is 12.78 seconds across all trials.
+```{python}
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+mean_RT = [16.34, 11.01, 10.98]
+
+plt.figure()
+plt.plot(trials, mean_RT)
+plt.title("Figure 1: Changes in Mean Reaction Time Across Trials")
+plt.xlabel("Trial")
+plt.ylabel("Reaction Time (seconds)")
+plt.show()
+```
+
+## 2-Way Repeated Measures Analysis
