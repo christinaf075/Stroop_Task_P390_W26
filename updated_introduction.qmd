@@ -9,8 +9,6 @@ format: html
 
 - First documented by J. R. Stroop (1935), it is one of the most studied phenomena in cognitive psychology 
 
-- The Stroop task is widely used to study how the brain manages attention, particularly our ability to inhibit our automatic responses in favour of slower, more deliberate ones
-
 ## The Stroop Task
 
 - Participants are shown color words printed in different colors and are asked to name the color of the word, ignoring the word itself 
@@ -26,8 +24,6 @@ format: html
 - Stroop (1935) found that participants were slower and less accurate when naming colors on incongruent trials compared to congruent ones 
 
 - This effect has been replicated across hundreds of studies, making it one of the most reliable findings in cognitive psychology
-
-- Repeated practice can reduce interference over time, but it never fully disappears
 
 ## Theoretical Explanations
 
