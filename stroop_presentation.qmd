@@ -2,45 +2,170 @@
 title: "A Stroop Task Study Replication"
 author: "Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan"
 format: revealjs
+css: styles.css
+resources: stroop_prt.pdf
 ---
 
 # Introduction
 
-## Background
+## Background(1): What is the Stroop Effect?
 ::: {.incremental}
-- Stroop Task is a task designed to assess executive function, specifically inhibitory control.
-- Blah blah 1
-- Blah blah 2
+-  The Stroop effect refers to the cognitive interference that occurs when the brain processes two conflicting pieces of information at the same time
+
+- First documented by J. R. Stroop (1935), it is one of the most studied phenomena in cognitive psychology 
+
+- The Stroop task is widely used to study how the brain manages attention, particularly our ability to inhibit our automatic responses in favour of slower, more deliberate ones
 :::
+
+## Background(2): What is the Stroop Task?
+Participants are shown color words printed in different colors and are asked to name the color of the word, ignoring the word itself 
+
+- Two conditions:
+
+::: {.small-text}
+- Congruent- where the word and ink colour match (e.g. the word "RED" in red ink)
+- Incongruent- where the word and ink colour conflict (e.g. the word "RED" in blue ink)
+:::
+
+- Measures reaction time and accuracy as indicators of cognitive interference
+
+## Background(3): Key Findings
+Stroop (1935) found that participants were slower and less accurate when naming colors on incongruent trials compared to congruent ones 
+
+- This effect has been replicated across hundreds of studies, making it one of the most reliable findings in cognitive psychology
+
+- Repeated practice can reduce interference over time, but it never fully disappears
+
+## Theoretical Explanations
+:::: {.columns}
+
+::: {.column width="40%"}
+### Relative Speed of Processing
+- Words are read faster than colors are named, so the word meaning always reaches the response stage first and interferes with color naming 
+:::
+
+::: {.column width="50%"}
+### Automaticity
+- Reading is so deeply practiced that it happens automatically. 
+- Our brains process the word meaning even when we are trying to ignore it, which interferes with the slower, deliberate process of color naming
+:::
+
+::::
 
 # Methods
 
-## Stroop Task Design
+## Our study aimed to replicate the Stroop effect in a classroom sample using a computerized task
 
-- The task is designed to present participants with color words of various colors
-- Congruency blah blah
-- Reaction time blah blah
+
+- Hypothesis: Participants will show slower reaction times and lower accuracy on incongruent trials compared to congruent trials 
+
+## Making the Task - An Important Feature
+- Being able to store and save your data to a platform is important for organization, analysis, collaboration
+
+::: {.small-box}
+```python
+import csv
+import datetime
+
+## MAKING THE CSV FILE
+def init_csv():
+    """Initialize CSV file with headers"""
+    
+    participant_id = input("Enter participant ID: ")
+    
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    filename = f"stroop_{participant_id}_{timestamp}.csv"
+    
+    with open(filename, 'w', newline='') as csvfile:
+        fieldnames = ["trial", "word_number", "match", "reaction_time", "correct"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+    
+    return filename
+
+## INPUTTING RESULTS TO CSV
+def save_result_to_csv(trial_num, word_num, match_status, rt, correct_status):
+    """Save one trial to CSV file"""
+    
+    with open(csv_filename, 'a', newline='') as csvfile:
+        fieldnames = ["trial", "word_number", "match", "reaction_time", "correct"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        writer.writerow({
+            "trial": trial_num,
+            "word_number": word_num,
+            "match": str(match_status),
+            "reaction_time": rt,
+            "correct": str(correct_status)
+        })
+```
+
+:::
+## Making The Task - Coding
+We used pygame to code this task, so we had lots of help from LLMs and the [Pygame Documentation Webpage](https://www.pygame.org/docs/){preview-link="true" style="text-align: center"}
 
 
 # Results
 
-## Descriptives
+## Descriptives - Reaction Time
 - Mean reaction time is 12.78 seconds across all trials.
 ```{python}
-#| echo: false
-
 import numpy as np
 import matplotlib.pyplot as plt
 
 trials = ["Trial 1", "Trial 2", "Trial 3"]
 mean_RT = [16.34, 11.01, 10.98]
 
-plt.figure()
-plt.plot(trials, mean_RT)
-plt.title("Figure 1: Changes in Mean Reaction Time Across Trials")
-plt.xlabel("Trial")
-plt.ylabel("Reaction Time (seconds)")
+trials_number =np.arange(len(trials))
+coefficients = np.polyfit(trials_number, mean_RT, 1)
+p = np.poly1d(coefficients)
+fig, ax = plt.subplots()
+ax.scatter(trials, mean_RT)
+ax.plot(trials_number, p(trials_number), "r--")
+ax.set_xticks(trials_number, trials)
+ax.set_xlabel("Trial")
+ax.set_ylabel("Reaction Time (seconds)")
+ax.legend()
+ax.set_title("Figure 1: Changes in Mean Reaction Time Across Trials")
 plt.show()
 ```
 
-## 2-Way Repeated Measures Analysis
+## Descriptives - Accuracy
+- Mean accuracy rate is 86.4%.
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+mean_acc = [0.82, 0.87, 0.9]
+
+trials_number =np.arange(len(trials))
+coefficients = np.polyfit(trials_number, mean_acc, 1)
+p = np.poly1d(coefficients)
+fig, ax = plt.subplots()
+ax.scatter(trials, mean_acc)
+ax.plot(trials_number, p(trials_number), "r--")
+ax.set_xticks(trials_number, trials)
+ax.set_xlabel("Trial")
+ax.set_ylabel("Mean Accuracy Rate")
+ax.legend()
+ax.set_title("Figure 2: Changes in Mean Accuracy Rates Across Trials")
+plt.show()
+```
+
+## Analysis
+A 2-Way Repeated Measures ANOVA test was performed examining the main effects of trial and congruency on reaction time, in addition to their interaction.
+
+![](images/stroop_with.jpeg){.absolute .fragment width="800" height='800'}
+
+## Discussion
+One more week until classes end
+- Alexia
+
+
+
+<!-- References:
+MacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integrative review. Psychological Bulletin, 109(2), 163–203. https://doi.org/10.1037/0033-2909.109.2.163
+
+Stroop, J. R. (1935). Studies of interference in serial verbal reactions. Journal of Experimental Psychology, 18(6), 643–662. https://doi.org/10.1037/h0054651 -->

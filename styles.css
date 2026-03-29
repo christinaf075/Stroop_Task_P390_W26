@@ -1,0 +1,6 @@
+.small-text {font-size: 0.7em;}
+
+.small-box {
+  transform: scale(0.8);
+  transform-origin: top left;
+}
