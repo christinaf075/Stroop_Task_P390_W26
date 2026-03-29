@@ -9,32 +9,32 @@ resources: stroop_prt.pdf
 # Introduction
 
 ## Background(1): What is the Stroop Effect?
+<br/>
+
 ::: {.incremental}
 -  The Stroop effect refers to the cognitive interference that occurs when the brain processes two conflicting pieces of information at the same time
-
 - First documented by J. R. Stroop (1935), it is one of the most studied phenomena in cognitive psychology 
-
-- The Stroop task is widely used to study how the brain manages attention, particularly our ability to inhibit our automatic responses in favour of slower, more deliberate ones
 :::
 
 ## Background(2): What is the Stroop Task?
-Participants are shown color words printed in different colors and are asked to name the color of the word, ignoring the word itself 
+- Participants are shown color words printed in different colors and are asked to name the color of the word, ignoring the word itself 
 
 - Two conditions:
 
 ::: {.small-text}
-- Congruent- where the word and ink colour match (e.g. the word "RED" in red ink)
-- Incongruent- where the word and ink colour conflict (e.g. the word "RED" in blue ink)
+ - Congruent- where the word and ink colour match (e.g. the word "RED" in red ink)
+ - Incongruent- where the word and ink colour conflict (e.g. the word "RED" in blue ink)
 :::
 
 - Measures reaction time and accuracy as indicators of cognitive interference
 
 ## Background(3): Key Findings
+<br/>
 Stroop (1935) found that participants were slower and less accurate when naming colors on incongruent trials compared to congruent ones 
 
-- This effect has been replicated across hundreds of studies, making it one of the most reliable findings in cognitive psychology
+<br/>
 
-- Repeated practice can reduce interference over time, but it never fully disappears
+- This effect has been replicated across hundreds of studies, making it one of the most reliable findings in cognitive psychology
 
 ## Theoretical Explanations
 :::: {.columns}
@@ -43,9 +43,10 @@ Stroop (1935) found that participants were slower and less accurate when naming 
 ### Relative Speed of Processing
 - Words are read faster than colors are named, so the word meaning always reaches the response stage first and interferes with color naming 
 :::
-
+::: {.column width="10%"}
+:::
 ::: {.column width="50%"}
-### Automaticity
+### Automaticity{.center}
 - Reading is so deeply practiced that it happens automatically. 
 - Our brains process the word meaning even when we are trying to ignore it, which interferes with the slower, deliberate process of color naming
 :::
@@ -54,9 +55,11 @@ Stroop (1935) found that participants were slower and less accurate when naming 
 
 # Methods
 
-## Our study aimed to replicate the Stroop effect in a classroom sample using a computerized task
+## Our study aimed to replicate the Stroop effect 
 
-
+- We designed a computer task following the Stroop Task protocol introduced earlier, with each word being shown on the screen for 500 ms
+ - Participants would not move on to the next word until they gave a response
+ - 10 words/ trial -> 3 trials
 - Hypothesis: Participants will show slower reaction times and lower accuracy on incongruent trials compared to congruent trials 
 
 ## Making the Task - An Important Feature
@@ -102,9 +105,11 @@ def save_result_to_csv(trial_num, word_num, match_status, rt, correct_status):
 ```
 
 :::
-## Making The Task - Coding
-We used pygame to code this task, so we had lots of help from LLMs and the [Pygame Documentation Webpage](https://www.pygame.org/docs/){preview-link="true" style="text-align: center"}
 
+## Making The Task - Coding
+<br/>
+<br/>
+We used pygame to code this task, so we had lots of help from LLMs and the [Pygame Documentation Webpage](https://www.pygame.org/docs/){preview-link="true"}
 
 # Results
 

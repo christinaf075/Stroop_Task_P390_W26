@@ -4,3 +4,7 @@
   transform: scale(0.8);
   transform-origin: top left;
 }
+
+.space {
+  margin-bottom: 5.5em;
+}
