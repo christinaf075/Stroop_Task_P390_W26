@@ -193,7 +193,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" data-background-image="/images/Screenshot 2026-03-30 231455.png" class="quarto-title-block center">
   <h1 class="title">A Stroop Task Study Replication</h1>
 
 <div class="quarto-title-authors">
@@ -206,11 +206,11 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 
 </section>
 <section>
-<section id="introduction" class="title-slide slide level1 center">
+<section id="introduction" class="title-slide slide level1 center" data-background-image="images/Screenshot 2026-03-30 231455.png">
 <h1>Introduction</h1>
 
 </section>
-<section id="background1-what-is-the-stroop-effect" class="slide level2">
+<section id="background1-what-is-the-stroop-effect" class="slide level2" data-background-image="images/Screenshot 2026-03-30 231455.png">
 <h2>Background(1): What is the Stroop Effect?</h2>
 <p><br></p>
 <ul>
@@ -234,7 +234,7 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 <li>Measures reaction time and accuracy as indicators of cognitive interference</li>
 </ul>
 </section>
-<section id="background3-key-findings" class="slide level2">
+<section id="background3-key-findings" class="slide level2" data-background-image="images/Screenshot 2026-03-30 231455.png">
 <h2>Background(3): Key Findings</h2>
 <p><br> Stroop (1935) found that participants were slower and less accurate when naming colors on incongruent trials compared to congruent ones</p>
 <p><br></p>
@@ -261,7 +261,7 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 </div></div>
 </section></section>
 <section>
-<section id="methods" class="title-slide slide level1 center">
+<section id="methods" class="title-slide slide level1 center" data-background-image="images/Screenshot 2026-03-30 231455.png">
 <h1>Methods</h1>
 
 </section>
@@ -274,7 +274,7 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 <li>Hypothesis: Participants will show slower reaction times and lower accuracy on incongruent trials compared to congruent trials</li>
 </ul>
 </section>
-<section id="making-the-task---an-important-feature" class="slide level2">
+<section id="making-the-task---an-important-feature" class="slide level2" data-background-image="images/Screenshot 2026-03-30 231455.png">
 <h2>Making the Task - An Important Feature</h2>
 <ul>
 <li>Being able to store and save your data to a platform is important for organization, analysis, collaboration</li>
@@ -317,36 +317,37 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 <span id="cb1-35"><a href=""></a>        })</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="making-the-task---coding" class="slide level2">
+<section id="making-the-task---coding" class="slide level2" data-background-image="images/Screenshot 2026-03-30 231455.png">
 <h2>Making The Task - Coding</h2>
 <p><br> <br> We used pygame to code this task, so we had lots of help from LLMs and the <a href="https://www.pygame.org/docs/" data-preview-link="true">Pygame Documentation Webpage</a></p>
 </section></section>
 <section>
-<section id="results" class="title-slide slide level1 center">
+<section id="results" class="title-slide slide level1 center" data-background-image="images/Screenshot 2026-03-30 231455.png">
 <h1>Results</h1>
 
 </section>
-<section id="descriptives---reaction-time" class="slide level2">
-<h2>Descriptives - Reaction Time</h2>
+<section id="descriptives---reaction-time-accuracy" class="slide level2 small-text">
+<h2>Descriptives - Reaction Time &amp; Accuracy</h2>
 <ul>
-<li>Mean reaction time is 12.78 seconds across all trials.</li>
+<li>Mean reaction time is 1.28 seconds.</li>
+<li>Mean accuracy rate is 86.4%.</li>
 </ul>
-<div id="27db7480" class="cell" data-execution_count="1">
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">RT</a></li><li><a href="#tabset-1-2">Accuracy</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div id="b90c35eb" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="stroop_presentation_files/figure-revealjs/cell-2-output-1.png" width="808" height="449"></p>
+<p><img data-src="stroop_presentation_files/figure-revealjs/cell-2-output-1.png" width="812" height="449"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="descriptives---accuracy" class="slide level2">
-<h2>Descriptives - Accuracy</h2>
-<ul>
-<li>Mean accuracy rate is 86.4%.</li>
-</ul>
-<div id="42e8feef" class="cell" data-execution_count="2">
+</div>
+<div id="tabset-1-2">
+<div id="15689668" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -355,21 +356,85 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 </section>
-<section id="analysis" class="slide level2">
+<section id="descriptives---effects-of-congruency-on-rt-accuracy" class="slide level2 small-text">
+<h2>Descriptives - Effects of Congruency on RT &amp; Accuracy</h2>
+<div class="small-text">
+<ul>
+<li>Mean reaction time in incongruent trials is 1.28 seconds VS in congruent trials it’s 1.19 seconds</li>
+<li>Mean accuracy rate in incongruent trials is 81.3% VS in congruent trials it’s 92.0%</li>
+</ul>
+</div>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">RT</a></li><li><a href="#tabset-2-2">Accuracy</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div id="cba14022" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="stroop_presentation_files/figure-revealjs/cell-4-output-1.png" width="950" height="470"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div id="4e5826e6" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="stroop_presentation_files/figure-revealjs/cell-5-output-1.png" width="950" height="470"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="analysis" class="slide level2" data-background-image="images/Screenshot 2026-03-30 231455.png">
 <h2>Analysis</h2>
-<p>A 2-Way Repeated Measures ANOVA test was performed examining the main effects of trial and congruency on reaction time, in addition to their interaction.</p>
-<p><img data-src="images/stroop_with.jpeg" class="absolute fragment" style="width: 800px; height: 800px; "></p>
+<div class="small-text">
+<p>Two 2-Way Repeated Measures ANOVA tests were performed examining the main effects of trial and congruency on reaction time and accuracy, in addition to their interactions on both.</p>
+</div>
+<div class="columns">
+<div class="column" style="width:20%;">
+<ul>
+<li>Table 1</li>
+</ul>
+</div><div class="column" style="width:37%;">
+
+</div><div class="columns" width="20">
+<ul>
+<li>Table 2</li>
+</ul>
+</div>
+</div>
+<p><img data-src="images/stroop_with.jpeg" class="absolute" style="left: 30px; bottom: 5px; width: 450px; height: 420px; "> <img data-src="images/stroop_acc.jpeg" class="absolute" style="bottom: 20px; right: 80px; width: 400px; height: 400px; "></p>
 </section>
-<section id="discussion" class="slide level2">
+<section id="discussion" class="slide level2" data-background-image="images/Screenshot 2026-03-30 231455.png">
 <h2>Discussion</h2>
-<p>One more week until classes end - Alexia</p>
-<!-- References:
-MacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integrative review. Psychological Bulletin, 109(2), 163–203. https://doi.org/10.1037/0033-2909.109.2.163
-
-Stroop, J. R. (1935). Studies of interference in serial verbal reactions. Journal of Experimental Psychology, 18(6), 643–662. https://doi.org/10.1037/h0054651 -->
-
+<ul>
+<li>No significant Stroop effect (p = 0.661) or interaction (p = 0.758)</li>
+<li>While speeds improved across trials (p = 0.056), outliers of 13s and 19s inflated the Mean Square Residual (1.023), masking the actual effect</li>
+<li>High accuracy (90%) and keyboard latency further confounded results</li>
+<li>Due to these factors and a small sample (n = 16), we fail to reject the null hypothesis</li>
+</ul>
+</section>
+<section id="references" class="slide level2" data-background-image="images/Screenshot 2026-03-30 231455.png">
+<h2>References</h2>
+<p>MacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integrative review. Psychological Bulletin, 109(2), 163–203. <a href="https://doi.org/10.1037/0033-2909.109.2.163">https://doi.org/10.1037/0033-2909.109.2.163</a></p>
+<p><br></p>
+<p>Stroop, J. R. (1935). Studies of interference in serial verbal reactions. Journal of Experimental Psychology, 18(6), 643–662. <a href="https://doi.org/10.1037/h0054651">https://doi.org/10.1037/h0054651</a></p>
 </section></section>
+<section id="section" class="title-slide slide level1 center" data-background="#43464B" data-background-image="images/thankyou.jpeg">
+<h1></h1>
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

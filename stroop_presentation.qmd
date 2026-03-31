@@ -1,14 +1,16 @@
 ---
-title: "A Stroop Task Study Replication"
+title: "A Stroop Task Study Replication" 
 author: "Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan"
 format: revealjs
 css: styles.css
 resources: stroop_prt.pdf
+title-slide-attributes:
+  data-background-image: "/images/Screenshot 2026-03-30 231455.png"
 ---
 
-# Introduction
+# Introduction {background-image="images/Screenshot 2026-03-30 231455.png"}
 
-## Background(1): What is the Stroop Effect?
+## Background(1): What is the Stroop Effect? {background-image="images/Screenshot 2026-03-30 231455.png"}
 <br/>
 
 ::: {.incremental}
@@ -28,7 +30,7 @@ resources: stroop_prt.pdf
 
 - Measures reaction time and accuracy as indicators of cognitive interference
 
-## Background(3): Key Findings
+## Background(3): Key Findings {background-image="images/Screenshot 2026-03-30 231455.png"}
 <br/>
 Stroop (1935) found that participants were slower and less accurate when naming colors on incongruent trials compared to congruent ones 
 
@@ -53,16 +55,16 @@ Stroop (1935) found that participants were slower and less accurate when naming 
 
 ::::
 
-# Methods
+# Methods {background-image="images/Screenshot 2026-03-30 231455.png"}
 
-## Our study aimed to replicate the Stroop effect 
+## Our study aimed to replicate the Stroop effect
 
 - We designed a computer task following the Stroop Task protocol introduced earlier, with each word being shown on the screen for 500 ms
  - Participants would not move on to the next word until they gave a response
  - 10 words/ trial -> 3 trials
 - Hypothesis: Participants will show slower reaction times and lower accuracy on incongruent trials compared to congruent trials 
 
-## Making the Task - An Important Feature
+## Making the Task - An Important Feature {background-image="images/Screenshot 2026-03-30 231455.png"}
 - Being able to store and save your data to a platform is important for organization, analysis, collaboration
 
 ::: {.small-box}
@@ -106,21 +108,25 @@ def save_result_to_csv(trial_num, word_num, match_status, rt, correct_status):
 
 :::
 
-## Making The Task - Coding
+## Making The Task - Coding {background-image="images/Screenshot 2026-03-30 231455.png"}
 <br/>
 <br/>
 We used pygame to code this task, so we had lots of help from LLMs and the [Pygame Documentation Webpage](https://www.pygame.org/docs/){preview-link="true"}
 
-# Results
+# Results {background-image="images/Screenshot 2026-03-30 231455.png"}
 
-## Descriptives - Reaction Time
-- Mean reaction time is 12.78 seconds across all trials.
+## Descriptives - Reaction Time & Accuracy {.small-text}
+- Mean reaction time is 1.28 seconds.
+- Mean accuracy rate is 86.4%.
+
+::: panel-tabset
+### RT
 ```{python}
 import numpy as np
 import matplotlib.pyplot as plt
 
 trials = ["Trial 1", "Trial 2", "Trial 3"]
-mean_RT = [16.34, 11.01, 10.98]
+mean_RT = [1.63, 1.1, 1.1]
 
 trials_number =np.arange(len(trials))
 coefficients = np.polyfit(trials_number, mean_RT, 1)
@@ -136,8 +142,7 @@ ax.set_title("Figure 1: Changes in Mean Reaction Time Across Trials")
 plt.show()
 ```
 
-## Descriptives - Accuracy
-- Mean accuracy rate is 86.4%.
+### Accuracy
 ```{python}
 import numpy as np
 import matplotlib.pyplot as plt
@@ -158,19 +163,94 @@ ax.legend()
 ax.set_title("Figure 2: Changes in Mean Accuracy Rates Across Trials")
 plt.show()
 ```
+:::
 
-## Analysis
-A 2-Way Repeated Measures ANOVA test was performed examining the main effects of trial and congruency on reaction time, in addition to their interaction.
+## Descriptives - Effects of Congruency on RT & Accuracy {.small-text}
 
-![](images/stroop_with.jpeg){.absolute .fragment width="800" height='800'}
+::: {.small-text}
+- Mean reaction time in incongruent trials is 1.28 seconds VS in congruent trials it's 1.19 seconds 
+- Mean accuracy rate in incongruent trials is 81.3% VS in congruent trials it's 92.0%
+:::
 
-## Discussion
-One more week until classes end
-- Alexia
+::: panel-tabset
+### RT
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
 
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+congruent = [1.63,0.92,1.02]
+incongruent = [1.55,1.16,1.14]
 
+trials_number =np.arange(len(trials))
+width = 0.35
+plt.bar(trials_number-width/2, congruent, width, label="Congruent")
+plt.bar(trials_number+width/2, incongruent, width, label="Incongruent")
+plt.xlabel("Trials")
+plt.ylabel("Reaction Time (seconds)")
+plt.title("Figure 3: Effects of Congruency on RT")
+plt.xticks(trials_number, trials)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
 
-<!-- References:
-MacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integrative review. Psychological Bulletin, 109(2), 163–203. https://doi.org/10.1037/0033-2909.109.2.163
+### Accuracy {.small-text}
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
 
-Stroop, J. R. (1935). Studies of interference in serial verbal reactions. Journal of Experimental Psychology, 18(6), 643–662. https://doi.org/10.1037/h0054651 -->
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+cong = [0.92,0.87,0.97]
+incong = [0.76,0.83,0.85]
+
+trials_number =np.arange(len(trials))
+width = 0.35
+plt.bar(trials_number-width/2, cong, width, label="Congruent")
+plt.bar(trials_number+width/2, incong, width, label="Incongruent")
+plt.xlabel("Trials")
+plt.ylabel("Accuracy Rate")
+plt.title("Figure 4: Effects of Congruency on Accuracy")
+plt.xticks(trials_number, trials)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+:::
+
+## Analysis {background-image="images/Screenshot 2026-03-30 231455.png"}
+:::{.small-text}
+Two 2-Way Repeated Measures ANOVA tests were performed examining the main effects of trial and congruency on reaction time and accuracy, in addition to their interactions on both. 
+:::
+
+:::: {.columns}
+::: {.column width="20%"}
+- Table 1
+:::
+
+::: {.column width="37%"}
+:::
+
+::: {.columns width="20"}
+- Table 2
+:::
+:::
+
+![](images/stroop_with.jpeg){.absolute bottom="5" left="30" width="450" height='420'}
+![](images/stroop_acc.jpeg){.absolute bottom="20" right="80" width="400" height="400"}
+
+## Discussion {background-image="images/Screenshot 2026-03-30 231455.png"}
+- No significant Stroop effect (p = 0.661) or interaction (p = 0.758)
+- While speeds improved across trials (p = 0.056), outliers of 13s and 19s inflated the Mean Square Residual (1.023), masking the actual effect
+- High accuracy (90%) and keyboard latency further confounded results
+- Due to these factors and a small sample (n = 16), we fail to reject the null hypothesis
+
+## References {background-image="images/Screenshot 2026-03-30 231455.png"}
+
+MacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integrative review. Psychological Bulletin, 109(2), 163–203. [https://doi.org/10.1037/0033-2909.109.2.163](https://doi.org/10.1037/0033-2909.109.2.163)
+
+<br/>
+
+Stroop, J. R. (1935). Studies of interference in serial verbal reactions. Journal of Experimental Psychology, 18(6), 643–662. [https://doi.org/10.1037/h0054651](https://doi.org/10.1037/h0054651)
+
+# {background="#43464B" background-image="images/thankyou.jpeg"}
