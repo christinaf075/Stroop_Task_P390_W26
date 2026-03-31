@@ -237,7 +237,7 @@ Two 2-Way Repeated Measures ANOVA tests were performed examining the main effect
 - No significant Stroop effect (p = 0.661) or interaction (p = 0.758)
 - While speeds improved across trials (p = 0.056), outliers of 13s and 19s inflated the Mean Square Residual (1.023), masking the actual effect
 - High accuracy (90%) and keyboard latency further confounded results
-- Due to these factors and a small sample (n = 15), we fail to reject the null hypothesis
+- Due to these factors and a small sample (n = 16), we fail to reject the null hypothesis
 
 ## References {background-image="images/Screenshot 2026-03-30 231455.png"}
 
