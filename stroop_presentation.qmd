@@ -19,16 +19,10 @@ title-slide-attributes:
 :::
 
 ## Background(2): What is the Stroop Task?
-- Participants are shown color words printed in different colors and are asked to name the color of the word, ignoring the word itself 
-
-- Two conditions:
-
-::: {.small-text}
- - Congruent- where the word and ink colour match (e.g. the word "RED" in red ink)
- - Incongruent- where the word and ink colour conflict (e.g. the word "RED" in blue ink)
-:::
-
+- Color words are presented in different colors and participants are asked to name the color of the word, ignoring the word itself 
 - Measures reaction time and accuracy as indicators of cognitive interference
+
+![](images/Stroop-300x196.png){.absolute bottom="5" left="30" width="600" height='200'}
 
 ## Background(3): Key Findings {background-image="images/Screenshot 2026-03-30 231455.png"}
 <br/>
@@ -243,7 +237,7 @@ Two 2-Way Repeated Measures ANOVA tests were performed examining the main effect
 - No significant Stroop effect (p = 0.661) or interaction (p = 0.758)
 - While speeds improved across trials (p = 0.056), outliers of 13s and 19s inflated the Mean Square Residual (1.023), masking the actual effect
 - High accuracy (90%) and keyboard latency further confounded results
-- Due to these factors and a small sample (n = 16), we fail to reject the null hypothesis
+- Due to these factors and a small sample (n = 15), we fail to reject the null hypothesis
 
 ## References {background-image="images/Screenshot 2026-03-30 231455.png"}
 
