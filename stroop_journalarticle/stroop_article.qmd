@@ -1,0 +1,57 @@
+---
+title: Create a title
+author:
+  - name: Christina Fan
+    affiliations:
+        - id: p390
+          department: Department of Psychology
+          name: University of Waterloo
+  - name: Daniella Christina Pereira Cisorio
+    affiliations:
+        - ref: p390
+  - name: Alexia Nijgorodov
+    affiliations:
+        - ref: p390
+  - name: Diya Renjan
+    affiliations:
+        - ref: p390
+abstract: |
+  Add short abstract here
+keywords:
+  - Add keywords
+  - Keyword 2
+bibliography: bibliography.bib 
+format:
+  elsevier-pdf:
+    keep-tex: true
+    journal:
+      name: Journal Name
+      formatting: preprint
+      cite-style: authoryear
+---
+
+# Introduction
+
+
+
+
+
+# Methods
+
+
+
+
+# Results
+
+
+
+
+# Discussion
+
+
+
+
+# References {-}
+
+::: {#refs}
+:::
