@@ -24,6 +24,7 @@ bibliography: bibliography.bib
 format:
   elsevier-pdf:
     keep-tex: true
+    fig-pos: "H" 
     journal:
       name: Journal Name
       formatting: preprint
@@ -43,10 +44,9 @@ This study replicated the Stroop Effect by implementing the word-color visualiza
 Fifteen participants in the age range of 19-25 were recruited from an undergraduate upper-year psychology seminar course at the University of Waterloo. Each participant completed the Stroop Task on one of the researcher's computer.
 
 ## Experimental Task Design
-Participants are introduced to the experiment with instructions describing the experiment protocol. After reading, participants are instructed to press the spacebar to proceed to the first trial of the experiment. There are a total of 3 trials, with 10 words being shown to participants in each trial. Each word is shown on the screen for 500 ms before disappearing, and participants are required to press a key to indicate the color of the word. The next word will not appear until participants give a response to the current word. @experiment_visual shows an illustration of the experiment protocol.
-<br/>
+Participants are introduced to the experiment with instructions describing the experiment protocol. After reading, participants are instructed to press the spacebar to proceed to the first trial of the experiment. There are a total of 3 trials, with 10 words being shown to participants in each trial. Each word is shown on the screen for 500 ms before disappearing, and participants are required to press a key to indicate the color of the word. The next word will not appear until participants give a response to the current word. @fig-experiment_visual shows an illustration of the experiment protocol.
 
-![Experiment Protocol Flowchart](article_images/task_flowchart.png){#experiment_visual width="60%"}
+![Experiment Protocol Flowchart](article_images/task_flowchart.png){#fig-experiment_visual width="60%"}
 
 The program randomly generates color words from the list: red, green, blue, yellow and the color of those words are also randomly selected among those colors. Thus, the chances of a word presentation being congruent or incongruent are random. The keys "r", "g","b","y" are assigned to the respective colors red, green, blue, yellow for participants to give their response when reporting the color of the word. Participants are able to exit the experiment at any time by pressing the "Esc" key.
 
