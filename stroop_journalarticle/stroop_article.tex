@@ -1,0 +1,296 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  authoryear,
+  preprint]{elsarticle}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+\usepackage[]{natbib}
+\bibliographystyle{elsarticle-harv}
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\journal{Journal Name}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Stroop Task Replication Study},
+  pdfauthor={Christina Fan; Daniella Christina Pereira Cisorio; Alexia Nijgorodov; Diya Renjan},
+  pdfkeywords={Add keywords, Keyword 2},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\setlength{\parindent}{6pt}
+\begin{document}
+
+\begin{frontmatter}
+\title{Stroop Task Replication Study}
+\author[1]{Christina Fan%
+%
+}
+
+\author[1]{Daniella Christina Pereira Cisorio%
+%
+}
+
+\author[1]{Alexia Nijgorodov%
+%
+}
+
+\author[1]{Diya Renjan%
+%
+}
+
+
+\affiliation[1]{organization={University of Waterloo, Department of
+Psychology},,postcodesep={}}
+
+\cortext[cor1]{Corresponding author}
+
+
+
+
+        
+\begin{abstract}
+Add short abstract here
+\end{abstract}
+
+
+
+
+
+\begin{keyword}
+    Add keywords \sep 
+    Keyword 2
+\end{keyword}
+\end{frontmatter}
+    
+
+\section{Introduction}\label{introduction}
+
+\begin{itemize}
+\tightlist
+\item
+  Note from Christina: I'm gonna assume you'll explain Stroop Theory +
+  general protocol of task so in methods I'll get straight into
+  describing how \emph{we} implemented our replication
+\end{itemize}
+
+\section{Methods}\label{methods}
+
+This study replicated the Stroop Effect by implementing the word-color
+visualizations on a computer screen. We wrote an experimental program in
+PsychoPy, an open-source software library written in Python, that
+delievered the experiment.
+
+\subsection{Participants}\label{participants}
+
+Fifteen participants in the age range of 19-25 were recruited from an
+undergraduate upper-year psychology seminar course at the University of
+Waterloo. Each participant completed the Stroop Task on one of the
+researcher's computer.
+
+\subsection{Experimental Task Design}\label{experimental-task-design}
+
+Participants are introduced to the experiment with instructions
+describing the experiment protocol. After reading, participants are
+instructed to press the spacebar to proceed to the first trial of the
+experiment. There are a total of 3 trials, with 10 words being shown to
+participants in each trial. Each word is shown on the screen for 500 ms
+before disappearing, and participants are required to press a key to
+indicate the color of the word. The next word will not appear until
+participants give a response to the current word.
+\citet{experiment_visual} shows an illustration of the experiment
+protocol.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{article_images/task_flowchart.png}
+
+}
+
+\caption{Experiment Protocol Flowchart}
+
+\end{figure}%
+
+The program randomly generates color words from the list: red, green,
+blue, yellow and the color of those words are also randomly selected
+among those colors. Thus, the chances of a word presentation being
+congruent or incongruent are random. The keys ``r'', ``g'',``b'',``y''
+are assigned to the respective colors red, green, blue, yellow for
+participants to give their response when reporting the color of the
+word. Participants are able to exit the experiment at any time by
+pressing the ``Esc'' key.
+
+\subsection{Data Processing and
+Analysis}\label{data-processing-and-analysis}
+
+During the experiment, the congruency of each word is recorded, and the
+participant's reaction time (the time in between stimulus presentation
+and keyboard response), and accuracy of response are recorded. These
+results are stored in a CSV file generated for each participant.
+
+Two 2-way repeated measures ANOVA tests were performed examining the
+main effects of trial and congruency on reaction time and accuracy.
+Interactions effects between trial and congruency were considered on
+reaction time and accuracy as well.
+
+\section{Results}\label{results}
+
+\section{Discussion}\label{discussion}
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\renewcommand{\bibsection}{}
+\bibliography{bibliography.bib}
+
+
+
+
+
+\end{document}
