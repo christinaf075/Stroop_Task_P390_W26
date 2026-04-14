@@ -18,8 +18,14 @@ author:
 abstract: |
   Add short abstract here
 keywords:
-  - Add keywords
-  - Keyword 2
+  - Stroop task
+  - cognitive interference
+  - incongruent 
+  - congruent
+  - reaction time
+  - accuracy
+  - replication
+
 bibliography: bibliography.bib 
 format:
   elsevier-pdf:
@@ -32,10 +38,16 @@ format:
 ---
 
 # Introduction
-- Note from Christina: I'm gonna assume you'll explain Stroop Theory + general protocol of task so in methods I'll get straight into describing how *we* implemented our replication
 
+The Stroop effect is one of the most well-known phenomena in cognitive psychology. First demonstrated by John Ridley Stroop in 1935, the effect refers to the cognitive interference that occurs when the brain is presented with two conflicting pieces of information at the same time. 
 
+In the conventional Stroop task, participants are shown colour words printed in different ink colours and are asked to name the colour of the word, ignoring the word itself. The task consists of two conditions. In congruent trials, the word and ink colour match (e.g the word “RED” written in red). In incongruent trials, the word and ink colour do not match (e.g. the word “RED” written in blue). The task measures reaction time and accuracy as objective indicators of cognitive interference experienced during incongruent trials. The Stroop task is often used to measure attention, processing speed, and cognitive control. 
 
+@Stroop1935 originally found that participants were significantly slower and less accurate when naming colours on incongruent trials compared to congruent ones. This effect has been replicated across hundreds of studies, making it a very reliable finding [@MacLeod1991]. 
+
+Several theories have been proposed to explain why the Stroop effect occurs. The relative speed of processing theory suggests that the brain processes written words faster than colours, so the word meaning reaches the response stage first and interferes with the colour naming [@MacLeod1991]. The automaticity theory proposes that reading is such a highly practiced process that it occurs automatically, which interferes with the slower, more deliberate process of color naming which draws more heavily on attentional resources [@MacLeod1991]. While these theories explain parts of the effect, there is no single universally accepted explanation for the Stroop effect. 
+
+This present study aimed to replicate the Stroop effect. Based on previous research, we hypothesized that participants would show slower reaction times and lower accuracy on incongruent trials compared to congruent trials.
 
 # Methods
 This study replicated the Stroop Effect by implementing the word-color visualizations on a computer screen. We wrote an experimental program in PsychoPy, an open-source software library written in Python, that delievered the experiment.
@@ -54,10 +66,6 @@ The program randomly generates color words from the list: red, green, blue, yell
 During the experiment, the congruency of each word is recorded, and the participant's reaction time (the time in between stimulus presentation and keyboard response), and accuracy of response are recorded. These results are stored in a CSV file generated for each participant.
 
 Two 2-way repeated measures ANOVA tests were performed examining the main effects of trial and congruency on reaction time and accuracy. Interactions effects between trial and congruency were considered on reaction time and accuracy as well.
-
-
-
-
 
 
 # Results
