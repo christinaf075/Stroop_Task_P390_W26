@@ -67,9 +67,96 @@ During the experiment, the congruency of each word is recorded, and the particip
 
 Two 2-way repeated measures ANOVA tests were performed examining the main effects of trial and congruency on reaction time and accuracy. Interactions effects between trial and congruency were considered on reaction time and accuracy as well.
 
-
 # Results
 
+
+
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+mean_RT = [1.63, 1.1, 1.1]
+
+trials_number =np.arange(len(trials))
+coefficients = np.polyfit(trials_number, mean_RT, 1)
+p = np.poly1d(coefficients)
+fig, ax = plt.subplots()
+ax.scatter(trials, mean_RT)
+ax.plot(trials_number, p(trials_number), "r--")
+ax.set_xticks(trials_number, trials)
+ax.set_xlabel("Trial")
+ax.set_ylabel("Reaction Time (seconds)")
+ax.set_title("Figure 1: Changes in Mean Reaction Time Across Trials")
+plt.show()
+```
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+mean_acc = [0.82, 0.87, 0.9]
+
+trials_number =np.arange(len(trials))
+coefficients = np.polyfit(trials_number, mean_acc, 1)
+p = np.poly1d(coefficients)
+fig, ax = plt.subplots()
+ax.scatter(trials, mean_acc)
+ax.plot(trials_number, p(trials_number), "r--")
+ax.set_xticks(trials_number, trials)
+ax.set_xlabel("Trial")
+ax.set_ylabel("Mean Accuracy Rate")
+ax.set_title("Figure 2: Changes in Mean Accuracy Rates Across Trials")
+plt.show()
+```
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+congruent = [1.63,0.92,1.02]
+incongruent = [1.55,1.16,1.14]
+
+trials_number =np.arange(len(trials))
+width = 0.35
+plt.bar(trials_number-width/2, congruent, width, label="Congruent")
+plt.bar(trials_number+width/2, incongruent, width, label="Incongruent")
+plt.xlabel("Trials")
+plt.ylabel("Reaction Time (seconds)")
+plt.title("Figure 3: Effects of Congruency on RT")
+plt.xticks(trials_number, trials)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+cong = [0.92,0.87,0.97]
+incong = [0.76,0.83,0.85]
+
+trials_number =np.arange(len(trials))
+width = 0.35
+plt.bar(trials_number-width/2, cong, width, label="Congruent")
+plt.bar(trials_number+width/2, incong, width, label="Incongruent")
+plt.xlabel("Trials")
+plt.ylabel("Accuracy Rate")
+plt.title("Figure 4: Effects of Congruency on Accuracy")
+plt.xticks(trials_number, trials)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
 
 
 
