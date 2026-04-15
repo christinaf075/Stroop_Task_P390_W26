@@ -1,0 +1,13 @@
+```{r}
+library(knitr)
+
+# Create your table (edit values directly)
+table_data <- data.frame(
+  Condition = c("Match vs non-match", "Residual", "Trial", "Residual", "Match vs non-match * Trial", "Residual"),
+  Sum of Squares = c(0.204, 15.344, 6.035, 28.486, 0.400, 21.441),
+  df = c(1, 15, 2, 30, 2, 30)
+)
+
+# Display table
+kable(table_data)
+
