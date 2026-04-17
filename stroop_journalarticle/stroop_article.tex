@@ -64,6 +64,46 @@
 \fi
 \makeatother
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
@@ -224,6 +264,43 @@ time \sep accuracy \sep
 \end{frontmatter}
     
 
+\{
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}
+  \AttributeTok{echo =} \ConstantTok{FALSE}\NormalTok{,     }\CommentTok{\# hide code}
+  \AttributeTok{message =} \ConstantTok{FALSE}\NormalTok{,  }\CommentTok{\# hide library messages}
+  \AttributeTok{warning =} \ConstantTok{FALSE}   \CommentTok{\# hide warnings}
+\NormalTok{)}
+
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+-- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+v dplyr     1.2.0     v readr     2.1.6
+v forcats   1.0.1     v stringr   1.6.0
+v ggplot2   4.0.2     v tibble    3.3.1
+v lubridate 1.9.4     v tidyr     1.3.2
+v purrr     1.2.1     
+-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()
+i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{files }\OtherTok{\textless{}{-}} \FunctionTok{list.files}\NormalTok{(}\StringTok{"Data/"}\NormalTok{, }\AttributeTok{pattern=}\StringTok{"\^{}stroop\_.*}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{.csv$"}\NormalTok{, }\AttributeTok{full.names =} \ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ purrr}\SpecialCharTok{::}\FunctionTok{map\_dfr}\NormalTok{(files, read\_csv)}
+\end{Highlighting}
+\end{Shaded}
+
+\}
+
 \section{Introduction}\label{introduction}
 
 The Stroop effect is one of the most well-known phenomena in cognitive
@@ -335,6 +412,7 @@ extremely poor accuracy.
 Incongruent}\label{reaction-time---overall-vs-congruent-vs-incongruent}
 
 The overall results including both congruent and incongruent words were
+<<<<<<< HEAD
 analyzed first. The mean reaction time across all trials was about 1.28
 seconds. Shown in Figure~\ref{fig-rt-overall}, reaction time decreased
 sharply between Trial 1 (M = 1.63s) and Trial 2 (M = 1.10s) before
@@ -377,12 +455,35 @@ Trials}
 Time}
 
 \end{figure}%
+=======
+analyzed first. The mean reaction time across all trials was about \{
+
+\begin{verbatim}
+[1] NA
+\end{verbatim}
+
+\} seconds. Shown in Figure 1, reaction time decreased sharply between
+Trial 1 (M = 1.63s) and Trial 2 (M = 1.10s) before evening out in Trial
+3 (M = 1.09s). Figure 2 demonstrates the average reaction times of
+congruent and incongruent words. The mean reaction time for congruent
+words across all trials was about 1.19 seconds while the mean reaction
+time for incongruent words across all trials was about 1.28 seconds.
+Trial 1 went against the hypothesis as the mean reaction time for
+congruent words (M = 1.63s) was higher than that of incongruent words (M
+= 1.56s). However, this was not the same for trials 2 and 3. In trial 2,
+the mean reaction time for congruent words (M = 0.92s) ended up lower
+than incongruent words (M = 1.16s). Trial 3 followed this same trend
+with congruent words (M = 1.02) being lower than incongruent words (M =
+1.14s). However, unlike the overall results the mean reaction time for
+congruent words rose slightly from trial 2 to trial 3.
+>>>>>>> 1956faa (imported data but still need to fix data calling + r-syntax + anova syntax SOBBING)
 
 \subsection{Accuracy - Overall vs Congruent vs
 Incongruent}\label{accuracy---overall-vs-congruent-vs-incongruent}
 
 The overall results including both congruent and incongruent words were
 analyzed first, with the mean accuracy across all trials coming out to
+<<<<<<< HEAD
 about 86.4\%. Shown in Figure~\ref{fig-acc-overall}, accuracy in Trial 1
 starts off fairly low (M = 81.8\%) and rises steadily through Trial 2 (M
 = 87.5\%) and reaches a peak at Trial 3 (M = 90.0\%). When compared to
@@ -423,12 +524,30 @@ Trials}
 \caption{\label{fig-acc-congruency}Effects of Congruency on Accuracy}
 
 \end{figure}%
+=======
+about 86.4\%. Shown in Figure 3, accuracy in Trial 1 starts off fairly
+low (M = 81.8\%) and rises steadily through Trial 2 (M = 87.5\%) and
+reaches a peak at Trial 3 (M = 90.0\%). When compared to the average
+accuracy based on congruency, the trend shifts away from a steady rise.
+The mean accuracy for congruent words across all trials was about
+92.0\%, where incongruent words ended up with a mean accuracy of about
+81.3\%. Figure 4 demonstrates the mean accuracy based on each trial.
+Trial 1 started with a large gap between congruent words (M = 91.7\%)
+and incongruent words (M = 76.5\%). Despite congruent accuracy remaining
+higher than incongruent accuracy, Trial 2 saw a drop in congruent
+accuracy (M = 87.5\%) and a rise in incongruent accuracy (M = 82.9\%).
+However, Trial 3 saw a rise in both congruent accuracy (M = 96.9\%) and
+incongruent accuracy (M = 84.6\%). Although there was a rise in both
+congruent and incongruent accuracy, congruent words remained higher than
+incongruent words through all trials.
+>>>>>>> 1956faa (imported data but still need to fix data calling + r-syntax + anova syntax SOBBING)
 
 \subsection{Interaction between congruency and trial on reaction
 time}\label{interaction-between-congruency-and-trial-on-reaction-time}
 
 In order to analyze the effects of trial and congruency on reaction
 time, a 2-way repeated measures ANOVA was conducted. Demonstrated in
+<<<<<<< HEAD
 Table~\ref{tbl-rt-anova}, the results yielded insignificant effects.
 There was no significant main effect found of congruency (F(1,15) =
 0.200, p = 0.661), meaning there was not a noticeable difference of
@@ -462,11 +581,26 @@ found no significant main effects of congruency on reaction time.
 5 & Error (Interaction) & 21.441 & 30 & 0.715 & NaN & NaN \\
 
 \end{longtable}
+=======
+Table 1, the results yielded insignificant effects. There was no
+significant main effect found of congruency (F(1,15) = 0.200, p =
+0.661), meaning there was not a noticeable difference of reaction time
+between congruent and incongruent conditions. Trial came just short of
+reaching a significant main effect (F(2,30) = 3.178, p = 0.056).
+Although trial did not reach statistical significance, this suggests
+there is a possible trend in reaction time among trials. In addition,
+the interaction between congruency and trial showed no significance
+(F(2,30) = 0.280, p = 0.758), meaning there is no significant effect of
+congruency on reaction time across time. Despite the potential trend of
+the trial condition, the results of this ANOVA found no significant main
+effects of congruency on reaction time.
+>>>>>>> 1956faa (imported data but still need to fix data calling + r-syntax + anova syntax SOBBING)
 
 \subsection{Interaction between congruency and trial on
 accuracy}\label{interaction-between-congruency-and-trial-on-accuracy}
 
 In order to analyze the effect of trial and congruency on accuracy, a
+<<<<<<< HEAD
 2-way repeated measures ANOVA was conducted. Demonstrated in
 Table~\ref{tbl-acc-anova}, similar to the results of the first ANOVA
 conducted, the results yielded insignificant effects. There was no
@@ -559,6 +693,46 @@ of trials to increase statistical power, a larger pool of participants,
 and an outlier removal protocol to ensure that the final analysis
 accurately reflects cognitive processing speed rather than behavioural
 distractions.
+=======
+2way repeated measures ANOVA was conducted. Demonstrated in Table 2,
+similar to the results of the first ANOVA conducted, the results yielded
+insignificant effects. There was no significant main effect found of
+congruency (F(1,15) = 2.479, p = 0.136), meaning there was no
+significant difference of accuracy between congruent and incongruent
+trials. There was no significant main effect found of trial (F(2,30) =
+1.128, p = 0.337), meaning accuracy did not noticeably differ between
+trials. Unlike the previous ANOVA where trial had a slight trend, this
+one did not provide a trend of trial. Additionally, the interaction
+between congruency and trial showed no significance (F(2,30) = 0.488, p
+= 0.619), meaning there is no significant effect of congruency on
+accuracy across time. Like the results of the previous ANOVA, there were
+no significant main effects of congruency on accuracy.
+
+\pandocbounded{\includegraphics[keepaspectratio]{stroop_article_files/figure-pdf/unnamed-chunk-3-1.pdf}}
+
+\pandocbounded{\includegraphics[keepaspectratio]{stroop_article_files/figure-pdf/unnamed-chunk-4-3.pdf}}
+
+\begin{verbatim}
+([<matplotlib.axis.XTick object at 0x70e05f397430>, <matplotlib.axis.XTick object at 0x70e05f3d4b20>, <matplotlib.axis.XTick object at 0x70e05f20bac0>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{stroop_article_files/figure-pdf/unnamed-chunk-5-5.pdf}}
+
+\begin{verbatim}
+([<matplotlib.axis.XTick object at 0x70e05f253ac0>, <matplotlib.axis.XTick object at 0x70e05f252440>, <matplotlib.axis.XTick object at 0x70e05f285b70>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{stroop_article_files/figure-pdf/unnamed-chunk-6-7.pdf}}
+
+\section{Discussion}\label{discussion}
+
+\begin{verbatim}
+To reiterate, the goal of this experiment was to replicate the classic Stroop effect, which predicts that participants will exhibit slower reaction times and lower accuracy when presented with incongruent stimuli compared to congruent ones. 
+Our results, however, speak otherwise. The results of the Repeated Measures ANOVA indicate that the main effect of word-colour matching, congruency, on reaction time was not statistically significant, F(1,15)=0.200, p=0.661. This finding contradicts the established literature, mentioned in the introduction, such as Stroop 1935 and MacLeod 1991, which states that the automaticity of reading typically interferes with the more deliberate task of colour naming. In our sample, the mean reaction time across all conditions was approximately 1277.69 ms, with an overall accuracy of 86.4%. While the Stroop effect was not significant, there was a marginal effect of trial on reaction time, p=0.056. The mean reaction time decreased notably from trial 1 (1633.85 ms) to trial 2 (1100.98 ms) and remained stable in trial 3 (1098.26 ms). Similarly, mean accuracy improved from 0.819 in Trial 1 to 0.900 in Trial 3. These trends suggest a practice effect, where participants became more efficient at the task, like in locating the keys "r", "g", "b", and "y" as the experiment progressed.
+Moreover, a reason for the failure in statistical significance could be attributed to extreme outliers in the raw data, which significantly inflated the variance within ANOVA. Several participants recorded reaction times that exceeded 10 seconds, which is typically uncharacteristic for a standard Stroop task; Participant 10 recorded a reaction time of 19,209 ms during trial 1, Participant 16 recorded 17,071 ms in trial 1, and Participant 3 exceeded 13,000 ms in trial 1. This may have been caused by participants losing focus, being overwhelmed by a new task, looking for the key locations, or talking to the proctor.  Because the ANOVA uses the "Sum of Squares" to calculate the F-statistic, these massive deviations likely masked the smaller, millisecond-level differences typically associated with cognitive interference. 
+Furthermore, as stated before, the automaticity theory suggests that reading is a highly practiced task that occurs without conscious effort, hence interfering with the slower process of colour naming. While our data did not show a significant difference between the match and non-match conditions, the overall high accuracy of 86.4% suggests that the participants did successfully engage in cognitive control to ignore the word's meaning, even though the distraction of the words didn't significantly change the reaction times for this group. Two major limitations of this study were the small trial count of 10 words per Trial, for a total of 3 trials, and the small sample size. Furthermore, since we had randomized the congruent and incongruent words, some participants got more, and some got fewer, creating an uneven balance of conditions, which could have definitely still worked if we had more words per trial. Additionally, since we did not exclude outliers in our data analysis, that means those data points definitely impacted the data analysis. Therefore, future replications should include a larger number of trials to increase statistical power, a larger pool of participants, and an outlier removal protocol to ensure that the final analysis accurately reflects cognitive processing speed rather than behavioural distractions.
+\end{verbatim}
+>>>>>>> 1956faa (imported data but still need to fix data calling + r-syntax + anova syntax SOBBING)
 
 \section*{References}\label{references}
 \addcontentsline{toc}{section}{References}
