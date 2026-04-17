@@ -30,6 +30,7 @@ bibliography: bibliography.bib
 format:
   elsevier-pdf:
     keep-tex: true
+    keep-md: true
     fig-pos: "H" 
     journal:
       name: Journal Name
@@ -37,21 +38,19 @@ format:
       cite-style: authoryear
 ---
 
-{
-```{r}
+```{r setup, include=FALSE}
+# Global chunk options (hide all code/output unless explicitly shown)
 knitr::opts_chunk$set(
-  echo = FALSE,     # hide code
-  message = FALSE,  # hide library messages
-  warning = FALSE   # hide warnings
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
 )
 
+# Load libraries
 library(tidyverse)
-files <- list.files("Data/", pattern="^stroop_.*\\.csv$", full.names = TRUE)
-
-data <- purrr::map_dfr(files, read_csv)
+data <- read_csv("Stroop_Task_P390_W26/Data/Updated Stroop results - Sheet1.csv")
+mean_rt <- mean(data$reaction_time, na.rm= TRUE)
 ```
-}
-
 
 # Introduction
 
@@ -84,7 +83,8 @@ All of the data from the study was included in the results, including outliers s
 
 
 ## Reaction Time - Overall vs Congruent vs Incongruent
-The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about 1.28 seconds. Shown in Figure 1, reaction time decreased sharply between Trial 1 (M = 1.63s) and Trial 2 (M = 1.10s) before evening out in Trial 3 (M = 1.09s). Figure 2 demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about 1.19 seconds while the mean reaction time for incongruent words across all trials was about 1.28 seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = 1.63s) was higher than that of incongruent words (M = 1.56s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = 0.92s) ended up lower than incongruent words (M = 1.16s). Trial 3 followed this same trend with congruent words (M = 1.02) being lower than incongruent words (M = 1.14s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
+
+The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about `r mean_rt` seconds. Shown in Figure 1, reaction time decreased sharply between Trial 1 (M = 1.63s) and Trial 2 (M = 1.10s) before evening out in Trial 3 (M = 1.09s). Figure 2 demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about 1.19 seconds while the mean reaction time for incongruent words across all trials was about 1.28 seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = 1.63s) was higher than that of incongruent words (M = 1.56s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = 0.92s) ended up lower than incongruent words (M = 1.16s). Trial 3 followed this same trend with congruent words (M = 1.02) being lower than incongruent words (M = 1.14s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
 
 
 ## Accuracy - Overall vs Congruent vs Incongruent
