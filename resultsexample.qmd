@@ -7,7 +7,7 @@ The overall results including both congruent and incongruent words were analyzed
 
 
 ## Accuracy - Overall vs Congruent vs Incongruent
-The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about 86.4%. Shown in Figure 3, accuracy in Trial 1 starts off fairly low (M = 81.8%) and rises steadily through Trial 2 (M = 87.5%) and reaches a peak at Trial 3 (M = 90.0%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about 92.0%, where incongruent words ended up with a mean accuracy of about 81.3%. Figure 4 demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = 91.7%) and incongruent words (M = 76.5%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = 87.5%) and a rise in incongruent accuracy (M = 82.9%). However, Trial 3 saw a rise in both congruent accuracy (M = 96.9%) and incongruent accuracy (M = 84.6%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
+The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about `python mean_accuracy`. Shown in Figure 3, accuracy in Trial 1 starts off fairly low (M = 81.8%) and rises steadily through Trial 2 (M = 87.5%) and reaches a peak at Trial 3 (M = 90.0%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about 92.0%, where incongruent words ended up with a mean accuracy of about 81.3%. Figure 4 demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = 91.7%) and incongruent words (M = 76.5%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = 87.5%) and a rise in incongruent accuracy (M = 82.9%). However, Trial 3 saw a rise in both congruent accuracy (M = 96.9%) and incongruent accuracy (M = 84.6%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
 
 
 ## Interaction between congruency and trial on reaction time
@@ -26,4 +26,14 @@ data = pd.DataFrame({
 })
 
 mean_rt = data["reaction_time"].mean()
+```
+
+```{python}
+import pandas as pd
+
+data = pd.DataFrame({
+    "accuracy": [1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+})
+
+mean_accuracy = data["accuracy"].mean()
 ```
