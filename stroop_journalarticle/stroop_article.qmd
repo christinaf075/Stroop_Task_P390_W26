@@ -38,20 +38,6 @@ format:
       cite-style: authoryear
 ---
 
-```{r setup, include=FALSE}
-# Global chunk options (hide all code/output unless explicitly shown)
-knitr::opts_chunk$set(
-  echo = FALSE,
-  message = FALSE,
-  warning = FALSE
-)
-
-# Load libraries
-library(tidyverse)
-data <- read_csv("Stroop_Task_P390_W26/Data/Updated Stroop results - Sheet1.csv")
-mean_rt <- mean(data$reaction_time, na.rm= TRUE)
-```
-
 # Introduction
 
 The Stroop effect is one of the most well-known phenomena in cognitive psychology. First demonstrated by John Ridley Stroop in 1935, the effect refers to the cognitive interference that occurs when the brain is presented with two conflicting pieces of information at the same time. In the conventional Stroop task, participants are shown colour words printed in different ink colours and are asked to name the colour of the word, ignoring the word itself. The task consists of two conditions. In congruent trials, the word and ink colour match (e.g the word “RED” written in red). In incongruent trials, the word and ink colour do not match (e.g. the word “RED” written in blue). The task measures reaction time and accuracy as objective indicators of cognitive interference experienced during incongruent trials. The Stroop task is often used to measure attention, processing speed, and cognitive control. 
@@ -84,18 +70,148 @@ All of the data from the study was included in the results, including outliers s
 
 ## Reaction Time - Overall vs Congruent vs Incongruent
 
-The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about `r mean_rt` seconds. Shown in Figure 1, reaction time decreased sharply between Trial 1 (M = 1.63s) and Trial 2 (M = 1.10s) before evening out in Trial 3 (M = 1.09s). Figure 2 demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about 1.19 seconds while the mean reaction time for incongruent words across all trials was about 1.28 seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = 1.63s) was higher than that of incongruent words (M = 1.56s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = 0.92s) ended up lower than incongruent words (M = 1.16s). Trial 3 followed this same trend with congruent words (M = 1.02) being lower than incongruent words (M = 1.14s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
+### Daniella in-line
+The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about `python mean_rt` seconds. Shown in Figure 1, reaction time decreased sharply between Trial 1 (M = 1.63s) and Trial 2 (M = 1.10s) before evening out in Trial 3 (M = 1.09s). Figure 2 demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about 1.19 seconds while the mean reaction time for incongruent words across all trials was about 1.28 seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = 1.63s) was higher than that of incongruent words (M = 1.56s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = 0.92s) ended up lower than incongruent words (M = 1.16s). Trial 3 followed this same trend with congruent words (M = 1.02) being lower than incongruent words (M = 1.14s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
 
 
 ## Accuracy - Overall vs Congruent vs Incongruent
+
+### Daniella in-line
 The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about 86.4%. Shown in Figure 3, accuracy in Trial 1 starts off fairly low (M = 81.8%) and rises steadily through Trial 2 (M = 87.5%) and reaches a peak at Trial 3 (M = 90.0%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about 92.0%, where incongruent words ended up with a mean accuracy of about 81.3%. Figure 4 demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = 91.7%) and incongruent words (M = 76.5%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = 87.5%) and a rise in incongruent accuracy (M = 82.9%). However, Trial 3 saw a rise in both congruent accuracy (M = 96.9%) and incongruent accuracy (M = 84.6%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
 
 
 ## Interaction between congruency and trial on reaction time
-In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1,15) = 0.200, p = 0.661), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial came just short of reaching a significant main effect (F(2,30) = 3.178, p = 0.056). Although trial did not reach statistical significance, this suggests there is a possible trend in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2,30) = 0.280, p = 0.758), meaning there is no significant effect of congruency on reaction time across time. Despite the potential trend of the trial condition, the results of this ANOVA found no significant main effects of congruency on reaction time.
+
+## Christina anova
+
+```{python}
+import pandas as pd
+import numpy as np
+from statsmodels.formula.api import ols
+from statsmodels.stats.anova import AnovaRM
+import pingouin as pg
+from scipy import stats
+
+# Read the data
+data = pd.read_csv("Stroop_Task_P390_W26/Data/Updated Stroop results - Sheet1.csv")
+
+# Clean column names
+data.columns = data.columns.str.strip()
+
+# Rename columns for easier use
+data = data.rename(columns={
+    'Participant': 'participant',
+    'Trial': 'trial',
+    'Match': 'match',
+    'Reaction Time (ms)': 'reaction_time',
+    'Accuracy': 'accuracy'
+})
+
+# Filter out summary rows (keep only P1, P2, etc.)
+data = data[data['participant'].astype(str).str.match(r'^P\d+$', na=False)]
+
+# Convert to numeric and clean
+data['reaction_time'] = pd.to_numeric(data['reaction_time'], errors='coerce')
+data['trial'] = pd.to_numeric(data['trial'], errors='coerce')
+data['match'] = data['match'].astype(bool).astype(int)  # True=1, False=0
+
+# Convert to categorical variables
+data['participant'] = data['participant'].astype('category')
+data['trial'] = data['trial'].astype('category')
+data['match'] = data['match'].astype('category')
+
+# Calculate descriptive statistics
+mean_rt = data['reaction_time'].mean()
+sd_rt = data['reaction_time'].std()
+
+# Means by match condition
+rt_by_match = data.groupby('match')['reaction_time'].agg(['mean', 'std', 'count']).round(2)
+
+# Run within-subjects ANOVA using pingouin (simpler)
+aov_rm = pg.rm_anova(data=data, 
+                     dv='reaction_time', 
+                     within=['match', 'trial'], 
+                     subject='participant',
+                     detailed=True)
+
+# Extract individual effects
+match_effect = aov_rm[aov_rm['Source'] == 'match']
+trial_effect = aov_rm[aov_rm['Source'] == 'trial']
+interaction_effect = aov_rm[aov_rm['Source'] == 'match * trial']
+
+# Extract values for match effect
+f_match = match_effect['F'].values[0]
+df1_match = int(match_effect['DF1'].values[0])
+df2_match = int(match_effect['DF2'].values[0])
+p_match = match_effect['p-unc'].values[0]
+eta_match = match_effect['np2'].values[0]
+
+# Extract values for trial effect
+f_trial = trial_effect['F'].values[0]
+df1_trial = int(trial_effect['DF1'].values[0])
+df2_trial = int(trial_effect['DF2'].values[0])
+p_trial = trial_effect['p-unc'].values[0]
+eta_trial = trial_effect['np2'].values[0]
+
+# Extract values for interaction
+f_interaction = interaction_effect['F'].values[0]
+df1_interaction = int(interaction_effect['DF1'].values[0])
+df2_interaction = int(interaction_effect['DF2'].values[0])
+p_interaction = interaction_effect['p-unc'].values[0]
+eta_interaction = interaction_effect['np2'].values[0]
+
+# Helper function for p-value formatting
+def format_p(p):
+    if p < 0.001:
+        return "< .001"
+    else:
+        return f"= {p:.3f}"
+
+# Create formatted strings for inline reporting
+match_result = f"F({df1_match}, {df2_match}) = {f_match:.2f}, p {format_p(p_match)}, η² = {eta_match:.3f}"
+trial_result = f"F({df1_trial}, {df2_trial}) = {f_trial:.2f}, p {format_p(p_trial)}, η² = {eta_trial:.3f}"
+interaction_result = f"F({df1_interaction}, {df2_interaction}) = {f_interaction:.2f}, p {format_p(p_interaction)}, η² = {eta_interaction:.3f}"
+
+# Create a formatted ANOVA table for display
+aov_table = aov_rm[['Source', 'SS', 'DF1', 'DF2', 'MS', 'F', 'p-unc', 'np2']].round(3)
+aov_table['p-unc'] = aov_table['p-unc'].apply(lambda x: f"{x:.3f}" if x >= 0.001 else "< .001")
+aov_table['Source'] = aov_table['Source'].replace({
+    'match': 'Match',
+    'trial': 'Trial', 
+    'match * trial': 'Match × Trial'
+})
+```
+
+
+### Reaction Time by Match Condition
+
+```{python}
+#| echo: false
+print(rt_by_match)
+```
+
+### Within-Subjects ANOVA Results
+
+```{python}
+#| echo: false
+print("\n### Table 1. Repeated Measures ANOVA\n")
+print(aov_table.to_string(index=False))
+```
+
+### Inferential Statistics
+
+A 2 (Match: congruent vs. incongruent) × 3 (Trial: 1, 2, 3) within-subjects ANOVA was conducted on reaction times.
+
+- The main effect of Match condition was `{match_result}`.
+- The main effect of Trial was `{trial_result}`.
+- The Match × Trial interaction was `{interaction_result}`.
+
+In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1,15) = `python match_result`, p = `python format_p`), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial came just short of reaching a significant main effect (F(2,30) = `python_trial_result`, p = 0.056). Although trial did not reach statistical significance, this suggests there is a possible trend in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2,30) = `python interaction_result`, p = 0.758), meaning there is no significant effect of congruency on reaction time across time. Despite the potential trend of the trial condition, the results of this ANOVA found no significant main effects of congruency on reaction time.
 
 
 ## Interaction between congruency and trial on accuracy
+
+## hopefully daniella can adapt from above to here if it works
 In order to analyze the effect of trial and congruency on accuracy, a 2way repeated measures ANOVA was conducted. Demonstrated in Table 2, similar to the results of the first ANOVA conducted, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1,15) = 2.479, p = 0.136), meaning there was no significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2,30) = 1.128, p = 0.337), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(2,30) = 0.488, p = 0.619), meaning there is no significant effect of congruency on accuracy across time. Like the results of the previous ANOVA, there were no significant main effects of congruency on accuracy.
 
 
@@ -150,6 +266,8 @@ plt.show()
 ```
 
 ## Accuracy - Overall vs Congruent vs Incongruent
+
+## Daniella in-line
 The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about 86.4%. Shown in @fig-acc-overall, accuracy in Trial 1 starts off fairly low (M = 81.8%) and rises steadily through Trial 2 (M = 87.5%) and reaches a peak at Trial 3 (M = 90.0%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about 92.0%, where incongruent words ended up with a mean accuracy of about 81.3%. @fig-acc-congruency demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = 91.7%) and incongruent words (M = 76.5%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = 87.5%) and a rise in incongruent accuracy (M = 82.9%). However, Trial 3 saw a rise in both congruent accuracy (M = 96.9%) and incongruent accuracy (M = 84.6%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
 
 ```{python}
@@ -202,7 +320,17 @@ plt.show()
 ```
 
 ## Interaction between congruency and trial on reaction time
+
+## hopefully daniella can adapt from above to here if it works
 In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-rt-anova, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1,15) = 0.200, p = 0.661), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial came just short of reaching a significant main effect (F(2,30) = 3.178, p = 0.056). Although trial did not reach statistical significance, this suggests there is a possible trend in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2,30) = 0.280, p = 0.758), meaning there is no significant effect of congruency on reaction time across time. Despite the potential trend of the trial condition, the results of this ANOVA found no significant main effects of congruency on reaction time.
+
+## christina anova table
+
+```{r show-anova, results='asis'}
+cat("### Table 1. Repeated Measures ANOVA Results\n\n")
+print(summary_rt)
+```
+
 
 ```{python}
 #| echo: false
@@ -226,8 +354,11 @@ rt_table
 ```
 
 ## Interaction between congruency and trial on accuracy
+
+## hopefully daniella can adapt from above to here if it works
 In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-acc-anova, similar to the results of the first ANOVA conducted, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1,15) = 2.479, p = 0.136), meaning there was no significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2,30) = 1.128, p = 0.337), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(2,30) = 0.488, p = 0.619), meaning there is no significant effect of congruency on accuracy across time. Like the results of the previous ANOVA, there were no significant main effects of congruency on accuracy.
 
+## hopefully daniella can adapt from above TABLE to here if it works
 ```{python}
 #| echo: false
 #| label: tbl-acc-anova
@@ -253,9 +384,9 @@ accuracy_table
 
 To reiterate, the goal of this experiment was to replicate the classic Stroop effect, which predicts that participants will exhibit slower reaction times and lower accuracy when presented with incongruent stimuli compared to congruent ones. 
 
-Our results, however, speak otherwise. The results of the Repeated Measures ANOVA indicate that the main effect of word-colour matching, congruency, on reaction time was not statistically significant, F(1,15)=0.200, p=0.661. This finding contradicts the established literature which states that the automaticity of reading typically interferes with the more deliberate task of colour naming. In our sample, the mean reaction time across all conditions was approximately 1277.69 ms, with an overall accuracy of 86.4%. While the Stroop effect was not significant, there was a marginal effect of trial on reaction time, p=0.056. The mean reaction time decreased notably from trial 1 (1633.85 ms) to trial 2 (1100.98 ms) and remained stable in trial 3 (1098.26 ms). Similarly, mean accuracy improved from 0.819 in Trial 1 to 0.900 in Trial 3. These trends suggest a practice effect, where participants became more efficient at the task as the experiment progressed.
+Our results, however, speak otherwise. The results of the Repeated Measures ANOVA indicate that the main effect of word-colour matching, congruency, on reaction time was not statistically significant, **F(1,15)=0.200, p=0.661**. This finding contradicts the established literature which states that the automaticity of reading typically interferes with the more deliberate task of colour naming. In our sample, the mean reaction time across all conditions was approximately **1277.69 ms**, with an overall accuracy of **86.4%**. While the Stroop effect was not significant, there was a marginal effect of trial on reaction time, p=0.056. The mean reaction time decreased notably from trial 1 **(1633.85 ms) to trial 2 (1100.98 ms)** and remained stable in trial 3 **(1098.26 ms)**. Similarly, mean accuracy improved from **0.819 in Trial 1 to 0.900 in Trial 3**. These trends suggest a practice effect, where participants became more efficient at the task as the experiment progressed.
 
-Moreover, a reason for the failure in statistical significance could be attributed to extreme outliers in the raw data, which significantly inflated the variance within the ANOVA. Several participants recorded reaction times that exceeded 10 seconds, which is typically uncharacteristic for a standard Stroop task; Participant 10 recorded a reaction time of 19,209 ms during trial 1, Participant 16 recorded 17,071 ms in trial 1, and Participant 3 exceeded 13,000 ms in trial 1. This may have been caused by participants losing focus, being overwhelmed by a new task, looking for the key locations, or talking to the proctor.  Because the ANOVA uses the "Sum of Squares" to calculate the F-statistic, these massive deviations likely masked the smaller, millisecond-level differences typically associated with cognitive interference. Furthermore, as stated before, the automaticity theory suggests that reading is a highly practiced task that occurs without conscious effort, hence interfering with the slower process of colour naming. While our data did not show a significant difference between the match and non-match conditions, the overall high accuracy of 86.4% suggests that the participants did successfully engage in cognitive control to ignore the word's meaning, even though the distraction of the words didn't significantly change the reaction times for this group. 
+Moreover, a reason for the failure in statistical significance could be attributed to extreme outliers in the raw data, which significantly inflated the variance within the ANOVA. Several participants recorded reaction times that exceeded 10 seconds, which is typically uncharacteristic for a standard Stroop task; Participant 10 recorded a reaction time of **19,209 ms during trial 1, Participant 16 recorded 17,071 ms in trial 1, and Participant 3 exceeded 13,000 ms in trial 1**. This may have been caused by participants losing focus, being overwhelmed by a new task, looking for the key locations, or talking to the proctor.  Because the ANOVA uses the "Sum of Squares" to calculate the F-statistic, these massive deviations likely masked the smaller, millisecond-level differences typically associated with cognitive interference. Furthermore, as stated before, the automaticity theory suggests that reading is a highly practiced task that occurs without conscious effort, hence interfering with the slower process of colour naming. While our data did not show a significant difference between the match and non-match conditions, the overall high accuracy of **86.4%** suggests that the participants did successfully engage in cognitive control to ignore the word's meaning, even though the distraction of the words didn't significantly change the reaction times for this group. 
 
 Two major limitations of this study were the small count of 10 words per Trial, for a total of 3 trials, and the small sample size. Furthermore, since we had randomized the congruent and incongruent words, some participants got more, and some got fewer, creating an uneven balance of conditions, which could have still worked if we had more words per trial. Additionally, since we did not exclude outliers in our data analysis, that means those data points definitely impacted the data analysis. Therefore, future replications should include a larger number of trials to increase statistical power, a larger pool of participants, and an outlier removal protocol to ensure that the final analysis accurately reflects cognitive processing speed rather than behavioural distractions.
 

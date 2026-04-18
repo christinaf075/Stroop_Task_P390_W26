@@ -26,6 +26,7 @@ data = pd.DataFrame({
 })
 
 mean_rt = data["reaction_time"].mean()
+print(mean_rt)
 ```
 
 ```{python}
@@ -36,4 +37,5 @@ data = pd.DataFrame({
 })
 
 mean_accuracy = data["accuracy"].mean()
+print(mean_accuracy)
 ```
