@@ -374,190 +374,65 @@ extremely poor accuracy.
 \subsection{Reaction Time - Overall vs Congruent vs
 Incongruent}\label{reaction-time---overall-vs-congruent-vs-incongruent}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
--- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
-v dplyr     1.2.0     v readr     2.1.6
-v forcats   1.0.1     v stringr   1.6.0
-v ggplot2   4.0.2     v tibble    3.3.1
-v lubridate 1.9.4     v tidyr     1.3.2
-v purrr     1.2.1     
--- Conflicts ------------------------------------------ tidyverse_conflicts() --
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()
-i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{files }\OtherTok{\textless{}{-}} \FunctionTok{list.files}\NormalTok{(}\StringTok{"Data/"}\NormalTok{, }\AttributeTok{pattern =} \StringTok{"\^{}stroop\_.*}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{.csv$"}\NormalTok{, }\AttributeTok{full.names =} \ConstantTok{TRUE}\NormalTok{)}
-\FunctionTok{print}\NormalTok{(}\StringTok{"Files found:"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] "Files found:"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(files)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-character(0)
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{data }\OtherTok{\textless{}{-}}\NormalTok{ purrr}\SpecialCharTok{::}\FunctionTok{map\_dfr}\NormalTok{(files, read\_csv)}
-\FunctionTok{print}\NormalTok{(}\StringTok{"Data dimensions:"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] "Data dimensions:"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(}\FunctionTok{dim}\NormalTok{(data))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] 0 0
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(}\StringTok{"Column names:"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] "Column names:"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(}\FunctionTok{names}\NormalTok{(data))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-character(0)
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(}\StringTok{"First few reaction\_time values:"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] "First few reaction_time values:"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(}\FunctionTok{head}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{reaction\_time))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Warning: Unknown or uninitialised column: `reaction_time`.
-\end{verbatim}
-
-\begin{verbatim}
-NULL
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{mean\_rt }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{reaction\_time, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Warning: Unknown or uninitialised column: `reaction_time`.
-\end{verbatim}
-
-\begin{verbatim}
-Warning in mean.default(data$reaction_time, na.rm = TRUE): argument is not
-numeric or logical: returning NA
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"Mean:"}\NormalTok{, mean\_rt))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[1] "Mean: NA"
-\end{verbatim}
-
-The mean is NA
+\subsubsection{Daniella in-line}\label{daniella-in-line}
 
 The overall results including both congruent and incongruent words were
-analyzed first. The mean reaction time across all trials was about NA
-seconds. Shown in Figure 1, reaction time decreased sharply between
-Trial 1 (M = 1.63s) and Trial 2 (M = 1.10s) before evening out in Trial
-3 (M = 1.09s). Figure 2 demonstrates the average reaction times of
-congruent and incongruent words. The mean reaction time for congruent
-words across all trials was about 1.19 seconds while the mean reaction
-time for incongruent words across all trials was about 1.28 seconds.
-Trial 1 went against the hypothesis as the mean reaction time for
-congruent words (M = 1.63s) was higher than that of incongruent words (M
-= 1.56s). However, this was not the same for trials 2 and 3. In trial 2,
-the mean reaction time for congruent words (M = 0.92s) ended up lower
-than incongruent words (M = 1.16s). Trial 3 followed this same trend
-with congruent words (M = 1.02) being lower than incongruent words (M =
-1.14s). However, unlike the overall results the mean reaction time for
-congruent words rose slightly from trial 2 to trial 3.
+analyzed first. The mean reaction time across all trials was about
+\texttt{python\ mean\_rt} seconds. Shown in Figure 1, reaction time
+decreased sharply between Trial 1 (M = 1.63s) and Trial 2 (M = 1.10s)
+before evening out in Trial 3 (M = 1.09s). Figure 2 demonstrates the
+average reaction times of congruent and incongruent words. The mean
+reaction time for congruent words across all trials was about 1.19
+seconds while the mean reaction time for incongruent words across all
+trials was about 1.28 seconds. Trial 1 went against the hypothesis as
+the mean reaction time for congruent words (M = 1.63s) was higher than
+that of incongruent words (M = 1.56s). However, this was not the same
+for trials 2 and 3. In trial 2, the mean reaction time for congruent
+words (M = 0.92s) ended up lower than incongruent words (M = 1.16s).
+Trial 3 followed this same trend with congruent words (M = 1.02) being
+lower than incongruent words (M = 1.14s). However, unlike the overall
+results the mean reaction time for congruent words rose slightly from
+trial 2 to trial 3.
 
 \subsection{Accuracy - Overall vs Congruent vs
 Incongruent}\label{accuracy---overall-vs-congruent-vs-incongruent}
 
+\subsubsection{Daniella in-line}\label{daniella-in-line-1}
+
 The overall results including both congruent and incongruent words were
 analyzed first, with the mean accuracy across all trials coming out to
-about 86.4\%. Shown in Figure 3, accuracy in Trial 1 starts off fairly
-low (M = 81.8\%) and rises steadily through Trial 2 (M = 87.5\%) and
-reaches a peak at Trial 3 (M = 90.0\%). When compared to the average
-accuracy based on congruency, the trend shifts away from a steady rise.
-The mean accuracy for congruent words across all trials was about
-92.0\%, where incongruent words ended up with a mean accuracy of about
-81.3\%. Figure 4 demonstrates the mean accuracy based on each trial.
-Trial 1 started with a large gap between congruent words (M = 91.7\%)
-and incongruent words (M = 76.5\%). Despite congruent accuracy remaining
-higher than incongruent accuracy, Trial 2 saw a drop in congruent
-accuracy (M = 87.5\%) and a rise in incongruent accuracy (M = 82.9\%).
-However, Trial 3 saw a rise in both congruent accuracy (M = 96.9\%) and
-incongruent accuracy (M = 84.6\%). Although there was a rise in both
-congruent and incongruent accuracy, congruent words remained higher than
-incongruent words through all trials.
+about \texttt{python\ mean\_accuracy}. Shown in Figure 3, accuracy in
+Trial 1 starts off fairly low (M = 81.8\%) and rises steadily through
+Trial 2 (M = 87.5\%) and reaches a peak at Trial 3 (M = 90.0\%). When
+compared to the average accuracy based on congruency, the trend shifts
+away from a steady rise. The mean accuracy for congruent words across
+all trials was about 92.0\%, where incongruent words ended up with a
+mean accuracy of about 81.3\%. Figure 4 demonstrates the mean accuracy
+based on each trial. Trial 1 started with a large gap between congruent
+words (M = 91.7\%) and incongruent words (M = 76.5\%). Despite congruent
+accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop
+in congruent accuracy (M = 87.5\%) and a rise in incongruent accuracy (M
+= 82.9\%). However, Trial 3 saw a rise in both congruent accuracy (M =
+96.9\%) and incongruent accuracy (M = 84.6\%). Although there was a rise
+in both congruent and incongruent accuracy, congruent words remained
+higher than incongruent words through all trials.
 
 \subsection{Interaction between congruency and trial on reaction
 time}\label{interaction-between-congruency-and-trial-on-reaction-time}
 
+\subsection{Christina anova}\label{christina-anova}
+
 In order to analyze the effects of trial and congruency on reaction
 time, a 2-way repeated measures ANOVA was conducted. Demonstrated in
 Table 1, the results yielded insignificant effects. There was no
-significant main effect found of congruency (F(1,15) = 0.200, p =
-0.661), meaning there was not a noticeable difference of reaction time
-between congruent and incongruent conditions. Trial came just short of
-reaching a significant main effect (F(2,30) = 3.178, p = 0.056).
-Although trial did not reach statistical significance, this suggests
-there is a possible trend in reaction time among trials. In addition,
-the interaction between congruency and trial showed no significance
-(F(2,30) = 0.280, p = 0.758), meaning there is no significant effect of
+significant main effect found of congruency (F(1, 13)=0.07, p =0.799),
+meaning there was not a noticeable difference of reaction time between
+congruent and incongruent conditions. Trial came just short of reaching
+a significant main effect (F(2, 28) = 3.36, p = 0.049). Although trial
+did not reach statistical significance, this suggests there is a
+possible trend in reaction time among trials. In addition, the
+interaction between congruency and trial showed no significance (F(2,
+28) = 0.29, p = 0.752), meaning there is no significant effect of
 congruency on reaction time across time. Despite the potential trend of
 the trial condition, the results of this ANOVA found no significant main
 effects of congruency on reaction time.
@@ -565,18 +440,21 @@ effects of congruency on reaction time.
 \subsection{Interaction between congruency and trial on
 accuracy}\label{interaction-between-congruency-and-trial-on-accuracy}
 
+\subsection{hopefully daniella can adapt from above to here if it
+works}\label{hopefully-daniella-can-adapt-from-above-to-here-if-it-works}
+
 In order to analyze the effect of trial and congruency on accuracy, a
-2way repeated measures ANOVA was conducted. Demonstrated in Table 2,
+2-way repeated measures ANOVA was conducted. Demonstrated in Table 2,
 similar to the results of the first ANOVA conducted, the results yielded
 insignificant effects. There was no significant main effect found of
-congruency (F(1,15) = 2.479, p = 0.136), meaning there was no
+congruency (F(1, 13) = 5.69, p = 0.033), meaning there was no
 significant difference of accuracy between congruent and incongruent
-trials. There was no significant main effect found of trial (F(2,30) =
-1.128, p = 0.337), meaning accuracy did not noticeably differ between
+trials. There was no significant main effect found of trial (F(2, 28) =
+0.48, p = 0.621), meaning accuracy did not noticeably differ between
 trials. Unlike the previous ANOVA where trial had a slight trend, this
 one did not provide a trend of trial. Additionally, the interaction
-between congruency and trial showed no significance (F(2,30) = 0.488, p
-= 0.619), meaning there is no significant effect of congruency on
+between congruency and trial showed no significance (F(2, 28) = 1.86, p
+= 0.175), meaning there is no significant effect of congruency on
 accuracy across time. Like the results of the previous ANOVA, there were
 no significant main effects of congruency on accuracy.
 
@@ -594,7 +472,7 @@ Trials}
 \end{figure}%
 
 \begin{verbatim}
-([<matplotlib.axis.XTick object at 0x7c04c2208f40>, <matplotlib.axis.XTick object at 0x7c04c6b824a0>, <matplotlib.axis.XTick object at 0x7c04c21c2650>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+([<matplotlib.axis.XTick object at 0x745ca407b070>, <matplotlib.axis.XTick object at 0x745c9f6bd360>, <matplotlib.axis.XTick object at 0x745c9f6fa4d0>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
 \end{verbatim}
 
 \begin{figure}[H]
@@ -612,6 +490,8 @@ Time}
 
 \subsection{Accuracy - Overall vs Congruent vs
 Incongruent}\label{accuracy---overall-vs-congruent-vs-incongruent-1}
+
+\subsection{Daniella in-line}\label{daniella-in-line-2}
 
 The overall results including both congruent and incongruent words were
 analyzed first, with the mean accuracy across all trials coming out to
@@ -645,7 +525,7 @@ Trials}
 \end{figure}%
 
 \begin{verbatim}
-([<matplotlib.axis.XTick object at 0x7c04c2139270>, <matplotlib.axis.XTick object at 0x7c04c21391e0>, <matplotlib.axis.XTick object at 0x7c04c20c0790>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+([<matplotlib.axis.XTick object at 0x745c9f630430>, <matplotlib.axis.XTick object at 0x745c9f631480>, <matplotlib.axis.XTick object at 0x745c9f5bc460>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
 \end{verbatim}
 
 \begin{verbatim}
@@ -667,6 +547,9 @@ Trials}
 \subsection{Interaction between congruency and trial on reaction
 time}\label{interaction-between-congruency-and-trial-on-reaction-time-1}
 
+\subsection{hopefully daniella can adapt from above to here if it
+works}\label{hopefully-daniella-can-adapt-from-above-to-here-if-it-works-1}
+
 In order to analyze the effects of trial and congruency on reaction
 time, a 2-way repeated measures ANOVA was conducted. Demonstrated in
 Table~\ref{tbl-rt-anova}, the results yielded insignificant effects.
@@ -681,6 +564,15 @@ significance (F(2,30) = 0.280, p = 0.758), meaning there is no
 significant effect of congruency on reaction time across time. Despite
 the potential trend of the trial condition, the results of this ANOVA
 found no significant main effects of congruency on reaction time.
+
+\subsection{christina anova table}\label{christina-anova-table}
+
+\begin{verbatim}
+         Effect DFn DFd    F     p
+1         Match   1  13 0.07 0.799
+2         Trial   2  28 3.36 0.049
+3 Match × Trial   2  28 0.29 0.752
+\end{verbatim}
 
 \begin{table}
 
@@ -705,6 +597,9 @@ found no significant main effects of congruency on reaction time.
 \subsection{Interaction between congruency and trial on
 accuracy}\label{interaction-between-congruency-and-trial-on-accuracy-1}
 
+\subsection{hopefully daniella can adapt from above TABLE to here if it
+works}\label{hopefully-daniella-can-adapt-from-above-table-to-here-if-it-works}
+
 In order to analyze the effect of trial and congruency on accuracy, a
 2-way repeated measures ANOVA was conducted. Demonstrated in
 Table~\ref{tbl-acc-anova}, similar to the results of the first ANOVA
@@ -720,6 +615,13 @@ significance (F(2,30) = 0.488, p = 0.619), meaning there is no
 significant effect of congruency on accuracy across time. Like the
 results of the previous ANOVA, there were no significant main effects of
 congruency on accuracy.
+
+\begin{verbatim}
+         Effect DFn DFd    F     p
+1         Match   1  13 5.69 0.033
+2         Trial   2  28 0.48 0.621
+3 Match × Trial   2  28 1.86 0.175
+\end{verbatim}
 
 \begin{table}
 
@@ -741,6 +643,40 @@ congruency on accuracy.
 
 \end{table}%
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+
+\NormalTok{data }\OperatorTok{=}\NormalTok{ pd.DataFrame(\{}
+    \StringTok{"reaction\_time"}\NormalTok{: [}\FloatTok{0.681}\NormalTok{, }\FloatTok{0.524}\NormalTok{, }\FloatTok{0.628}\NormalTok{, }\FloatTok{0.769}\NormalTok{, }\FloatTok{0.599}\NormalTok{, }\FloatTok{0.659}\NormalTok{, }\FloatTok{0.610}\NormalTok{, }\FloatTok{0.675}\NormalTok{, }\FloatTok{0.588}\NormalTok{, }\FloatTok{0.678}\NormalTok{, }\FloatTok{0.545}\NormalTok{, }\FloatTok{0.641}\NormalTok{, }\FloatTok{0.576}\NormalTok{, }\FloatTok{0.561}\NormalTok{, }\FloatTok{0.616}\NormalTok{, }\FloatTok{0.580}\NormalTok{, }\FloatTok{0.670}\NormalTok{, }\FloatTok{0.721}\NormalTok{, }\FloatTok{0.801}\NormalTok{, }\FloatTok{0.572}\NormalTok{, }\FloatTok{0.549}\NormalTok{, }\FloatTok{0.743}\NormalTok{, }\FloatTok{0.534}\NormalTok{, }\FloatTok{0.607}\NormalTok{, }\FloatTok{0.603}\NormalTok{, }\FloatTok{0.561}\NormalTok{, }\FloatTok{1.203}\NormalTok{, }\FloatTok{0.577}\NormalTok{, }\FloatTok{0.562}\NormalTok{, }\FloatTok{0.574}\NormalTok{, }\FloatTok{1.231}\NormalTok{, }\FloatTok{1.144}\NormalTok{, }\FloatTok{1.289}\NormalTok{, }\FloatTok{1.160}\NormalTok{, }\FloatTok{1.278}\NormalTok{, }\FloatTok{1.419}\NormalTok{, }\FloatTok{1.241}\NormalTok{, }\FloatTok{2.117}\NormalTok{, }\FloatTok{1.300}\NormalTok{, }\FloatTok{1.519}\NormalTok{, }\FloatTok{1.179}\NormalTok{, }\FloatTok{1.201}\NormalTok{, }\FloatTok{1.641}\NormalTok{, }\FloatTok{1.209}\NormalTok{, }\FloatTok{1.463}\NormalTok{, }\FloatTok{1.917}\NormalTok{, }\FloatTok{1.089}\NormalTok{, }\FloatTok{1.009}\NormalTok{, }\FloatTok{1.075}\NormalTok{, }\FloatTok{1.258}\NormalTok{, }\FloatTok{1.241}\NormalTok{, }\FloatTok{1.302}\NormalTok{, }\FloatTok{1.187}\NormalTok{, }\FloatTok{1.263}\NormalTok{, }\FloatTok{1.493}\NormalTok{, }\FloatTok{1.171}\NormalTok{, }\FloatTok{1.243}\NormalTok{, }\FloatTok{1.349}\NormalTok{, }\FloatTok{2.632}\NormalTok{, }\FloatTok{5.719}\NormalTok{, }\FloatTok{1.430}\NormalTok{, }\FloatTok{13.240}\NormalTok{, }\FloatTok{2.506}\NormalTok{, }\FloatTok{1.480}\NormalTok{, }\FloatTok{13.747}\NormalTok{, }\FloatTok{1.602}\NormalTok{, }\FloatTok{2.473}\NormalTok{, }\FloatTok{0.864}\NormalTok{, }\FloatTok{4.781}\NormalTok{, }\FloatTok{1.184}\NormalTok{, }\FloatTok{1.185}\NormalTok{, }\FloatTok{3.710}\NormalTok{, }\FloatTok{1.517}\NormalTok{, }\FloatTok{1.431}\NormalTok{, }\FloatTok{1.274}\NormalTok{, }\FloatTok{1.523}\NormalTok{, }\FloatTok{1.145}\NormalTok{, }\FloatTok{1.182}\NormalTok{, }\FloatTok{1.794}\NormalTok{, }\FloatTok{1.066}\NormalTok{, }\FloatTok{1.231}\NormalTok{, }\FloatTok{0.970}\NormalTok{, }\FloatTok{0.740}\NormalTok{, }\FloatTok{0.820}\NormalTok{, }\FloatTok{0.906}\NormalTok{, }\FloatTok{0.775}\NormalTok{, }\FloatTok{0.841}\NormalTok{, }\FloatTok{1.447}\NormalTok{, }\FloatTok{0.716}\NormalTok{, }\FloatTok{0.839}\NormalTok{, }\FloatTok{0.992}\NormalTok{, }\FloatTok{0.549}\NormalTok{, }\FloatTok{1.048}\NormalTok{, }\FloatTok{0.718}\NormalTok{, }\FloatTok{0.726}\NormalTok{, }\FloatTok{1.225}\NormalTok{, }\FloatTok{0.915}\NormalTok{, }\FloatTok{0.761}\NormalTok{, }\FloatTok{0.779}\NormalTok{, }\FloatTok{0.705}\NormalTok{, }\FloatTok{0.703}\NormalTok{, }\FloatTok{0.753}\NormalTok{, }\FloatTok{0.763}\NormalTok{, }\FloatTok{0.796}\NormalTok{, }\FloatTok{0.708}\NormalTok{, }\FloatTok{0.870}\NormalTok{, }\FloatTok{1.080}\NormalTok{, }\FloatTok{0.842}\NormalTok{, }\FloatTok{0.847}\NormalTok{, }\FloatTok{1.066}\NormalTok{, }\FloatTok{0.698}\NormalTok{, }\FloatTok{0.787}\NormalTok{, }\FloatTok{0.689}\NormalTok{, }\FloatTok{0.753}\NormalTok{, }\FloatTok{0.716}\NormalTok{, }\FloatTok{0.822}\NormalTok{, }\FloatTok{0.730}\NormalTok{, }\FloatTok{0.770}\NormalTok{, }\FloatTok{0.835}\NormalTok{, }\FloatTok{1.102}\NormalTok{, }\FloatTok{1.015}\NormalTok{, }\FloatTok{0.920}\NormalTok{, }\FloatTok{1.192}\NormalTok{, }\FloatTok{0.839}\NormalTok{, }\FloatTok{0.717}\NormalTok{, }\FloatTok{1.244}\NormalTok{, }\FloatTok{1.029}\NormalTok{, }\FloatTok{1.358}\NormalTok{, }\FloatTok{1.244}\NormalTok{, }\FloatTok{0.976}\NormalTok{, }\FloatTok{0.894}\NormalTok{, }\FloatTok{0.866}\NormalTok{, }\FloatTok{0.842}\NormalTok{, }\FloatTok{0.831}\NormalTok{, }\FloatTok{0.584}\NormalTok{, }\FloatTok{0.688}\NormalTok{, }\FloatTok{1.370}\NormalTok{, }\FloatTok{0.846}\NormalTok{, }\FloatTok{0.611}\NormalTok{, }\FloatTok{0.645}\NormalTok{, }\FloatTok{0.777}\NormalTok{, }\FloatTok{1.001}\NormalTok{, }\FloatTok{0.756}\NormalTok{, }\FloatTok{0.782}\NormalTok{, }\FloatTok{1.039}\NormalTok{, }\FloatTok{1.008}\NormalTok{, }\FloatTok{0.845}\NormalTok{, }\FloatTok{0.918}\NormalTok{, }\FloatTok{0.764}\NormalTok{, }\FloatTok{0.664}\NormalTok{, }\FloatTok{0.803}\NormalTok{, }\FloatTok{0.839}\NormalTok{, }\FloatTok{0.664}\NormalTok{, }\FloatTok{0.645}\NormalTok{, }\FloatTok{0.831}\NormalTok{, }\FloatTok{0.624}\NormalTok{, }\FloatTok{0.727}\NormalTok{, }\FloatTok{0.684}\NormalTok{, }\FloatTok{0.704}\NormalTok{, }\FloatTok{0.593}\NormalTok{, }\FloatTok{0.557}\NormalTok{, }\FloatTok{0.583}\NormalTok{, }\FloatTok{0.632}\NormalTok{, }\FloatTok{0.603}\NormalTok{, }\FloatTok{0.563}\NormalTok{, }\FloatTok{0.766}\NormalTok{, }\FloatTok{9.214}\NormalTok{, }\FloatTok{0.751}\NormalTok{, }\FloatTok{0.613}\NormalTok{, }\FloatTok{0.643}\NormalTok{, }\FloatTok{1.820}\NormalTok{, }\FloatTok{1.196}\NormalTok{, }\FloatTok{1.316}\NormalTok{, }\FloatTok{1.128}\NormalTok{, }\FloatTok{1.015}\NormalTok{, }\FloatTok{1.010}\NormalTok{, }\FloatTok{0.785}\NormalTok{, }\FloatTok{0.900}\NormalTok{, }\FloatTok{0.712}\NormalTok{, }\FloatTok{0.898}\NormalTok{, }\FloatTok{1.037}\NormalTok{, }\FloatTok{1.427}\NormalTok{, }\FloatTok{0.807}\NormalTok{, }\FloatTok{0.725}\NormalTok{, }\FloatTok{1.742}\NormalTok{, }\FloatTok{0.847}\NormalTok{, }\FloatTok{0.807}\NormalTok{, }\FloatTok{0.925}\NormalTok{, }\FloatTok{0.770}\NormalTok{, }\FloatTok{1.284}\NormalTok{, }\FloatTok{0.932}\NormalTok{, }\FloatTok{1.032}\NormalTok{, }\FloatTok{0.742}\NormalTok{, }\FloatTok{1.179}\NormalTok{, }\FloatTok{0.952}\NormalTok{, }\FloatTok{0.792}\NormalTok{, }\FloatTok{0.835}\NormalTok{, }\FloatTok{0.900}\NormalTok{, }\FloatTok{0.849}\NormalTok{, }\FloatTok{0.810}\NormalTok{, }\FloatTok{0.819}\NormalTok{, }\FloatTok{0.737}\NormalTok{, }\FloatTok{0.685}\NormalTok{, }\FloatTok{0.642}\NormalTok{, }\FloatTok{0.522}\NormalTok{, }\FloatTok{0.543}\NormalTok{, }\FloatTok{0.699}\NormalTok{, }\FloatTok{0.706}\NormalTok{, }\FloatTok{1.548}\NormalTok{, }\FloatTok{0.965}\NormalTok{, }\FloatTok{1.521}\NormalTok{, }\FloatTok{1.206}\NormalTok{, }\FloatTok{1.081}\NormalTok{, }\FloatTok{2.590}\NormalTok{, }\FloatTok{1.021}\NormalTok{, }\FloatTok{0.972}\NormalTok{, }\FloatTok{0.990}\NormalTok{, }\FloatTok{0.856}\NormalTok{, }\FloatTok{0.996}\NormalTok{, }\FloatTok{1.090}\NormalTok{, }\FloatTok{0.922}\NormalTok{, }\FloatTok{0.780}\NormalTok{, }\FloatTok{0.933}\NormalTok{, }\FloatTok{1.015}\NormalTok{, }\FloatTok{1.193}\NormalTok{, }\FloatTok{0.937}\NormalTok{, }\FloatTok{0.817}\NormalTok{, }\FloatTok{0.984}\NormalTok{, }\FloatTok{0.965}\NormalTok{, }\FloatTok{0.862}\NormalTok{, }\FloatTok{0.757}\NormalTok{, }\FloatTok{0.835}\NormalTok{, }\FloatTok{0.759}\NormalTok{, }\FloatTok{0.799}\NormalTok{, }\FloatTok{1.019}\NormalTok{, }\FloatTok{0.768}\NormalTok{, }\FloatTok{1.190}\NormalTok{, }\FloatTok{1.112}\NormalTok{, }\FloatTok{0.937}\NormalTok{, }\FloatTok{0.963}\NormalTok{, }\FloatTok{1.677}\NormalTok{, }\FloatTok{1.377}\NormalTok{, }\FloatTok{1.346}\NormalTok{, }\FloatTok{1.572}\NormalTok{, }\FloatTok{1.425}\NormalTok{, }\FloatTok{1.448}\NormalTok{, }\FloatTok{1.450}\NormalTok{, }\FloatTok{1.309}\NormalTok{, }\FloatTok{1.679}\NormalTok{, }\FloatTok{1.736}\NormalTok{, }\FloatTok{1.175}\NormalTok{, }\FloatTok{0.966}\NormalTok{, }\FloatTok{1.016}\NormalTok{, }\FloatTok{1.118}\NormalTok{, }\FloatTok{1.731}\NormalTok{, }\FloatTok{1.463}\NormalTok{, }\FloatTok{1.233}\NormalTok{, }\FloatTok{1.458}\NormalTok{, }\FloatTok{1.445}\NormalTok{, }\FloatTok{1.135}\NormalTok{, }\FloatTok{1.015}\NormalTok{, }\FloatTok{1.430}\NormalTok{, }\FloatTok{1.540}\NormalTok{, }\FloatTok{0.863}\NormalTok{, }\FloatTok{0.991}\NormalTok{, }\FloatTok{0.784}\NormalTok{, }\FloatTok{1.070}\NormalTok{, }\FloatTok{1.125}\NormalTok{, }\FloatTok{0.968}\NormalTok{, }\FloatTok{1.594}\NormalTok{, }\FloatTok{1.088}\NormalTok{, }\FloatTok{1.069}\NormalTok{, }\FloatTok{0.690}\NormalTok{, }\FloatTok{19.209}\NormalTok{, }\FloatTok{0.988}\NormalTok{, }\FloatTok{0.756}\NormalTok{, }\FloatTok{1.378}\NormalTok{, }\FloatTok{0.922}\NormalTok{, }\FloatTok{0.707}\NormalTok{, }\FloatTok{0.799}\NormalTok{, }\FloatTok{0.762}\NormalTok{, }\FloatTok{0.750}\NormalTok{, }\FloatTok{0.904}\NormalTok{, }\FloatTok{3.663}\NormalTok{, }\FloatTok{0.750}\NormalTok{, }\FloatTok{0.886}\NormalTok{, }\FloatTok{0.595}\NormalTok{, }\FloatTok{0.859}\NormalTok{, }\FloatTok{0.605}\NormalTok{, }\FloatTok{1.037}\NormalTok{, }\FloatTok{0.785}\NormalTok{, }\FloatTok{0.743}\NormalTok{, }\FloatTok{0.690}\NormalTok{, }\FloatTok{0.805}\NormalTok{, }\FloatTok{0.606}\NormalTok{, }\FloatTok{0.603}\NormalTok{, }\FloatTok{0.902}\NormalTok{, }\FloatTok{0.736}\NormalTok{, }\FloatTok{0.624}\NormalTok{, }\FloatTok{0.837}\NormalTok{, }\FloatTok{1.656}\NormalTok{, }\FloatTok{1.607}\NormalTok{, }\FloatTok{1.953}\NormalTok{, }\FloatTok{1.445}\NormalTok{, }\FloatTok{3.871}\NormalTok{, }\FloatTok{1.588}\NormalTok{, }\FloatTok{1.754}\NormalTok{, }\FloatTok{1.168}\NormalTok{, }\FloatTok{1.771}\NormalTok{, }\FloatTok{1.876}\NormalTok{, }\FloatTok{1.014}\NormalTok{, }\FloatTok{1.068}\NormalTok{, }\FloatTok{1.180}\NormalTok{, }\FloatTok{0.967}\NormalTok{, }\FloatTok{1.034}\NormalTok{, }\FloatTok{1.223}\NormalTok{, }\FloatTok{2.154}\NormalTok{, }\FloatTok{3.485}\NormalTok{, }\FloatTok{1.761}\NormalTok{, }\FloatTok{3.024}\NormalTok{, }\FloatTok{1.033}\NormalTok{, }\FloatTok{2.738}\NormalTok{, }\FloatTok{1.085}\NormalTok{, }\FloatTok{1.052}\NormalTok{, }\FloatTok{1.168}\NormalTok{, }\FloatTok{1.092}\NormalTok{, }\FloatTok{1.421}\NormalTok{, }\FloatTok{1.584}\NormalTok{, }\FloatTok{2.055}\NormalTok{, }\FloatTok{1.491}\NormalTok{, }\FloatTok{0.734}\NormalTok{, }\FloatTok{0.843}\NormalTok{, }\FloatTok{0.874}\NormalTok{, }\FloatTok{0.914}\NormalTok{, }\FloatTok{0.945}\NormalTok{, }\FloatTok{0.826}\NormalTok{, }\FloatTok{0.833}\NormalTok{, }\FloatTok{0.782}\NormalTok{, }\FloatTok{0.850}\NormalTok{, }\FloatTok{0.789}\NormalTok{, }\FloatTok{0.737}\NormalTok{, }\FloatTok{0.878}\NormalTok{, }\FloatTok{0.849}\NormalTok{, }\FloatTok{0.777}\NormalTok{, }\FloatTok{0.839}\NormalTok{, }\FloatTok{0.987}\NormalTok{, }\FloatTok{0.853}\NormalTok{, }\FloatTok{0.866}\NormalTok{, }\FloatTok{0.920}\NormalTok{, }\FloatTok{0.758}\NormalTok{, }\FloatTok{0.796}\NormalTok{, }\FloatTok{0.807}\NormalTok{, }\FloatTok{0.728}\NormalTok{, }\FloatTok{0.825}\NormalTok{, }\FloatTok{0.704}\NormalTok{, }\FloatTok{0.842}\NormalTok{, }\FloatTok{0.705}\NormalTok{, }\FloatTok{0.770}\NormalTok{, }\FloatTok{0.758}\NormalTok{, }\FloatTok{1.340}\NormalTok{, }\FloatTok{1.681}\NormalTok{, }\FloatTok{1.149}\NormalTok{, }\FloatTok{1.278}\NormalTok{, }\FloatTok{1.258}\NormalTok{, }\FloatTok{1.391}\NormalTok{, }\FloatTok{0.935}\NormalTok{, }\FloatTok{1.428}\NormalTok{, }\FloatTok{1.039}\NormalTok{, }\FloatTok{0.984}\NormalTok{, }\FloatTok{0.922}\NormalTok{, }\FloatTok{1.211}\NormalTok{, }\FloatTok{1.053}\NormalTok{, }\FloatTok{0.801}\NormalTok{, }\FloatTok{0.854}\NormalTok{, }\FloatTok{1.041}\NormalTok{, }\FloatTok{1.058}\NormalTok{, }\FloatTok{0.912}\NormalTok{, }\FloatTok{1.001}\NormalTok{, }\FloatTok{1.121}\NormalTok{, }\FloatTok{1.018}\NormalTok{, }\FloatTok{1.025}\NormalTok{, }\FloatTok{15.257}\NormalTok{, }\FloatTok{0.936}\NormalTok{, }\FloatTok{0.697}\NormalTok{, }\FloatTok{0.692}\NormalTok{, }\FloatTok{0.899}\NormalTok{, }\FloatTok{0.814}\NormalTok{, }\FloatTok{1.139}\NormalTok{, }\FloatTok{0.928}\NormalTok{, }\FloatTok{1.116}\NormalTok{, }\FloatTok{14.691}\NormalTok{, }\FloatTok{3.276}\NormalTok{, }\FloatTok{0.880}\NormalTok{, }\FloatTok{1.964}\NormalTok{, }\FloatTok{1.139}\NormalTok{, }\FloatTok{1.466}\NormalTok{, }\FloatTok{1.089}\NormalTok{, }\FloatTok{1.024}\NormalTok{, }\FloatTok{1.294}\NormalTok{, }\FloatTok{1.288}\NormalTok{, }\FloatTok{1.008}\NormalTok{, }\FloatTok{1.695}\NormalTok{, }\FloatTok{0.951}\NormalTok{, }\FloatTok{1.016}\NormalTok{, }\FloatTok{1.389}\NormalTok{, }\FloatTok{1.136}\NormalTok{, }\FloatTok{0.932}\NormalTok{, }\FloatTok{1.171}\NormalTok{, }\FloatTok{0.966}\NormalTok{, }\FloatTok{1.368}\NormalTok{, }\FloatTok{1.036}\NormalTok{, }\FloatTok{0.996}\NormalTok{, }\FloatTok{0.822}\NormalTok{, }\FloatTok{0.934}\NormalTok{, }\FloatTok{0.834}\NormalTok{, }\FloatTok{1.292}\NormalTok{, }\FloatTok{0.909}\NormalTok{, }\FloatTok{0.963}\NormalTok{, }\FloatTok{0.991}\NormalTok{, }\FloatTok{1.116}\NormalTok{, }\FloatTok{1.358}\NormalTok{, }\FloatTok{1.409}\NormalTok{, }\FloatTok{1.787}\NormalTok{, }\FloatTok{1.685}\NormalTok{, }\FloatTok{1.220}\NormalTok{, }\FloatTok{1.561}\NormalTok{, }\FloatTok{1.367}\NormalTok{, }\FloatTok{0.711}\NormalTok{, }\FloatTok{1.464}\NormalTok{, }\FloatTok{1.970}\NormalTok{, }\FloatTok{1.108}\NormalTok{, }\FloatTok{1.161}\NormalTok{, }\FloatTok{1.117}\NormalTok{, }\FloatTok{1.229}\NormalTok{, }\FloatTok{1.031}\NormalTok{, }\FloatTok{1.377}\NormalTok{, }\FloatTok{2.021}\NormalTok{, }\FloatTok{1.394}\NormalTok{, }\FloatTok{1.232}\NormalTok{, }\FloatTok{0.595}\NormalTok{, }\FloatTok{0.905}\NormalTok{, }\FloatTok{1.505}\NormalTok{, }\FloatTok{0.858}\NormalTok{, }\FloatTok{0.789}\NormalTok{, }\FloatTok{1.917}\NormalTok{, }\FloatTok{0.686}\NormalTok{, }\FloatTok{0.804}\NormalTok{, }\FloatTok{0.761}\NormalTok{, }\FloatTok{0.733}\NormalTok{, }\FloatTok{1.614}\NormalTok{, }\FloatTok{1.102}\NormalTok{, }\FloatTok{1.099}\NormalTok{, }\FloatTok{0.864}\NormalTok{, }\FloatTok{1.180}\NormalTok{, }\FloatTok{17.071}\NormalTok{, }\FloatTok{0.743}\NormalTok{, }\FloatTok{0.674}\NormalTok{, }\FloatTok{0.535}\NormalTok{, }\FloatTok{0.805}\NormalTok{, }\FloatTok{0.755}\NormalTok{, }\FloatTok{0.705}\NormalTok{, }\FloatTok{2.476}\NormalTok{, }\FloatTok{0.663}\NormalTok{, }\FloatTok{0.549}\NormalTok{, }\FloatTok{0.536}\NormalTok{, }\FloatTok{0.546}\NormalTok{, }\FloatTok{0.757}\NormalTok{, }\FloatTok{0.678}\NormalTok{, }\FloatTok{0.699}\NormalTok{, }\FloatTok{0.543}\NormalTok{, }\FloatTok{2.352}\NormalTok{, }\FloatTok{0.566}\NormalTok{, }\FloatTok{1.946}\NormalTok{, }\FloatTok{0.526}\NormalTok{, }\FloatTok{0.745}\NormalTok{, }\FloatTok{0.658}\NormalTok{, }\FloatTok{0.608}\NormalTok{, }\FloatTok{2.898}\NormalTok{, }\FloatTok{0.514}\NormalTok{, }\FloatTok{0.569}\NormalTok{]}
+\NormalTok{\})}
+
+\NormalTok{mean\_rt }\OperatorTok{=}\NormalTok{ data[}\StringTok{"reaction\_time"}\NormalTok{].mean()}
+\BuiltInTok{print}\NormalTok{(mean\_rt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+1.2776375000000002
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+
+\NormalTok{data }\OperatorTok{=}\NormalTok{ pd.DataFrame(\{}
+    \StringTok{"accuracy"}\NormalTok{: [}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]}
+\NormalTok{\})}
+
+\NormalTok{mean\_accuracy }\OperatorTok{=}\NormalTok{ data[}\StringTok{"accuracy"}\NormalTok{].mean()}
+\BuiltInTok{print}\NormalTok{(mean\_accuracy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+0.8645833333333334
+\end{verbatim}
+
 \section{Discussion}\label{discussion}
 
 To reiterate, the goal of this experiment was to replicate the classic
@@ -751,27 +687,27 @@ stimuli compared to congruent ones.~
 Our results, however, speak otherwise. The results of the Repeated
 Measures ANOVA indicate that the main effect of word-colour matching,
 congruency, on reaction time was not statistically significant,
-F(1,15)=0.200, p=0.661. This finding contradicts the established
-literature which states that the automaticity of reading typically
-interferes with the more deliberate task of colour naming. In our
-sample, the mean reaction time across all conditions was approximately
-1277.69 ms, with an overall accuracy of 86.4\%. While the Stroop effect
-was not significant, there was a marginal effect of trial on reaction
-time, p=0.056. The mean reaction time decreased notably from trial 1
-(1633.85 ms) to trial 2 (1100.98 ms) and remained stable in trial 3
-(1098.26 ms). Similarly, mean accuracy improved from 0.819 in Trial 1 to
-0.900 in Trial 3. These trends suggest a practice effect, where
-participants became more efficient at the task as the experiment
-progressed.
+\textbf{F(1,15)=0.200, p=0.661}. This finding contradicts the
+established literature which states that the automaticity of reading
+typically interferes with the more deliberate task of colour naming. In
+our sample, the mean reaction time across all conditions was
+approximately \textbf{1277.69 ms}, with an overall accuracy of
+\textbf{86.4\%}. While the Stroop effect was not significant, there was
+a marginal effect of trial on reaction time, p=0.056. The mean reaction
+time decreased notably from trial 1 \textbf{(1633.85 ms) to trial 2
+(1100.98 ms)} and remained stable in trial 3 \textbf{(1098.26 ms)}.
+Similarly, mean accuracy improved from \textbf{0.819 in Trial 1 to 0.900
+in Trial 3}. These trends suggest a practice effect, where participants
+became more efficient at the task as the experiment progressed.
 
 Moreover, a reason for the failure in statistical significance could be
 attributed to extreme outliers in the raw data, which significantly
 inflated the variance within the ANOVA. Several participants recorded
 reaction times that exceeded 10 seconds, which is typically
 uncharacteristic for a standard Stroop task; Participant 10 recorded a
-reaction time of 19,209 ms during trial 1, Participant 16 recorded
-17,071 ms in trial 1, and Participant 3 exceeded 13,000 ms in trial 1.
-This may have been caused by participants losing focus, being
+reaction time of \textbf{19,209 ms during trial 1, Participant 16
+recorded 17,071 ms in trial 1, and Participant 3 exceeded 13,000 ms in
+trial 1}. This may have been caused by participants losing focus, being
 overwhelmed by a new task, looking for the key locations, or talking to
 the proctor.~ Because the ANOVA uses the ``Sum of Squares'' to calculate
 the F-statistic, these massive deviations likely masked the smaller,
@@ -780,10 +716,11 @@ interference.~Furthermore, as stated before, the automaticity theory
 suggests that reading is a highly practiced task that occurs without
 conscious effort, hence interfering with the slower process of colour
 naming. While our data did not show a significant difference between the
-match and non-match conditions, the overall high accuracy of 86.4\%
-suggests that the participants did successfully engage in cognitive
-control to ignore the word's meaning, even though the distraction of the
-words didn't significantly change the reaction times for this group.
+match and non-match conditions, the overall high accuracy of
+\textbf{86.4\%} suggests that the participants did successfully engage
+in cognitive control to ignore the word's meaning, even though the
+distraction of the words didn't significantly change the reaction times
+for this group.
 
 Two major limitations of this study were the small count of 10 words per
 Trial, for a total of 3 trials, and the small sample size. Furthermore,

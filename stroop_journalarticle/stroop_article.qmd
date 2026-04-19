@@ -84,135 +84,105 @@ The overall results including both congruent and incongruent words were analyzed
 
 ## Christina anova
 
-```{python}
-import pandas as pd
-import numpy as np
-from statsmodels.formula.api import ols
-from statsmodels.stats.anova import AnovaRM
-import pingouin as pg
-from scipy import stats
+```{r setup, include=FALSE}
 
-# Read the data
-data = pd.read_csv("Stroop_Task_P390_W26/Data/Updated Stroop results - Sheet1.csv")
+data <- read.csv("../Data/Updated Stroop results - Sheet1.csv")
+colnames(data) <- trimws(colnames(data))
+names(data) <- tolower(names(data))
+names(data) <- gsub("\\.", "_", names(data))
+names(data) <- gsub("_+", "_", names(data))
 
-# Clean column names
-data.columns = data.columns.str.strip()
+names(data)[names(data) == "participant"] <- "participant"
+names(data)[names(data) == "trial"] <- "trial"
+names(data)[names(data) == "match"] <- "match"
+names(data)[names(data) == "reaction_time_ms"] <- "reaction_time"
+names(data)[names(data) == "accuracy"] <- "accuracy"
 
-# Rename columns for easier use
-data = data.rename(columns={
-    'Participant': 'participant',
-    'Trial': 'trial',
-    'Match': 'match',
-    'Reaction Time (ms)': 'reaction_time',
-    'Accuracy': 'accuracy'
-})
+data$participant <- as.factor(data$participant)
+data$trial <- as.factor(data$trial)
+data$match <- as.factor(data$match)
 
-# Filter out summary rows (keep only P1, P2, etc.)
-data = data[data['participant'].astype(str).str.match(r'^P\d+$', na=False)]
+data$reaction_time <- as.numeric(data$reaction_time)
+data$accuracy <- as.numeric(data$accuracy)
 
-# Convert to numeric and clean
-data['reaction_time'] = pd.to_numeric(data['reaction_time'], errors='coerce')
-data['trial'] = pd.to_numeric(data['trial'], errors='coerce')
-data['match'] = data['match'].astype(bool).astype(int)  # True=1, False=0
+agg_data <- aggregate(
+  cbind(reaction_time, accuracy) ~ participant + trial + match,
+  data = data,
+  FUN = mean,
+  na.rm = TRUE
+)
 
-# Convert to categorical variables
-data['participant'] = data['participant'].astype('category')
-data['trial'] = data['trial'].astype('category')
-data['match'] = data['match'].astype('category')
+aov_rt <- aov(
+  reaction_time ~ match * trial + Error(participant/(match * trial)),
+  data = agg_data
+)
 
-# Calculate descriptive statistics
-mean_rt = data['reaction_time'].mean()
-sd_rt = data['reaction_time'].std()
+summary_rt <- summary(aov_rt)
 
-# Means by match condition
-rt_by_match = data.groupby('match')['reaction_time'].agg(['mean', 'std', 'count']).round(2)
+aov_acc <- aov(
+  accuracy ~ match * trial + Error(participant/(match * trial)),
+  data = agg_data
+)
 
-# Run within-subjects ANOVA using pingouin (simpler)
-aov_rm = pg.rm_anova(data=data, 
-                     dv='reaction_time', 
-                     within=['match', 'trial'], 
-                     subject='participant',
-                     detailed=True)
+summary_acc <- summary(aov_acc)
 
-# Extract individual effects
-match_effect = aov_rm[aov_rm['Source'] == 'match']
-trial_effect = aov_rm[aov_rm['Source'] == 'trial']
-interaction_effect = aov_rm[aov_rm['Source'] == 'match * trial']
+#RT
+# Match effect
+match_rt <- summary_rt[["Error: participant:match"]][[1]]
 
-# Extract values for match effect
-f_match = match_effect['F'].values[0]
-df1_match = int(match_effect['DF1'].values[0])
-df2_match = int(match_effect['DF2'].values[0])
-p_match = match_effect['p-unc'].values[0]
-eta_match = match_effect['np2'].values[0]
+F_match_rt <- match_rt["match", "F value"]
+p_match_rt <- match_rt["match", "Pr(>F)"]
+df1_match_rt <- match_rt["match", "Df"]
+df2_match_rt <- match_rt["Residuals", "Df"]
 
-# Extract values for trial effect
-f_trial = trial_effect['F'].values[0]
-df1_trial = int(trial_effect['DF1'].values[0])
-df2_trial = int(trial_effect['DF2'].values[0])
-p_trial = trial_effect['p-unc'].values[0]
-eta_trial = trial_effect['np2'].values[0]
+# Trial effect
+trial_rt <- summary_rt[["Error: participant:trial"]][[1]]
+F_trial_rt <- trial_rt["trial", "F value"]
+p_trial_rt <- trial_rt["trial", "Pr(>F)"]
+df1_trial_rt <- trial_rt["trial", "Df"]
+df2_trial_rt <- trial_rt["Residuals", "Df"]
 
-# Extract values for interaction
-f_interaction = interaction_effect['F'].values[0]
-df1_interaction = int(interaction_effect['DF1'].values[0])
-df2_interaction = int(interaction_effect['DF2'].values[0])
-p_interaction = interaction_effect['p-unc'].values[0]
-eta_interaction = interaction_effect['np2'].values[0]
+# Interaction
+interaction_rt <- summary_rt[["Error: participant:match:trial"]][[1]]
 
-# Helper function for p-value formatting
-def format_p(p):
-    if p < 0.001:
-        return "< .001"
-    else:
-        return f"= {p:.3f}"
+F_int_rt <- interaction_rt["match:trial", "F value"]
+p_int_rt <- interaction_rt["match:trial", "Pr(>F)"]
+df1_int_rt <- interaction_rt["match:trial", "Df"]
+df2_int_rt <- interaction_rt["Residuals", "Df"]
 
-# Create formatted strings for inline reporting
-match_result = f"F({df1_match}, {df2_match}) = {f_match:.2f}, p {format_p(p_match)}, η² = {eta_match:.3f}"
-trial_result = f"F({df1_trial}, {df2_trial}) = {f_trial:.2f}, p {format_p(p_trial)}, η² = {eta_trial:.3f}"
-interaction_result = f"F({df1_interaction}, {df2_interaction}) = {f_interaction:.2f}, p {format_p(p_interaction)}, η² = {eta_interaction:.3f}"
+#Accuracy
+# Match
+match_acc <- summary_acc[["Error: participant:match"]][[1]]
 
-# Create a formatted ANOVA table for display
-aov_table = aov_rm[['Source', 'SS', 'DF1', 'DF2', 'MS', 'F', 'p-unc', 'np2']].round(3)
-aov_table['p-unc'] = aov_table['p-unc'].apply(lambda x: f"{x:.3f}" if x >= 0.001 else "< .001")
-aov_table['Source'] = aov_table['Source'].replace({
-    'match': 'Match',
-    'trial': 'Trial', 
-    'match * trial': 'Match × Trial'
-})
+F_match_acc <- match_acc["match", "F value"]
+p_match_acc <- match_acc["match", "Pr(>F)"]
+df1_match_acc <- match_acc["match", "Df"]
+df2_match_acc <- match_acc["Residuals", "Df"]
+
+# Trial
+trial_acc <- summary_acc[["Error: participant:trial"]][[1]]
+F_trial_acc <- trial_acc["trial", "F value"]
+p_trial_acc <- trial_acc["trial", "Pr(>F)"]
+df1_trial_acc <- trial_acc["trial", "Df"]
+df2_trial_acc <- trial_acc["Residuals", "Df"]
+
+# Interaction
+interaction_acc <- summary_acc[["Error: participant:match:trial"]][[1]]
+
+F_int_acc <- interaction_acc["match:trial", "F value"]
+p_int_acc <- interaction_acc["match:trial", "Pr(>F)"]
+df1_int_acc <- interaction_acc["match:trial", "Df"]
+df2_int_acc <- interaction_acc["Residuals", "Df"]
 ```
 
 
-### Reaction Time by Match Condition
-
-```{python}
-#| echo: false
-print(rt_by_match)
-```
-
-### Within-Subjects ANOVA Results
-
-```{python}
-#| echo: false
-print("\n### Table 1. Repeated Measures ANOVA\n")
-print(aov_table.to_string(index=False))
-```
-
-### Inferential Statistics
-
-A 2 (Match: congruent vs. incongruent) × 3 (Trial: 1, 2, 3) within-subjects ANOVA was conducted on reaction times.
-
-- The main effect of Match condition was `{match_result}`.
-- The main effect of Trial was `{trial_result}`.
-- The Match × Trial interaction was `{interaction_result}`.
-
-In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1,15) = `python match_result`, p = `python format_p`), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial came just short of reaching a significant main effect (F(2,30) = `python_trial_result`, p = 0.056). Although trial did not reach statistical significance, this suggests there is a possible trend in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2,30) = `python interaction_result`, p = 0.758), meaning there is no significant effect of congruency on reaction time across time. Despite the potential trend of the trial condition, the results of this ANOVA found no significant main effects of congruency on reaction time.
+In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(`r df1_match_rt`, `r df2_match_rt`)=`r round(F_match_rt,2)`, p `r ifelse(p_match_rt < .001, "<.001", paste0("=", sprintf("%.3f", p_match_rt)))`), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial came just short of reaching a significant main effect (F(`r df1_trial_rt`, `r df2_trial_rt`) = `r round(F_trial_rt, 2)`, p `r ifelse(p_trial_rt < .001, "< .001", paste0("= ", sprintf("%.3f", p_trial_rt)))`). Although trial did not reach statistical significance, this suggests there is a possible trend in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(`r df1_int_rt`, `r df2_int_rt`) = `r round(F_int_rt, 2)`, p `r ifelse(p_int_rt < .001, "< .001", paste0("= ", sprintf("%.3f", p_int_rt)))`), meaning there is no significant effect of congruency on reaction time across time. Despite the potential trend of the trial condition, the results of this ANOVA found no significant main effects of congruency on reaction time.
 
 
 ## Interaction between congruency and trial on accuracy
 
 ## hopefully daniella can adapt from above to here if it works
-In order to analyze the effect of trial and congruency on accuracy, a 2way repeated measures ANOVA was conducted. Demonstrated in Table 2, similar to the results of the first ANOVA conducted, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1,15) = 2.479, p = 0.136), meaning there was no significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2,30) = 1.128, p = 0.337), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(2,30) = 0.488, p = 0.619), meaning there is no significant effect of congruency on accuracy across time. Like the results of the previous ANOVA, there were no significant main effects of congruency on accuracy.
+In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 2, similar to the results of the first ANOVA conducted, the results yielded insignificant effects. There was no significant main effect found of congruency (F(`r df1_match_acc`, `r df2_match_acc`) = `r round(F_match_acc, 2)`, p `r ifelse(p_match_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_match_acc)))`), meaning there was no significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(`r df1_trial_acc`, `r df2_trial_acc`) = `r round(F_trial_acc, 2)`, p `r ifelse(p_trial_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_trial_acc)))`), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(`r df1_int_acc`, `r df2_int_acc`) = `r round(F_int_acc, 2)`, p `r ifelse(p_int_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_int_acc)))`), meaning there is no significant effect of congruency on accuracy across time. Like the results of the previous ANOVA, there were no significant main effects of congruency on accuracy.
 
 
 
@@ -326,11 +296,20 @@ In order to analyze the effects of trial and congruency on reaction time, a 2-wa
 
 ## christina anova table
 
-```{r show-anova, results='asis'}
-cat("### Table 1. Repeated Measures ANOVA Results\n\n")
-print(summary_rt)
-```
+```{r setup1, echo=FALSE}
+rt_table <- data.frame(
+  Effect = c("Match", "Trial", "Match × Trial"),
+  DFn = c(df1_match_rt, df1_trial_rt, df1_int_rt),
+  DFd = c(df2_match_rt, df2_trial_rt, df2_int_rt),
+  F = round(c(F_match_rt, F_trial_rt, F_int_rt), 2),
+  p = c(p_match_rt, p_trial_rt, p_int_rt)
+)
 
+# Format p-values
+rt_table$p <- ifelse(rt_table$p < 0.001, "< .001", sprintf("%.3f", rt_table$p))
+
+rt_table
+```
 
 ```{python}
 #| echo: false
@@ -355,10 +334,26 @@ rt_table
 
 ## Interaction between congruency and trial on accuracy
 
-## hopefully daniella can adapt from above to here if it works
+## hopefully daniella can adapt from above TABLE to here if it works
 In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-acc-anova, similar to the results of the first ANOVA conducted, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1,15) = 2.479, p = 0.136), meaning there was no significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2,30) = 1.128, p = 0.337), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(2,30) = 0.488, p = 0.619), meaning there is no significant effect of congruency on accuracy across time. Like the results of the previous ANOVA, there were no significant main effects of congruency on accuracy.
 
-## hopefully daniella can adapt from above TABLE to here if it works
+```{r setup2, echo=FALSE}
+acc_table <- data.frame(
+  Effect = c("Match", "Trial", "Match × Trial"),
+  DFn = c(df1_match_acc, df1_trial_acc, df1_int_acc),
+  DFd = c(df2_match_acc, df2_trial_acc, df2_int_acc),
+  F = round(c(F_match_acc, F_trial_acc, F_int_acc), 2),
+  p = c(p_match_acc, p_trial_acc, p_int_acc)
+)
+
+# Format p-values
+acc_table$p <- ifelse(acc_table$p < 0.001, "< .001", sprintf("%.3f", acc_table$p))
+
+acc_table
+```
+
+
+
 ```{python}
 #| echo: false
 #| label: tbl-acc-anova
