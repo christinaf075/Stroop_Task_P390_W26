@@ -380,8 +380,9 @@ p = np.poly1d(coefficients)
 ax.scatter(trials, mean_RT, color="white", edgecolors="black", zorder=3)
 ax.plot(trials_number, p(trials_number), "--", color="black")
 ax.set_xticks(trials_number, trials); 
-ax.set_xlabel("Trials")
-ax.set_ylabel("Reaction Time (seconds)")
+ax.set_xlabel("Trials"); 
+ax.set_ylabel("Reaction Time (seconds)"); 
+plt.tight_layout()
 plt.show()
 ```
 
@@ -402,9 +403,9 @@ trials_number =np.arange(len(trials))
 width = 0.35
 plt.bar(trials_number-width/2, congruent, width,label="Congruent", color="grey", edgecolor="black")
 plt.bar(trials_number+width/2, incongruent, width,label="Incongruent", color="white", edgecolor="black")
-plt.xlabel("Trials")
-plt.ylabel("Reaction Time (seconds)")
-plt.xticks(trials_number, trials)
+plt.xlabel("Trials"); 
+plt.ylabel("Reaction Time (seconds)"); 
+plt.xticks(trials_number, trials); 
 plt.legend()
 plt.tight_layout()
 plt.show()
@@ -427,11 +428,12 @@ mean_acc = [0.82, 0.87, 0.9]
 trials_number =np.arange(len(trials))
 coefficients = np.polyfit(trials_number, mean_acc, 1)
 p = np.poly1d(coefficients)
-ax.scatter(trials, mean_RT, color="white", edgecolors="black", zorder=3)
+ax.scatter(trials, mean_acc, color="white", edgecolors="black", zorder=3)
 ax.plot(trials_number, p(trials_number), "--", color="black")
 ax.set_xticks(trials_number, trials); 
-ax.set_xlabel("Trials")
-ax.set_ylabel("Mean Accuracy Rate")
+ax.set_xlabel("Trials"); 
+ax.set_ylabel("Mean Accuracy Rate"); 
+plt.tight_layout()
 plt.show()
 ```
 
@@ -443,6 +445,7 @@ plt.show()
 #| fig-height: 2
 import numpy as np
 import matplotlib.pyplot as plt
+
 fig, ax = plt.subplots(figsize=(4, 3))
 trials = ["Trial 1", "Trial 2", "Trial 3"]
 cong = [0.92, 0.87, 0.97]
@@ -450,15 +453,13 @@ incong = [0.76, 0.83, 0.85]
 
 trials_number = np.arange(len(trials))
 width = 0.35
-plt.bar(trials_number-width/2, congruent, width,label="Congruent", color="grey", edgecolor="black")
-plt.bar(trials_number+width/2, incongruent, width,label="Incongruent", color="white", edgecolor="black")
-plt.bar(trials_number-width/2, cong, width, label="Congruent")
-plt.bar(trials_number+width/2, incong, width, label="Incongruent")
-plt.xlabel("Trials")
-plt.ylabel("Accuracy Rate")
-plt.xticks(trials_number, trials)
+plt.bar(trials_number-width/2, cong, width,label="Congruent", color="grey", edgecolor="black")
+plt.bar(trials_number+width/2, incong, width,label="Incongruent", color="white", edgecolor="black")
+plt.xlabel("Trials"); 
+plt.ylabel("Accuracy Rate"); 
+plt.xticks(trials_number, trials); 
 plt.ylim(0, 1.3)
-plt.legend()
+plt.legend(loc="upper right")
 plt.tight_layout()
 plt.show()
 ```
