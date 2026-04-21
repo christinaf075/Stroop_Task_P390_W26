@@ -36,6 +36,7 @@ format:
       name: Journal Name
       formatting: preprint
       cite-style: authoryear
+engine: python
 ---
 
 # Introduction
@@ -66,6 +67,8 @@ Two 2-way repeated measures ANOVA tests were performed examining the main effect
 
 # Results
 Two participants were excluded due to the random occurence of having trials where words were either all congruent or incongruent (no differences in congruency).
+
+
 
 
 ::: {.cell}
@@ -227,7 +230,7 @@ Two participants were excluded due to the random occurence of having trials wher
 
 
 ## Reaction Time - Main Effects of Trial and Congruency
-The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about `python mean_rt` seconds. Shown in @fig-rt-overall, reaction time decreased sharply between Trial 1 (M = `python trial1_rt`s) and Trial 2 (M = `python trial2_rt`s) before evening out in Trial 3 (M = `python trial3_rt`s). @fig-rt-congruency demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about `python match_rt` seconds while the mean reaction time for incongruent words across all trials was about `python nonmatch_rt` seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = `python match1_rt`s) was higher than that of incongruent words (M = `python nonmatch1_rt`s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = `python match2_rt`s) ended up lower than incongruent words (M = `python nonmatch2_rt`s). Trial 3 followed this same trend with congruent words (M = `python match3_rt`s) being lower than incongruent words (M = `python nonmatch3_rt`s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
+The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about 1.28 seconds. Shown in @fig-rt-overall, reaction time decreased sharply between Trial 1 (M = 1.63s) and Trial 2 (M = 1.1s) before evening out in Trial 3 (M = 1.1s). @fig-rt-congruency demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about 1.18 seconds while the mean reaction time for incongruent words across all trials was about 1.28 seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = 1.63s) was higher than that of incongruent words (M = 1.56s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = 0.92s) ended up lower than incongruent words (M = 1.16s). Trial 3 followed this same trend with congruent words (M = 1.01s) being lower than incongruent words (M = 1.14s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
 
 
 ::: {.cell}
@@ -239,15 +242,6 @@ The overall results including both congruent and incongruent words were analyzed
 
 
 ::: {.cell}
-::: {.cell-output .cell-output-stdout}
-
-```
-([<matplotlib.axis.XTick object at 0x7a06f52c0d30>, <matplotlib.axis.XTick object at 0x7a06f52c1690>, <matplotlib.axis.XTick object at 0x7a06f529f970>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
-```
-
-
-:::
-
 ::: {.cell-output-display}
 ![Effects of Congruency on Reaction Time](stroop_article_files/figure-pdf/fig-rt-congruency-3.pdf){#fig-rt-congruency}
 :::
@@ -255,7 +249,7 @@ The overall results including both congruent and incongruent words were analyzed
 
 
 ## Accuracy - Main Effects of Trial and Congruency
-The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about `python mean_accuracy`. Shown in @fig-acc-overall, accuracy in Trial 1 starts off fairly low (M = `python trial1_acc`%) and rises steadily through Trial 2 (M = `python trial2_acc`%) and reaches a peak at Trial 3 (M = `python trial3_acc`%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about `python match_acc`%, where incongruent words ended up with a mean accuracy of about `python nonmatch_acc`%. @fig-acc-congruency demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = `python match1_acc`%) and incongruent words (M = `python nonmatch1_acc`%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = `python match2_acc`%) and a rise in incongruent accuracy (M = `python nonmatch2_acc`%). However, Trial 3 saw a rise in both congruent accuracy (M = `python match3_acc`%) and incongruent accuracy (M = `python nonmatch3_acc`%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
+The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about 0.86. Shown in @fig-acc-overall, accuracy in Trial 1 starts off fairly low (M = 0.82%) and rises steadily through Trial 2 (M = 0.88%) and reaches a peak at Trial 3 (M = 0.9%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about 0.92%, where incongruent words ended up with a mean accuracy of about 0.81%. @fig-acc-congruency demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = 0.92%) and incongruent words (M = 0.76%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = 0.88%) and a rise in incongruent accuracy (M = 0.83%). However, Trial 3 saw a rise in both congruent accuracy (M = 0.97%) and incongruent accuracy (M = 0.85%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
 
 
 ::: {.cell}
@@ -270,15 +264,6 @@ The overall results including both congruent and incongruent words were analyzed
 ::: {.cell-output .cell-output-stdout}
 
 ```
-([<matplotlib.axis.XTick object at 0x7a06f52f7610>, <matplotlib.axis.XTick object at 0x7a06f5336b00>, <matplotlib.axis.XTick object at 0x7a06f53128c0>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stdout}
-
-```
 (0.0, 1.3)
 ```
 
@@ -289,8 +274,6 @@ The overall results including both congruent and incongruent words were analyzed
 ![Effects of Congruency on Accuracy](stroop_article_files/figure-pdf/fig-acc-congruency-7.pdf){#fig-acc-congruency}
 :::
 :::
-
-
 
 
 ## Reaction Time - Interaction effects between trial and congruency
