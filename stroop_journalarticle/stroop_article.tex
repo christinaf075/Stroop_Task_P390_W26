@@ -64,46 +64,6 @@
 \fi
 \makeatother
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
@@ -367,9 +327,9 @@ reaction time and accuracy as well.
 
 \section{Results}\label{results}
 
-All of the data from the study was included in the results, including
-outliers such as participants with extremely high reaction times or
-extremely poor accuracy.
+Two participants were excluded due to the random occurence of having
+trials where words were either all congruent or incongruent (no
+differences in congruency).
 
 \subsection{Reaction Time - Overall vs Congruent vs
 Incongruent}\label{reaction-time---overall-vs-congruent-vs-incongruent}
@@ -427,36 +387,27 @@ time, a 2-way repeated measures ANOVA was conducted. Demonstrated in
 Table 1, the results yielded insignificant effects. There was no
 significant main effect found of congruency (F(1, 13)=0.07, p =0.799),
 meaning there was not a noticeable difference of reaction time between
-congruent and incongruent conditions. Trial came just short of reaching
-a significant main effect (F(2, 28) = 3.36, p = 0.049). Although trial
-did not reach statistical significance, this suggests there is a
-possible trend in reaction time among trials. In addition, the
+congruent and incongruent conditions. Trial had a significant main
+effect (F(2, 28) = 3.36, p = 0.049). This suggests there is a
+significant change in reaction time among trials. In addition, the
 interaction between congruency and trial showed no significance (F(2,
 28) = 0.29, p = 0.752), meaning there is no significant effect of
-congruency on reaction time across time. Despite the potential trend of
-the trial condition, the results of this ANOVA found no significant main
-effects of congruency on reaction time.
+congruency on reaction time across time.
 
 \subsection{Interaction between congruency and trial on
 accuracy}\label{interaction-between-congruency-and-trial-on-accuracy}
 
-\subsection{hopefully daniella can adapt from above to here if it
-works}\label{hopefully-daniella-can-adapt-from-above-to-here-if-it-works}
-
 In order to analyze the effect of trial and congruency on accuracy, a
 2-way repeated measures ANOVA was conducted. Demonstrated in Table 2,
-similar to the results of the first ANOVA conducted, the results yielded
-insignificant effects. There was no significant main effect found of
-congruency (F(1, 13) = 5.69, p = 0.033), meaning there was no
-significant difference of accuracy between congruent and incongruent
-trials. There was no significant main effect found of trial (F(2, 28) =
-0.48, p = 0.621), meaning accuracy did not noticeably differ between
-trials. Unlike the previous ANOVA where trial had a slight trend, this
-one did not provide a trend of trial. Additionally, the interaction
-between congruency and trial showed no significance (F(2, 28) = 1.86, p
-= 0.175), meaning there is no significant effect of congruency on
-accuracy across time. Like the results of the previous ANOVA, there were
-no significant main effects of congruency on accuracy.
+there was a significant main effect found of congruency (F(1, 13) =
+5.69, p = 0.033), meaning there was a significant difference of accuracy
+between congruent and incongruent trials. There was no significant main
+effect found of trial (F(2, 28) = 0.48, p = 0.621), meaning accuracy did
+not noticeably differ between trials. Unlike the previous ANOVA where
+trial had a slight trend, this one did not provide a trend of trial.
+Additionally, the interaction between congruency and trial showed no
+significance (F(2, 28) = 1.86, p = 0.175), meaning there is no
+significant effect of congruency on accuracy across time.
 
 \begin{figure}[H]
 
@@ -472,7 +423,7 @@ Trials}
 \end{figure}%
 
 \begin{verbatim}
-([<matplotlib.axis.XTick object at 0x745ca407b070>, <matplotlib.axis.XTick object at 0x745c9f6bd360>, <matplotlib.axis.XTick object at 0x745c9f6fa4d0>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+([<matplotlib.axis.XTick object at 0x7df1cf67b070>, <matplotlib.axis.XTick object at 0x7df1cacb5360>, <matplotlib.axis.XTick object at 0x7df1cacfe4d0>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
 \end{verbatim}
 
 \begin{figure}[H]
@@ -525,7 +476,7 @@ Trials}
 \end{figure}%
 
 \begin{verbatim}
-([<matplotlib.axis.XTick object at 0x745c9f630430>, <matplotlib.axis.XTick object at 0x745c9f631480>, <matplotlib.axis.XTick object at 0x745c9f5bc460>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+([<matplotlib.axis.XTick object at 0x7df1cac30430>, <matplotlib.axis.XTick object at 0x7df1cac31480>, <matplotlib.axis.XTick object at 0x7df1cabc0460>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
 \end{verbatim}
 
 \begin{verbatim}
@@ -547,52 +498,36 @@ Trials}
 \subsection{Interaction between congruency and trial on reaction
 time}\label{interaction-between-congruency-and-trial-on-reaction-time-1}
 
-\subsection{hopefully daniella can adapt from above to here if it
-works}\label{hopefully-daniella-can-adapt-from-above-to-here-if-it-works-1}
-
 In order to analyze the effects of trial and congruency on reaction
 time, a 2-way repeated measures ANOVA was conducted. Demonstrated in
-Table~\ref{tbl-rt-anova}, the results yielded insignificant effects.
-There was no significant main effect found of congruency (F(1,15) =
-0.200, p = 0.661), meaning there was not a noticeable difference of
-reaction time between congruent and incongruent conditions. Trial came
-just short of reaching a significant main effect (F(2,30) = 3.178, p =
-0.056). Although trial did not reach statistical significance, this
-suggests there is a possible trend in reaction time among trials. In
-addition, the interaction between congruency and trial showed no
-significance (F(2,30) = 0.280, p = 0.758), meaning there is no
-significant effect of congruency on reaction time across time. Despite
-the potential trend of the trial condition, the results of this ANOVA
-found no significant main effects of congruency on reaction time.
+\citet{setup1}, the results yielded insignificant effects. There was no
+significant main effect found of congruency (F(1, 13)=0.07, p =0.799),
+meaning there was not a noticeable difference of reaction time between
+congruent and incongruent conditions. Trial had a significant main
+effect (F(2, 28) = 0.48, p = 0.621),suggesting there is a possible trend
+in reaction time among trials. In addition, the interaction between
+congruency and trial showed no significance (F(2, 28) = 1.86, p =
+0.175), meaning there is no significant effect of congruency on reaction
+time across time. Despite the potential trend of the trial condition,
+the results of this ANOVA found no significant main effects of
+congruency on reaction time.
 
-\subsection{christina anova table}\label{christina-anova-table}
-
-\begin{verbatim}
-         Effect DFn DFd    F     p
-1         Match   1  13 0.07 0.799
-2         Trial   2  28 3.36 0.049
-3 Match × Trial   2  28 0.29 0.752
-\end{verbatim}
-
-\begin{table}
-
-\caption{\label{tbl-rt-anova}Repeated Measures ANOVA for Reaction Time}
-
-\centering{
-
-\begin{verbatim}
-                Effect  Sum of Squares  df  Mean Square      F      p
-0           Congruency           0.204   1        0.204  0.200  0.661
-1   Error (Congruency)          15.344  15        1.023    NaN    NaN
-2                Trial           6.035   2        3.017  3.178  0.056
-3        Error (Trial)          28.486  30        0.950    NaN    NaN
-4   Congruency × Trial           0.400   2        0.200  0.280  0.758
-5  Error (Interaction)          21.441  30        0.715    NaN    NaN
-\end{verbatim}
-
-}
-
-\end{table}%
+\begin{longtable}[]{@{}lrrrl@{}}
+\caption{Repeated Measures ANOVA for Reaction Time}\tabularnewline
+\toprule\noalign{}
+Effect & DFn & DFd & F & p \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+Effect & DFn & DFd & F & p \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Match & 1 & 13 & 0.07 & 0.799 \\
+Trial & 2 & 28 & 3.36 & 0.049 \\
+Match × Trial & 2 & 28 & 0.29 & 0.752 \\
+\end{longtable}
 
 \subsection{Interaction between congruency and trial on
 accuracy}\label{interaction-between-congruency-and-trial-on-accuracy-1}
@@ -602,7 +537,7 @@ works}\label{hopefully-daniella-can-adapt-from-above-table-to-here-if-it-works}
 
 In order to analyze the effect of trial and congruency on accuracy, a
 2-way repeated measures ANOVA was conducted. Demonstrated in
-Table~\ref{tbl-acc-anova}, similar to the results of the first ANOVA
+\textbf{?@tbl-acc-anova}, similar to the results of the first ANOVA
 conducted, the results yielded insignificant effects. There was no
 significant main effect found of congruency (F(1,15) = 2.479, p =
 0.136), meaning there was no significant difference of accuracy between
@@ -623,55 +558,9 @@ congruency on accuracy.
 3 Match × Trial   2  28 1.86 0.175
 \end{verbatim}
 
-\begin{table}
-
-\caption{\label{tbl-acc-anova}Repeated Measures ANOVA for Accuracy}
-
-\centering{
-
-\begin{verbatim}
-                Effect  Sum of Squares  df  Mean Square      F      p
-0           Congruency           0.275   1        0.275  2.479  0.136
-1   Error (Congruency)           1.666  15        0.111    NaN    NaN
-2                Trial           0.083   2        0.041  1.128  0.337
-3        Error (Trial)           1.099  30        0.037    NaN    NaN
-4   Congruency × Trial           0.048   2        0.024  0.488  0.619
-5  Error (Interaction)           1.469  30        0.049    NaN    NaN
-\end{verbatim}
-
-}
-
-\end{table}%
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
-
-\NormalTok{data }\OperatorTok{=}\NormalTok{ pd.DataFrame(\{}
-    \StringTok{"reaction\_time"}\NormalTok{: [}\FloatTok{0.681}\NormalTok{, }\FloatTok{0.524}\NormalTok{, }\FloatTok{0.628}\NormalTok{, }\FloatTok{0.769}\NormalTok{, }\FloatTok{0.599}\NormalTok{, }\FloatTok{0.659}\NormalTok{, }\FloatTok{0.610}\NormalTok{, }\FloatTok{0.675}\NormalTok{, }\FloatTok{0.588}\NormalTok{, }\FloatTok{0.678}\NormalTok{, }\FloatTok{0.545}\NormalTok{, }\FloatTok{0.641}\NormalTok{, }\FloatTok{0.576}\NormalTok{, }\FloatTok{0.561}\NormalTok{, }\FloatTok{0.616}\NormalTok{, }\FloatTok{0.580}\NormalTok{, }\FloatTok{0.670}\NormalTok{, }\FloatTok{0.721}\NormalTok{, }\FloatTok{0.801}\NormalTok{, }\FloatTok{0.572}\NormalTok{, }\FloatTok{0.549}\NormalTok{, }\FloatTok{0.743}\NormalTok{, }\FloatTok{0.534}\NormalTok{, }\FloatTok{0.607}\NormalTok{, }\FloatTok{0.603}\NormalTok{, }\FloatTok{0.561}\NormalTok{, }\FloatTok{1.203}\NormalTok{, }\FloatTok{0.577}\NormalTok{, }\FloatTok{0.562}\NormalTok{, }\FloatTok{0.574}\NormalTok{, }\FloatTok{1.231}\NormalTok{, }\FloatTok{1.144}\NormalTok{, }\FloatTok{1.289}\NormalTok{, }\FloatTok{1.160}\NormalTok{, }\FloatTok{1.278}\NormalTok{, }\FloatTok{1.419}\NormalTok{, }\FloatTok{1.241}\NormalTok{, }\FloatTok{2.117}\NormalTok{, }\FloatTok{1.300}\NormalTok{, }\FloatTok{1.519}\NormalTok{, }\FloatTok{1.179}\NormalTok{, }\FloatTok{1.201}\NormalTok{, }\FloatTok{1.641}\NormalTok{, }\FloatTok{1.209}\NormalTok{, }\FloatTok{1.463}\NormalTok{, }\FloatTok{1.917}\NormalTok{, }\FloatTok{1.089}\NormalTok{, }\FloatTok{1.009}\NormalTok{, }\FloatTok{1.075}\NormalTok{, }\FloatTok{1.258}\NormalTok{, }\FloatTok{1.241}\NormalTok{, }\FloatTok{1.302}\NormalTok{, }\FloatTok{1.187}\NormalTok{, }\FloatTok{1.263}\NormalTok{, }\FloatTok{1.493}\NormalTok{, }\FloatTok{1.171}\NormalTok{, }\FloatTok{1.243}\NormalTok{, }\FloatTok{1.349}\NormalTok{, }\FloatTok{2.632}\NormalTok{, }\FloatTok{5.719}\NormalTok{, }\FloatTok{1.430}\NormalTok{, }\FloatTok{13.240}\NormalTok{, }\FloatTok{2.506}\NormalTok{, }\FloatTok{1.480}\NormalTok{, }\FloatTok{13.747}\NormalTok{, }\FloatTok{1.602}\NormalTok{, }\FloatTok{2.473}\NormalTok{, }\FloatTok{0.864}\NormalTok{, }\FloatTok{4.781}\NormalTok{, }\FloatTok{1.184}\NormalTok{, }\FloatTok{1.185}\NormalTok{, }\FloatTok{3.710}\NormalTok{, }\FloatTok{1.517}\NormalTok{, }\FloatTok{1.431}\NormalTok{, }\FloatTok{1.274}\NormalTok{, }\FloatTok{1.523}\NormalTok{, }\FloatTok{1.145}\NormalTok{, }\FloatTok{1.182}\NormalTok{, }\FloatTok{1.794}\NormalTok{, }\FloatTok{1.066}\NormalTok{, }\FloatTok{1.231}\NormalTok{, }\FloatTok{0.970}\NormalTok{, }\FloatTok{0.740}\NormalTok{, }\FloatTok{0.820}\NormalTok{, }\FloatTok{0.906}\NormalTok{, }\FloatTok{0.775}\NormalTok{, }\FloatTok{0.841}\NormalTok{, }\FloatTok{1.447}\NormalTok{, }\FloatTok{0.716}\NormalTok{, }\FloatTok{0.839}\NormalTok{, }\FloatTok{0.992}\NormalTok{, }\FloatTok{0.549}\NormalTok{, }\FloatTok{1.048}\NormalTok{, }\FloatTok{0.718}\NormalTok{, }\FloatTok{0.726}\NormalTok{, }\FloatTok{1.225}\NormalTok{, }\FloatTok{0.915}\NormalTok{, }\FloatTok{0.761}\NormalTok{, }\FloatTok{0.779}\NormalTok{, }\FloatTok{0.705}\NormalTok{, }\FloatTok{0.703}\NormalTok{, }\FloatTok{0.753}\NormalTok{, }\FloatTok{0.763}\NormalTok{, }\FloatTok{0.796}\NormalTok{, }\FloatTok{0.708}\NormalTok{, }\FloatTok{0.870}\NormalTok{, }\FloatTok{1.080}\NormalTok{, }\FloatTok{0.842}\NormalTok{, }\FloatTok{0.847}\NormalTok{, }\FloatTok{1.066}\NormalTok{, }\FloatTok{0.698}\NormalTok{, }\FloatTok{0.787}\NormalTok{, }\FloatTok{0.689}\NormalTok{, }\FloatTok{0.753}\NormalTok{, }\FloatTok{0.716}\NormalTok{, }\FloatTok{0.822}\NormalTok{, }\FloatTok{0.730}\NormalTok{, }\FloatTok{0.770}\NormalTok{, }\FloatTok{0.835}\NormalTok{, }\FloatTok{1.102}\NormalTok{, }\FloatTok{1.015}\NormalTok{, }\FloatTok{0.920}\NormalTok{, }\FloatTok{1.192}\NormalTok{, }\FloatTok{0.839}\NormalTok{, }\FloatTok{0.717}\NormalTok{, }\FloatTok{1.244}\NormalTok{, }\FloatTok{1.029}\NormalTok{, }\FloatTok{1.358}\NormalTok{, }\FloatTok{1.244}\NormalTok{, }\FloatTok{0.976}\NormalTok{, }\FloatTok{0.894}\NormalTok{, }\FloatTok{0.866}\NormalTok{, }\FloatTok{0.842}\NormalTok{, }\FloatTok{0.831}\NormalTok{, }\FloatTok{0.584}\NormalTok{, }\FloatTok{0.688}\NormalTok{, }\FloatTok{1.370}\NormalTok{, }\FloatTok{0.846}\NormalTok{, }\FloatTok{0.611}\NormalTok{, }\FloatTok{0.645}\NormalTok{, }\FloatTok{0.777}\NormalTok{, }\FloatTok{1.001}\NormalTok{, }\FloatTok{0.756}\NormalTok{, }\FloatTok{0.782}\NormalTok{, }\FloatTok{1.039}\NormalTok{, }\FloatTok{1.008}\NormalTok{, }\FloatTok{0.845}\NormalTok{, }\FloatTok{0.918}\NormalTok{, }\FloatTok{0.764}\NormalTok{, }\FloatTok{0.664}\NormalTok{, }\FloatTok{0.803}\NormalTok{, }\FloatTok{0.839}\NormalTok{, }\FloatTok{0.664}\NormalTok{, }\FloatTok{0.645}\NormalTok{, }\FloatTok{0.831}\NormalTok{, }\FloatTok{0.624}\NormalTok{, }\FloatTok{0.727}\NormalTok{, }\FloatTok{0.684}\NormalTok{, }\FloatTok{0.704}\NormalTok{, }\FloatTok{0.593}\NormalTok{, }\FloatTok{0.557}\NormalTok{, }\FloatTok{0.583}\NormalTok{, }\FloatTok{0.632}\NormalTok{, }\FloatTok{0.603}\NormalTok{, }\FloatTok{0.563}\NormalTok{, }\FloatTok{0.766}\NormalTok{, }\FloatTok{9.214}\NormalTok{, }\FloatTok{0.751}\NormalTok{, }\FloatTok{0.613}\NormalTok{, }\FloatTok{0.643}\NormalTok{, }\FloatTok{1.820}\NormalTok{, }\FloatTok{1.196}\NormalTok{, }\FloatTok{1.316}\NormalTok{, }\FloatTok{1.128}\NormalTok{, }\FloatTok{1.015}\NormalTok{, }\FloatTok{1.010}\NormalTok{, }\FloatTok{0.785}\NormalTok{, }\FloatTok{0.900}\NormalTok{, }\FloatTok{0.712}\NormalTok{, }\FloatTok{0.898}\NormalTok{, }\FloatTok{1.037}\NormalTok{, }\FloatTok{1.427}\NormalTok{, }\FloatTok{0.807}\NormalTok{, }\FloatTok{0.725}\NormalTok{, }\FloatTok{1.742}\NormalTok{, }\FloatTok{0.847}\NormalTok{, }\FloatTok{0.807}\NormalTok{, }\FloatTok{0.925}\NormalTok{, }\FloatTok{0.770}\NormalTok{, }\FloatTok{1.284}\NormalTok{, }\FloatTok{0.932}\NormalTok{, }\FloatTok{1.032}\NormalTok{, }\FloatTok{0.742}\NormalTok{, }\FloatTok{1.179}\NormalTok{, }\FloatTok{0.952}\NormalTok{, }\FloatTok{0.792}\NormalTok{, }\FloatTok{0.835}\NormalTok{, }\FloatTok{0.900}\NormalTok{, }\FloatTok{0.849}\NormalTok{, }\FloatTok{0.810}\NormalTok{, }\FloatTok{0.819}\NormalTok{, }\FloatTok{0.737}\NormalTok{, }\FloatTok{0.685}\NormalTok{, }\FloatTok{0.642}\NormalTok{, }\FloatTok{0.522}\NormalTok{, }\FloatTok{0.543}\NormalTok{, }\FloatTok{0.699}\NormalTok{, }\FloatTok{0.706}\NormalTok{, }\FloatTok{1.548}\NormalTok{, }\FloatTok{0.965}\NormalTok{, }\FloatTok{1.521}\NormalTok{, }\FloatTok{1.206}\NormalTok{, }\FloatTok{1.081}\NormalTok{, }\FloatTok{2.590}\NormalTok{, }\FloatTok{1.021}\NormalTok{, }\FloatTok{0.972}\NormalTok{, }\FloatTok{0.990}\NormalTok{, }\FloatTok{0.856}\NormalTok{, }\FloatTok{0.996}\NormalTok{, }\FloatTok{1.090}\NormalTok{, }\FloatTok{0.922}\NormalTok{, }\FloatTok{0.780}\NormalTok{, }\FloatTok{0.933}\NormalTok{, }\FloatTok{1.015}\NormalTok{, }\FloatTok{1.193}\NormalTok{, }\FloatTok{0.937}\NormalTok{, }\FloatTok{0.817}\NormalTok{, }\FloatTok{0.984}\NormalTok{, }\FloatTok{0.965}\NormalTok{, }\FloatTok{0.862}\NormalTok{, }\FloatTok{0.757}\NormalTok{, }\FloatTok{0.835}\NormalTok{, }\FloatTok{0.759}\NormalTok{, }\FloatTok{0.799}\NormalTok{, }\FloatTok{1.019}\NormalTok{, }\FloatTok{0.768}\NormalTok{, }\FloatTok{1.190}\NormalTok{, }\FloatTok{1.112}\NormalTok{, }\FloatTok{0.937}\NormalTok{, }\FloatTok{0.963}\NormalTok{, }\FloatTok{1.677}\NormalTok{, }\FloatTok{1.377}\NormalTok{, }\FloatTok{1.346}\NormalTok{, }\FloatTok{1.572}\NormalTok{, }\FloatTok{1.425}\NormalTok{, }\FloatTok{1.448}\NormalTok{, }\FloatTok{1.450}\NormalTok{, }\FloatTok{1.309}\NormalTok{, }\FloatTok{1.679}\NormalTok{, }\FloatTok{1.736}\NormalTok{, }\FloatTok{1.175}\NormalTok{, }\FloatTok{0.966}\NormalTok{, }\FloatTok{1.016}\NormalTok{, }\FloatTok{1.118}\NormalTok{, }\FloatTok{1.731}\NormalTok{, }\FloatTok{1.463}\NormalTok{, }\FloatTok{1.233}\NormalTok{, }\FloatTok{1.458}\NormalTok{, }\FloatTok{1.445}\NormalTok{, }\FloatTok{1.135}\NormalTok{, }\FloatTok{1.015}\NormalTok{, }\FloatTok{1.430}\NormalTok{, }\FloatTok{1.540}\NormalTok{, }\FloatTok{0.863}\NormalTok{, }\FloatTok{0.991}\NormalTok{, }\FloatTok{0.784}\NormalTok{, }\FloatTok{1.070}\NormalTok{, }\FloatTok{1.125}\NormalTok{, }\FloatTok{0.968}\NormalTok{, }\FloatTok{1.594}\NormalTok{, }\FloatTok{1.088}\NormalTok{, }\FloatTok{1.069}\NormalTok{, }\FloatTok{0.690}\NormalTok{, }\FloatTok{19.209}\NormalTok{, }\FloatTok{0.988}\NormalTok{, }\FloatTok{0.756}\NormalTok{, }\FloatTok{1.378}\NormalTok{, }\FloatTok{0.922}\NormalTok{, }\FloatTok{0.707}\NormalTok{, }\FloatTok{0.799}\NormalTok{, }\FloatTok{0.762}\NormalTok{, }\FloatTok{0.750}\NormalTok{, }\FloatTok{0.904}\NormalTok{, }\FloatTok{3.663}\NormalTok{, }\FloatTok{0.750}\NormalTok{, }\FloatTok{0.886}\NormalTok{, }\FloatTok{0.595}\NormalTok{, }\FloatTok{0.859}\NormalTok{, }\FloatTok{0.605}\NormalTok{, }\FloatTok{1.037}\NormalTok{, }\FloatTok{0.785}\NormalTok{, }\FloatTok{0.743}\NormalTok{, }\FloatTok{0.690}\NormalTok{, }\FloatTok{0.805}\NormalTok{, }\FloatTok{0.606}\NormalTok{, }\FloatTok{0.603}\NormalTok{, }\FloatTok{0.902}\NormalTok{, }\FloatTok{0.736}\NormalTok{, }\FloatTok{0.624}\NormalTok{, }\FloatTok{0.837}\NormalTok{, }\FloatTok{1.656}\NormalTok{, }\FloatTok{1.607}\NormalTok{, }\FloatTok{1.953}\NormalTok{, }\FloatTok{1.445}\NormalTok{, }\FloatTok{3.871}\NormalTok{, }\FloatTok{1.588}\NormalTok{, }\FloatTok{1.754}\NormalTok{, }\FloatTok{1.168}\NormalTok{, }\FloatTok{1.771}\NormalTok{, }\FloatTok{1.876}\NormalTok{, }\FloatTok{1.014}\NormalTok{, }\FloatTok{1.068}\NormalTok{, }\FloatTok{1.180}\NormalTok{, }\FloatTok{0.967}\NormalTok{, }\FloatTok{1.034}\NormalTok{, }\FloatTok{1.223}\NormalTok{, }\FloatTok{2.154}\NormalTok{, }\FloatTok{3.485}\NormalTok{, }\FloatTok{1.761}\NormalTok{, }\FloatTok{3.024}\NormalTok{, }\FloatTok{1.033}\NormalTok{, }\FloatTok{2.738}\NormalTok{, }\FloatTok{1.085}\NormalTok{, }\FloatTok{1.052}\NormalTok{, }\FloatTok{1.168}\NormalTok{, }\FloatTok{1.092}\NormalTok{, }\FloatTok{1.421}\NormalTok{, }\FloatTok{1.584}\NormalTok{, }\FloatTok{2.055}\NormalTok{, }\FloatTok{1.491}\NormalTok{, }\FloatTok{0.734}\NormalTok{, }\FloatTok{0.843}\NormalTok{, }\FloatTok{0.874}\NormalTok{, }\FloatTok{0.914}\NormalTok{, }\FloatTok{0.945}\NormalTok{, }\FloatTok{0.826}\NormalTok{, }\FloatTok{0.833}\NormalTok{, }\FloatTok{0.782}\NormalTok{, }\FloatTok{0.850}\NormalTok{, }\FloatTok{0.789}\NormalTok{, }\FloatTok{0.737}\NormalTok{, }\FloatTok{0.878}\NormalTok{, }\FloatTok{0.849}\NormalTok{, }\FloatTok{0.777}\NormalTok{, }\FloatTok{0.839}\NormalTok{, }\FloatTok{0.987}\NormalTok{, }\FloatTok{0.853}\NormalTok{, }\FloatTok{0.866}\NormalTok{, }\FloatTok{0.920}\NormalTok{, }\FloatTok{0.758}\NormalTok{, }\FloatTok{0.796}\NormalTok{, }\FloatTok{0.807}\NormalTok{, }\FloatTok{0.728}\NormalTok{, }\FloatTok{0.825}\NormalTok{, }\FloatTok{0.704}\NormalTok{, }\FloatTok{0.842}\NormalTok{, }\FloatTok{0.705}\NormalTok{, }\FloatTok{0.770}\NormalTok{, }\FloatTok{0.758}\NormalTok{, }\FloatTok{1.340}\NormalTok{, }\FloatTok{1.681}\NormalTok{, }\FloatTok{1.149}\NormalTok{, }\FloatTok{1.278}\NormalTok{, }\FloatTok{1.258}\NormalTok{, }\FloatTok{1.391}\NormalTok{, }\FloatTok{0.935}\NormalTok{, }\FloatTok{1.428}\NormalTok{, }\FloatTok{1.039}\NormalTok{, }\FloatTok{0.984}\NormalTok{, }\FloatTok{0.922}\NormalTok{, }\FloatTok{1.211}\NormalTok{, }\FloatTok{1.053}\NormalTok{, }\FloatTok{0.801}\NormalTok{, }\FloatTok{0.854}\NormalTok{, }\FloatTok{1.041}\NormalTok{, }\FloatTok{1.058}\NormalTok{, }\FloatTok{0.912}\NormalTok{, }\FloatTok{1.001}\NormalTok{, }\FloatTok{1.121}\NormalTok{, }\FloatTok{1.018}\NormalTok{, }\FloatTok{1.025}\NormalTok{, }\FloatTok{15.257}\NormalTok{, }\FloatTok{0.936}\NormalTok{, }\FloatTok{0.697}\NormalTok{, }\FloatTok{0.692}\NormalTok{, }\FloatTok{0.899}\NormalTok{, }\FloatTok{0.814}\NormalTok{, }\FloatTok{1.139}\NormalTok{, }\FloatTok{0.928}\NormalTok{, }\FloatTok{1.116}\NormalTok{, }\FloatTok{14.691}\NormalTok{, }\FloatTok{3.276}\NormalTok{, }\FloatTok{0.880}\NormalTok{, }\FloatTok{1.964}\NormalTok{, }\FloatTok{1.139}\NormalTok{, }\FloatTok{1.466}\NormalTok{, }\FloatTok{1.089}\NormalTok{, }\FloatTok{1.024}\NormalTok{, }\FloatTok{1.294}\NormalTok{, }\FloatTok{1.288}\NormalTok{, }\FloatTok{1.008}\NormalTok{, }\FloatTok{1.695}\NormalTok{, }\FloatTok{0.951}\NormalTok{, }\FloatTok{1.016}\NormalTok{, }\FloatTok{1.389}\NormalTok{, }\FloatTok{1.136}\NormalTok{, }\FloatTok{0.932}\NormalTok{, }\FloatTok{1.171}\NormalTok{, }\FloatTok{0.966}\NormalTok{, }\FloatTok{1.368}\NormalTok{, }\FloatTok{1.036}\NormalTok{, }\FloatTok{0.996}\NormalTok{, }\FloatTok{0.822}\NormalTok{, }\FloatTok{0.934}\NormalTok{, }\FloatTok{0.834}\NormalTok{, }\FloatTok{1.292}\NormalTok{, }\FloatTok{0.909}\NormalTok{, }\FloatTok{0.963}\NormalTok{, }\FloatTok{0.991}\NormalTok{, }\FloatTok{1.116}\NormalTok{, }\FloatTok{1.358}\NormalTok{, }\FloatTok{1.409}\NormalTok{, }\FloatTok{1.787}\NormalTok{, }\FloatTok{1.685}\NormalTok{, }\FloatTok{1.220}\NormalTok{, }\FloatTok{1.561}\NormalTok{, }\FloatTok{1.367}\NormalTok{, }\FloatTok{0.711}\NormalTok{, }\FloatTok{1.464}\NormalTok{, }\FloatTok{1.970}\NormalTok{, }\FloatTok{1.108}\NormalTok{, }\FloatTok{1.161}\NormalTok{, }\FloatTok{1.117}\NormalTok{, }\FloatTok{1.229}\NormalTok{, }\FloatTok{1.031}\NormalTok{, }\FloatTok{1.377}\NormalTok{, }\FloatTok{2.021}\NormalTok{, }\FloatTok{1.394}\NormalTok{, }\FloatTok{1.232}\NormalTok{, }\FloatTok{0.595}\NormalTok{, }\FloatTok{0.905}\NormalTok{, }\FloatTok{1.505}\NormalTok{, }\FloatTok{0.858}\NormalTok{, }\FloatTok{0.789}\NormalTok{, }\FloatTok{1.917}\NormalTok{, }\FloatTok{0.686}\NormalTok{, }\FloatTok{0.804}\NormalTok{, }\FloatTok{0.761}\NormalTok{, }\FloatTok{0.733}\NormalTok{, }\FloatTok{1.614}\NormalTok{, }\FloatTok{1.102}\NormalTok{, }\FloatTok{1.099}\NormalTok{, }\FloatTok{0.864}\NormalTok{, }\FloatTok{1.180}\NormalTok{, }\FloatTok{17.071}\NormalTok{, }\FloatTok{0.743}\NormalTok{, }\FloatTok{0.674}\NormalTok{, }\FloatTok{0.535}\NormalTok{, }\FloatTok{0.805}\NormalTok{, }\FloatTok{0.755}\NormalTok{, }\FloatTok{0.705}\NormalTok{, }\FloatTok{2.476}\NormalTok{, }\FloatTok{0.663}\NormalTok{, }\FloatTok{0.549}\NormalTok{, }\FloatTok{0.536}\NormalTok{, }\FloatTok{0.546}\NormalTok{, }\FloatTok{0.757}\NormalTok{, }\FloatTok{0.678}\NormalTok{, }\FloatTok{0.699}\NormalTok{, }\FloatTok{0.543}\NormalTok{, }\FloatTok{2.352}\NormalTok{, }\FloatTok{0.566}\NormalTok{, }\FloatTok{1.946}\NormalTok{, }\FloatTok{0.526}\NormalTok{, }\FloatTok{0.745}\NormalTok{, }\FloatTok{0.658}\NormalTok{, }\FloatTok{0.608}\NormalTok{, }\FloatTok{2.898}\NormalTok{, }\FloatTok{0.514}\NormalTok{, }\FloatTok{0.569}\NormalTok{]}
-\NormalTok{\})}
-
-\NormalTok{mean\_rt }\OperatorTok{=}\NormalTok{ data[}\StringTok{"reaction\_time"}\NormalTok{].mean()}
-\BuiltInTok{print}\NormalTok{(mean\_rt)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 1.2776375000000002
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
-
-\NormalTok{data }\OperatorTok{=}\NormalTok{ pd.DataFrame(\{}
-    \StringTok{"accuracy"}\NormalTok{: [}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{]}
-\NormalTok{\})}
-
-\NormalTok{mean\_accuracy }\OperatorTok{=}\NormalTok{ data[}\StringTok{"accuracy"}\NormalTok{].mean()}
-\BuiltInTok{print}\NormalTok{(mean\_accuracy)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 0.8645833333333334

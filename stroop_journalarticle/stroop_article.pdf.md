@@ -50,7 +50,7 @@ This present study aimed to replicate the Stroop effect. Based on previous resea
 This study replicated the Stroop Effect by implementing the word-color visualizations on a computer screen. We wrote an experimental program in PsychoPy, an open-source software library written in Python, that delievered the experiment.
 
 ## Participants
-Fifteen participants in the age range of 19-25 were recruited from an undergraduate upper-year psychology seminar course at the University of Waterloo. Each participant completed the Stroop Task on one of the researcher's computer.
+Fifteen participants in the age range of 19-25 were recruited from an undergraduate upper-year psychology seminar course at the University of Waterloo. Each participant completed the Stroop Task on one of the researcher's computer. 
 
 ## Experimental Task Design
 Participants are introduced to the experiment with instructions describing the experiment protocol. After reading, participants are instructed to press the spacebar to proceed to the first trial of the experiment. There are a total of 3 trials, with 10 words being shown to participants in each trial. Each word is shown on the screen for 500 ms before disappearing, and participants are required to press a key to indicate the color of the word. The next word will not appear until participants give a response to the current word. @fig-experiment_visual shows an illustration of the experiment protocol.
@@ -65,7 +65,7 @@ During the experiment, the congruency of each word is recorded, and the particip
 Two 2-way repeated measures ANOVA tests were performed examining the main effects of trial and congruency on reaction time and accuracy. Interactions effects between trial and congruency were considered on reaction time and accuracy as well.
 
 # Results
-All of the data from the study was included in the results, including outliers such as participants with extremely high reaction times or extremely poor accuracy.
+Two participants were excluded due to the random occurence of having trials where words were either all congruent or incongruent (no differences in congruency).
 
 
 ## Reaction Time - Overall vs Congruent vs Incongruent
@@ -87,15 +87,12 @@ The overall results including both congruent and incongruent words were analyzed
 
 
 
-In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1, 13)=0.07, p =0.799), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial came just short of reaching a significant main effect (F(2, 28) = 3.36, p = 0.049). Although trial did not reach statistical significance, this suggests there is a possible trend in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2, 28) = 0.29, p = 0.752), meaning there is no significant effect of congruency on reaction time across time. Despite the potential trend of the trial condition, the results of this ANOVA found no significant main effects of congruency on reaction time.
+In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1, 13)=0.07, p =0.799), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial had a significant main effect (F(2, 28) = 3.36, p = 0.049). This suggests there is a significant change in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2, 28) = 0.29, p = 0.752), meaning there is no significant effect of congruency on reaction time across time. 
 
 
 ## Interaction between congruency and trial on accuracy
 
-## hopefully daniella can adapt from above to here if it works
-In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 2, similar to the results of the first ANOVA conducted, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1, 13) = 5.69, p = 0.033), meaning there was no significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2, 28) = 0.48, p = 0.621), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(2, 28) = 1.86, p = 0.175), meaning there is no significant effect of congruency on accuracy across time. Like the results of the previous ANOVA, there were no significant main effects of congruency on accuracy.
-
-
+In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 2, there was a significant main effect found of congruency (F(1, 13) = 5.69, p = 0.033), meaning there was a significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2, 28) = 0.48, p = 0.621), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(2, 28) = 1.86, p = 0.175), meaning there is no significant effect of congruency on accuracy across time. 
 
 
 
@@ -111,7 +108,7 @@ In order to analyze the effect of trial and congruency on accuracy, a 2-way repe
 ::: {.cell-output .cell-output-stdout}
 
 ```
-([<matplotlib.axis.XTick object at 0x745ca407b070>, <matplotlib.axis.XTick object at 0x745c9f6bd360>, <matplotlib.axis.XTick object at 0x745c9f6fa4d0>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+([<matplotlib.axis.XTick object at 0x7df1cf67b070>, <matplotlib.axis.XTick object at 0x7df1cacb5360>, <matplotlib.axis.XTick object at 0x7df1cacfe4d0>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
 ```
 
 
@@ -141,7 +138,7 @@ The overall results including both congruent and incongruent words were analyzed
 ::: {.cell-output .cell-output-stdout}
 
 ```
-([<matplotlib.axis.XTick object at 0x745c9f630430>, <matplotlib.axis.XTick object at 0x745c9f631480>, <matplotlib.axis.XTick object at 0x745c9f5bc460>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+([<matplotlib.axis.XTick object at 0x7df1cac30430>, <matplotlib.axis.XTick object at 0x7df1cac31480>, <matplotlib.axis.XTick object at 0x7df1cabc0460>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
 ```
 
 
@@ -164,40 +161,20 @@ The overall results including both congruent and incongruent words were analyzed
 
 ## Interaction between congruency and trial on reaction time
 
-## hopefully daniella can adapt from above to here if it works
-In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-rt-anova, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1,15) = 0.200, p = 0.661), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial came just short of reaching a significant main effect (F(2,30) = 3.178, p = 0.056). Although trial did not reach statistical significance, this suggests there is a possible trend in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2,30) = 0.280, p = 0.758), meaning there is no significant effect of congruency on reaction time across time. Despite the potential trend of the trial condition, the results of this ANOVA found no significant main effects of congruency on reaction time.
-
-## christina anova table
+In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in @setup1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1, 13)=0.07, p =0.799), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial had a significant main effect (F(2, 28) = 0.48, p = 0.621),suggesting there is a possible trend in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2, 28) = 1.86, p = 0.175), meaning there is no significant effect of congruency on reaction time across time. Despite the potential trend of the trial condition, the results of this ANOVA found no significant main effects of congruency on reaction time.
 
 
 ::: {.cell}
-::: {.cell-output .cell-output-stdout}
-
-```
-         Effect DFn DFd    F     p
-1         Match   1  13 0.07 0.799
-2         Trial   2  28 3.36 0.049
-3 Match × Trial   2  28 0.29 0.752
-```
+::: {.cell-output-display}
 
 
-:::
-:::
+Table: Repeated Measures ANOVA for Reaction Time
 
-
-
-::: {#tbl-rt-anova .cell tbl-cap='Repeated Measures ANOVA for Reaction Time'}
-::: {.cell-output .cell-output-stdout}
-
-```
-                Effect  Sum of Squares  df  Mean Square      F      p
-0           Congruency           0.204   1        0.204  0.200  0.661
-1   Error (Congruency)          15.344  15        1.023    NaN    NaN
-2                Trial           6.035   2        3.017  3.178  0.056
-3        Error (Trial)          28.486  30        0.950    NaN    NaN
-4   Congruency × Trial           0.400   2        0.200  0.280  0.758
-5  Error (Interaction)          21.441  30        0.715    NaN    NaN
-```
+|Effect        | DFn| DFd|    F|p     |
+|:-------------|---:|---:|----:|:-----|
+|Match         |   1|  13| 0.07|0.799 |
+|Trial         |   2|  28| 3.36|0.049 |
+|Match × Trial |   2|  28| 0.29|0.752 |
 
 
 :::
@@ -226,39 +203,7 @@ In order to analyze the effect of trial and congruency on accuracy, a 2-way repe
 
 
 
-
-
-::: {#tbl-acc-anova .cell tbl-cap='Repeated Measures ANOVA for Accuracy'}
-::: {.cell-output .cell-output-stdout}
-
-```
-                Effect  Sum of Squares  df  Mean Square      F      p
-0           Congruency           0.275   1        0.275  2.479  0.136
-1   Error (Congruency)           1.666  15        0.111    NaN    NaN
-2                Trial           0.083   2        0.041  1.128  0.337
-3        Error (Trial)           1.099  30        0.037    NaN    NaN
-4   Congruency × Trial           0.048   2        0.024  0.488  0.619
-5  Error (Interaction)           1.469  30        0.049    NaN    NaN
-```
-
-
-:::
-:::
-
-
 ::: {.cell}
-
-```{.python .cell-code}
-import pandas as pd
-
-data = pd.DataFrame({
-    "reaction_time": [0.681, 0.524, 0.628, 0.769, 0.599, 0.659, 0.610, 0.675, 0.588, 0.678, 0.545, 0.641, 0.576, 0.561, 0.616, 0.580, 0.670, 0.721, 0.801, 0.572, 0.549, 0.743, 0.534, 0.607, 0.603, 0.561, 1.203, 0.577, 0.562, 0.574, 1.231, 1.144, 1.289, 1.160, 1.278, 1.419, 1.241, 2.117, 1.300, 1.519, 1.179, 1.201, 1.641, 1.209, 1.463, 1.917, 1.089, 1.009, 1.075, 1.258, 1.241, 1.302, 1.187, 1.263, 1.493, 1.171, 1.243, 1.349, 2.632, 5.719, 1.430, 13.240, 2.506, 1.480, 13.747, 1.602, 2.473, 0.864, 4.781, 1.184, 1.185, 3.710, 1.517, 1.431, 1.274, 1.523, 1.145, 1.182, 1.794, 1.066, 1.231, 0.970, 0.740, 0.820, 0.906, 0.775, 0.841, 1.447, 0.716, 0.839, 0.992, 0.549, 1.048, 0.718, 0.726, 1.225, 0.915, 0.761, 0.779, 0.705, 0.703, 0.753, 0.763, 0.796, 0.708, 0.870, 1.080, 0.842, 0.847, 1.066, 0.698, 0.787, 0.689, 0.753, 0.716, 0.822, 0.730, 0.770, 0.835, 1.102, 1.015, 0.920, 1.192, 0.839, 0.717, 1.244, 1.029, 1.358, 1.244, 0.976, 0.894, 0.866, 0.842, 0.831, 0.584, 0.688, 1.370, 0.846, 0.611, 0.645, 0.777, 1.001, 0.756, 0.782, 1.039, 1.008, 0.845, 0.918, 0.764, 0.664, 0.803, 0.839, 0.664, 0.645, 0.831, 0.624, 0.727, 0.684, 0.704, 0.593, 0.557, 0.583, 0.632, 0.603, 0.563, 0.766, 9.214, 0.751, 0.613, 0.643, 1.820, 1.196, 1.316, 1.128, 1.015, 1.010, 0.785, 0.900, 0.712, 0.898, 1.037, 1.427, 0.807, 0.725, 1.742, 0.847, 0.807, 0.925, 0.770, 1.284, 0.932, 1.032, 0.742, 1.179, 0.952, 0.792, 0.835, 0.900, 0.849, 0.810, 0.819, 0.737, 0.685, 0.642, 0.522, 0.543, 0.699, 0.706, 1.548, 0.965, 1.521, 1.206, 1.081, 2.590, 1.021, 0.972, 0.990, 0.856, 0.996, 1.090, 0.922, 0.780, 0.933, 1.015, 1.193, 0.937, 0.817, 0.984, 0.965, 0.862, 0.757, 0.835, 0.759, 0.799, 1.019, 0.768, 1.190, 1.112, 0.937, 0.963, 1.677, 1.377, 1.346, 1.572, 1.425, 1.448, 1.450, 1.309, 1.679, 1.736, 1.175, 0.966, 1.016, 1.118, 1.731, 1.463, 1.233, 1.458, 1.445, 1.135, 1.015, 1.430, 1.540, 0.863, 0.991, 0.784, 1.070, 1.125, 0.968, 1.594, 1.088, 1.069, 0.690, 19.209, 0.988, 0.756, 1.378, 0.922, 0.707, 0.799, 0.762, 0.750, 0.904, 3.663, 0.750, 0.886, 0.595, 0.859, 0.605, 1.037, 0.785, 0.743, 0.690, 0.805, 0.606, 0.603, 0.902, 0.736, 0.624, 0.837, 1.656, 1.607, 1.953, 1.445, 3.871, 1.588, 1.754, 1.168, 1.771, 1.876, 1.014, 1.068, 1.180, 0.967, 1.034, 1.223, 2.154, 3.485, 1.761, 3.024, 1.033, 2.738, 1.085, 1.052, 1.168, 1.092, 1.421, 1.584, 2.055, 1.491, 0.734, 0.843, 0.874, 0.914, 0.945, 0.826, 0.833, 0.782, 0.850, 0.789, 0.737, 0.878, 0.849, 0.777, 0.839, 0.987, 0.853, 0.866, 0.920, 0.758, 0.796, 0.807, 0.728, 0.825, 0.704, 0.842, 0.705, 0.770, 0.758, 1.340, 1.681, 1.149, 1.278, 1.258, 1.391, 0.935, 1.428, 1.039, 0.984, 0.922, 1.211, 1.053, 0.801, 0.854, 1.041, 1.058, 0.912, 1.001, 1.121, 1.018, 1.025, 15.257, 0.936, 0.697, 0.692, 0.899, 0.814, 1.139, 0.928, 1.116, 14.691, 3.276, 0.880, 1.964, 1.139, 1.466, 1.089, 1.024, 1.294, 1.288, 1.008, 1.695, 0.951, 1.016, 1.389, 1.136, 0.932, 1.171, 0.966, 1.368, 1.036, 0.996, 0.822, 0.934, 0.834, 1.292, 0.909, 0.963, 0.991, 1.116, 1.358, 1.409, 1.787, 1.685, 1.220, 1.561, 1.367, 0.711, 1.464, 1.970, 1.108, 1.161, 1.117, 1.229, 1.031, 1.377, 2.021, 1.394, 1.232, 0.595, 0.905, 1.505, 0.858, 0.789, 1.917, 0.686, 0.804, 0.761, 0.733, 1.614, 1.102, 1.099, 0.864, 1.180, 17.071, 0.743, 0.674, 0.535, 0.805, 0.755, 0.705, 2.476, 0.663, 0.549, 0.536, 0.546, 0.757, 0.678, 0.699, 0.543, 2.352, 0.566, 1.946, 0.526, 0.745, 0.658, 0.608, 2.898, 0.514, 0.569]
-})
-
-mean_rt = data["reaction_time"].mean()
-print(mean_rt)
-```
-
 ::: {.cell-output .cell-output-stdout}
 
 ```
@@ -272,18 +217,6 @@ print(mean_rt)
 
 
 ::: {.cell}
-
-```{.python .cell-code}
-import pandas as pd
-
-data = pd.DataFrame({
-    "accuracy": [1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-})
-
-mean_accuracy = data["accuracy"].mean()
-print(mean_accuracy)
-```
-
 ::: {.cell-output .cell-output-stdout}
 
 ```
