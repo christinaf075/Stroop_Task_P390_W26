@@ -67,261 +67,6 @@ Two 2-way repeated measures ANOVA tests were performed examining the main effect
 # Results
 Two participants were excluded due to the random occurence of having trials where words were either all congruent or incongruent (no differences in congruency).
 
-
-## Reaction Time - Overall vs Congruent vs Incongruent
-The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about `python mean_rt` seconds. Shown in Figure 1, reaction time decreased sharply between Trial 1 (M = `python trial1_rt`s) and Trial 2 (M = `python trial2_rt`s) before evening out in Trial 3 (M = `python trial3_rt`s). Figure 2 demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about `python match_rt` seconds while the mean reaction time for incongruent words across all trials was about `python nonmatch_rt` seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = `python match1_rt`s) was higher than that of incongruent words (M = `python nonmatch1_rt`s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = `python match2_rt`s) ended up lower than incongruent words (M = `python nonmatch2_rt`s). Trial 3 followed this same trend with congruent words (M = `python match3_rt`s) being lower than incongruent words (M = `python nonmatch3_rt`s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
-
-
-## Accuracy - Overall vs Congruent vs Incongruent
-The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about `python mean_accuracy`. Shown in Figure 3, accuracy in Trial 1 starts off fairly low (M = `python trial1_acc`%) and rises steadily through Trial 2 (M = `python trial2_acc`%) and reaches a peak at Trial 3 (M = `python trial3_acc`%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about `python match_acc`%, where incongruent words ended up with a mean accuracy of about `python nonmatch_acc`%. Figure 4 demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = `python match1_acc`%) and incongruent words (M = `python nonmatch1_acc`%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = `python match2_acc`%) and a rise in incongruent accuracy (M = `python nonmatch2_acc`%). However, Trial 3 saw a rise in both congruent accuracy (M = `python match3_acc`%) and incongruent accuracy (M = `python nonmatch3_acc`%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
-
-
-## Interaction between congruency and trial on reaction time
-
-## Christina anova
-
-```{r setup, include=FALSE}
-
-data <- read.csv("../Data/Updated Stroop results - Sheet1.csv")
-colnames(data) <- trimws(colnames(data))
-names(data) <- tolower(names(data))
-names(data) <- gsub("\\.", "_", names(data))
-names(data) <- gsub("_+", "_", names(data))
-
-names(data)[names(data) == "participant"] <- "participant"
-names(data)[names(data) == "trial"] <- "trial"
-names(data)[names(data) == "match"] <- "match"
-names(data)[names(data) == "reaction_time_ms"] <- "reaction_time"
-names(data)[names(data) == "accuracy"] <- "accuracy"
-
-data$participant <- as.factor(data$participant)
-data$trial <- as.factor(data$trial)
-data$match <- as.factor(data$match)
-
-data$reaction_time <- as.numeric(data$reaction_time)
-data$accuracy <- as.numeric(data$accuracy)
-
-agg_data <- aggregate(
-  cbind(reaction_time, accuracy) ~ participant + trial + match,
-  data = data,
-  FUN = mean,
-  na.rm = TRUE
-)
-
-aov_rt <- aov(
-  reaction_time ~ match * trial + Error(participant/(match * trial)),
-  data = agg_data
-)
-
-summary_rt <- summary(aov_rt)
-
-aov_acc <- aov(
-  accuracy ~ match * trial + Error(participant/(match * trial)),
-  data = agg_data
-)
-
-summary_acc <- summary(aov_acc)
-
-#RT
-# Match effect
-match_rt <- summary_rt[["Error: participant:match"]][[1]]
-
-F_match_rt <- match_rt["match", "F value"]
-p_match_rt <- match_rt["match", "Pr(>F)"]
-df1_match_rt <- match_rt["match", "Df"]
-df2_match_rt <- match_rt["Residuals", "Df"]
-
-# Trial effect
-trial_rt <- summary_rt[["Error: participant:trial"]][[1]]
-F_trial_rt <- trial_rt["trial", "F value"]
-p_trial_rt <- trial_rt["trial", "Pr(>F)"]
-df1_trial_rt <- trial_rt["trial", "Df"]
-df2_trial_rt <- trial_rt["Residuals", "Df"]
-
-# Interaction
-interaction_rt <- summary_rt[["Error: participant:match:trial"]][[1]]
-
-F_int_rt <- interaction_rt["match:trial", "F value"]
-p_int_rt <- interaction_rt["match:trial", "Pr(>F)"]
-df1_int_rt <- interaction_rt["match:trial", "Df"]
-df2_int_rt <- interaction_rt["Residuals", "Df"]
-
-#Accuracy
-# Match
-match_acc <- summary_acc[["Error: participant:match"]][[1]]
-
-F_match_acc <- match_acc["match", "F value"]
-p_match_acc <- match_acc["match", "Pr(>F)"]
-df1_match_acc <- match_acc["match", "Df"]
-df2_match_acc <- match_acc["Residuals", "Df"]
-
-# Trial
-trial_acc <- summary_acc[["Error: participant:trial"]][[1]]
-F_trial_acc <- trial_acc["trial", "F value"]
-p_trial_acc <- trial_acc["trial", "Pr(>F)"]
-df1_trial_acc <- trial_acc["trial", "Df"]
-df2_trial_acc <- trial_acc["Residuals", "Df"]
-
-# Interaction
-interaction_acc <- summary_acc[["Error: participant:match:trial"]][[1]]
-
-F_int_acc <- interaction_acc["match:trial", "F value"]
-p_int_acc <- interaction_acc["match:trial", "Pr(>F)"]
-df1_int_acc <- interaction_acc["match:trial", "Df"]
-df2_int_acc <- interaction_acc["Residuals", "Df"]
-```
-
-
-In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(`r df1_match_rt`, `r df2_match_rt`)=`r round(F_match_rt,2)`, p `r ifelse(p_match_rt < .001, "<.001", paste0("=", sprintf("%.3f", p_match_rt)))`), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial had a significant main effect (F(`r df1_trial_rt`, `r df2_trial_rt`) = `r round(F_trial_rt, 2)`, p `r ifelse(p_trial_rt < .001, "< .001", paste0("= ", sprintf("%.3f", p_trial_rt)))`). This suggests there is a significant change in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(`r df1_int_rt`, `r df2_int_rt`) = `r round(F_int_rt, 2)`, p `r ifelse(p_int_rt < .001, "< .001", paste0("= ", sprintf("%.3f", p_int_rt)))`), meaning there is no significant effect of congruency on reaction time across time. 
-
-
-## Interaction between congruency and trial on accuracy
-
-In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in Table 2, there was a significant main effect found of congruency (F(`r df1_match_acc`, `r df2_match_acc`) = `r round(F_match_acc, 2)`, p `r ifelse(p_match_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_match_acc)))`), meaning there was a significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(`r df1_trial_acc`, `r df2_trial_acc`) = `r round(F_trial_acc, 2)`, p `r ifelse(p_trial_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_trial_acc)))`), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(`r df1_int_acc`, `r df2_int_acc`) = `r round(F_int_acc, 2)`, p `r ifelse(p_int_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_int_acc)))`), meaning there is no significant effect of congruency on accuracy across time. 
-
-
-```{python}
-#| echo: false
-#| label: fig-rt-overall
-#| fig-cap: "Changes in Mean Reaction Time Across Trials"
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-fig, ax = plt.subplots(figsize=(4, 3))
-trials = ["Trial 1", "Trial 2", "Trial 3"]
-mean_RT = [1.63, 1.1, 1.1]
-
-trials_number =np.arange(len(trials))
-coefficients = np.polyfit(trials_number, mean_RT, 1)
-p = np.poly1d(coefficients)
-ax.scatter(trials, mean_RT)
-ax.plot(trials_number, p(trials_number), "r--")
-ax.set_xticks(trials_number, trials)
-ax.set_xlabel("Trials")
-ax.set_ylabel("Reaction Time (seconds)")
-plt.show()
-```
-
-```{python}
-#| echo: false
-#| label: fig-rt-congruency
-#| fig-cap: "Effects of Congruency on Reaction Time"
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-fig, ax = plt.subplots(figsize=(4, 3))
-trials = ["Trial 1", "Trial 2", "Trial 3"]
-congruent = [1.63,0.92,1.02]
-incongruent = [1.55,1.16,1.14]
-
-trials_number =np.arange(len(trials))
-width = 0.35
-plt.bar(trials_number-width/2, congruent, width, label="Congruent")
-plt.bar(trials_number+width/2, incongruent, width, label="Incongruent")
-plt.xlabel("Trials")
-plt.ylabel("Reaction Time (seconds)")
-plt.xticks(trials_number, trials)
-plt.legend()
-plt.tight_layout()
-plt.show()
-```
-
-## Accuracy - Overall vs Congruent vs Incongruent
-
-## Daniella in-line
-The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about 86.4%. Shown in @fig-acc-overall, accuracy in Trial 1 starts off fairly low (M = 81.8%) and rises steadily through Trial 2 (M = 87.5%) and reaches a peak at Trial 3 (M = 90.0%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about 92.0%, where incongruent words ended up with a mean accuracy of about 81.3%. @fig-acc-congruency demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = 91.7%) and incongruent words (M = 76.5%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = 87.5%) and a rise in incongruent accuracy (M = 82.9%). However, Trial 3 saw a rise in both congruent accuracy (M = 96.9%) and incongruent accuracy (M = 84.6%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
-
-```{python}
-#| echo: false
-#| label: fig-acc-overall
-#| fig-cap: "Changes in Mean Accuracy Rates Across Trials"
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-fig, ax = plt.subplots(figsize=(4, 3))
-trials = ["Trial 1", "Trial 2", "Trial 3"]
-mean_acc = [0.82, 0.87, 0.9]
-trials_number =np.arange(len(trials))
-coefficients = np.polyfit(trials_number, mean_acc, 1)
-p = np.poly1d(coefficients)
-ax.scatter(trials_number, mean_acc)
-ax.plot(trials_number, p(trials_number), "r--")
-ax.set_xticks(trials_number, trials)
-ax.set_xlabel("Trials")
-ax.set_ylabel("Mean Accuracy Rate")
-plt.show()
-```
-
-```{python}
-#| echo: false
-#| label: fig-acc-congruency
-#| fig-cap: "Effects of Congruency on Accuracy"
-#| fig-width: 3
-#| fig-height: 2
-import numpy as np
-import matplotlib.pyplot as plt
-
-fig, ax = plt.subplots(figsize=(4, 3))
-trials = ["Trial 1", "Trial 2", "Trial 3"]
-cong = [0.92, 0.87, 0.97]
-incong = [0.76, 0.83, 0.85]
-
-trials_number = np.arange(len(trials))
-width = 0.35
-plt.bar(trials_number-width/2, cong, width, label="Congruent")
-plt.bar(trials_number+width/2, incong, width, label="Incongruent")
-plt.xlabel("Trials")
-plt.ylabel("Accuracy Rate")
-plt.xticks(trials_number, trials)
-plt.ylim(0, 1.3)
-plt.legend()
-plt.tight_layout()
-plt.show()
-```
-
-## Interaction between congruency and trial on reaction time
-
-In order to analyze the effects of trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in @setup1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(`r df1_match_rt`, `r df2_match_rt`)=`r round(F_match_rt,2)`, p `r ifelse(p_match_rt < .001, "<.001", paste0("=", sprintf("%.3f", p_match_rt)))`), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial had a significant main effect (F(`r df1_trial_acc`, `r df2_trial_acc`) = `r round(F_trial_acc, 2)`, p `r ifelse(p_trial_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_trial_acc)))`),suggesting there is a possible trend in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(`r df1_int_acc`, `r df2_int_acc`) = `r round(F_int_acc, 2)`, p `r ifelse(p_int_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_int_acc)))`), meaning there is no significant effect of congruency on reaction time across time. Despite the potential trend of the trial condition, the results of this ANOVA found no significant main effects of congruency on reaction time.
-
-```{r setup1, echo=FALSE, tab.cap="Repeated Measures ANOVA for Reaction Time"}
-
-rt_table <- data.frame( 
-  Effect = c("Match", "Trial", "Match × Trial"), 
-  DFn = c(df1_match_rt, df1_trial_rt, df1_int_rt), 
-  DFd = c(df2_match_rt, df2_trial_rt, df2_int_rt), 
-  F = round(c(F_match_rt, F_trial_rt, F_int_rt), 2), 
-  p = c(p_match_rt, p_trial_rt, p_int_rt) )
-
-
-# Format p-values
-rt_table$p <- ifelse(rt_table$p < 0.001, "< .001", sprintf("%.3f", rt_table$p))
-
-knitr::kable(rt_table)
-```
-
-## Interaction between congruency and trial on accuracy
-
-## hopefully daniella can adapt from above TABLE to here if it works
-In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-acc-anova, similar to the results of the first ANOVA conducted, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1,15) = 2.479, p = 0.136), meaning there was no significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2,30) = 1.128, p = 0.337), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(2,30) = 0.488, p = 0.619), meaning there is no significant effect of congruency on accuracy across time. Like the results of the previous ANOVA, there were no significant main effects of congruency on accuracy.
-
-```{r setup2, echo=FALSE}
-acc_table <- data.frame(
-  Effect = c("Match", "Trial", "Match × Trial"),
-  DFn = c(df1_match_acc, df1_trial_acc, df1_int_acc),
-  DFd = c(df2_match_acc, df2_trial_acc, df2_int_acc),
-  F = round(c(F_match_acc, F_trial_acc, F_int_acc), 2),
-  p = c(p_match_acc, p_trial_acc, p_int_acc)
-)
-
-# Format p-values
-acc_table$p <- ifelse(acc_table$p < 0.001, "< .001", sprintf("%.3f", acc_table$p))
-
-acc_table
-```
-
 ```{python}
 #| echo: false
 
@@ -476,7 +221,7 @@ data = pd.DataFrame({
     "nonmatchreaction3_time": [0.670, 1.833, 0.877, 0.801, 0.857, 0.930, 0.856, 0.930, 1.174, 0.776, 1.320, 0.870, 3.009, 0.940, 1.231, 1.127]
 })
 
-nonmatch3_rt = data["nonmatchreaction_time"].mean()
+nonmatch3_rt = data["nonmatchreaction3_time"].mean()
 ```
 
 ```{python}
@@ -613,13 +358,246 @@ data = pd.DataFrame({
 nonmatch3_acc = data["nonmatch3accuracy"].mean()
 ```
 
+## Reaction Time - Main Effects of Trial and Congruency
+The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about `python mean_rt` seconds. Shown in @fig-rt-overall, reaction time decreased sharply between Trial 1 (M = `python trial1_rt`s) and Trial 2 (M = `python trial2_rt`s) before evening out in Trial 3 (M = `python trial3_rt`s). @fig-rt-congruency demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about `python match_rt` seconds while the mean reaction time for incongruent words across all trials was about `python nonmatch_rt` seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = `python match1_rt`s) was higher than that of incongruent words (M = `python nonmatch1_rt`s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = `python match2_rt`s) ended up lower than incongruent words (M = `python nonmatch2_rt`s). Trial 3 followed this same trend with congruent words (M = `python match3_rt`s) being lower than incongruent words (M = `python nonmatch3_rt`s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
+
+
+## Accuracy - Main Effects of Trial and Congruency
+The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about `python mean_accuracy`. Shown in @fig-acc-overall, accuracy in Trial 1 starts off fairly low (M = `python trial1_acc`%) and rises steadily through Trial 2 (M = `python trial2_acc`%) and reaches a peak at Trial 3 (M = `python trial3_acc`%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about `python match_acc`%, where incongruent words ended up with a mean accuracy of about `python nonmatch_acc`%. @fig-acc-congruency demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = `python match1_acc`%) and incongruent words (M = `python nonmatch1_acc`%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = `python match2_acc`%) and a rise in incongruent accuracy (M = `python nonmatch2_acc`%). However, Trial 3 saw a rise in both congruent accuracy (M = `python match3_acc`%) and incongruent accuracy (M = `python nonmatch3_acc`%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
+
+```{r setup, include=FALSE}
+
+data <- read.csv("../Data/Updated Stroop results - Sheet1.csv")
+colnames(data) <- trimws(colnames(data))
+names(data) <- tolower(names(data))
+names(data) <- gsub("\\.", "_", names(data))
+names(data) <- gsub("_+", "_", names(data))
+
+names(data)[names(data) == "participant"] <- "participant"
+names(data)[names(data) == "trial"] <- "trial"
+names(data)[names(data) == "match"] <- "match"
+names(data)[names(data) == "reaction_time_ms"] <- "reaction_time"
+names(data)[names(data) == "accuracy"] <- "accuracy"
+
+data$participant <- as.factor(data$participant)
+data$trial <- as.factor(data$trial)
+data$match <- as.factor(data$match)
+
+data$reaction_time <- as.numeric(data$reaction_time)
+data$accuracy <- as.numeric(data$accuracy)
+
+agg_data <- aggregate(
+  cbind(reaction_time, accuracy) ~ participant + trial + match,
+  data = data,
+  FUN = mean,
+  na.rm = TRUE
+)
+
+aov_rt <- aov(
+  reaction_time ~ match * trial + Error(participant/(match * trial)),
+  data = agg_data
+)
+
+summary_rt <- summary(aov_rt)
+
+aov_acc <- aov(
+  accuracy ~ match * trial + Error(participant/(match * trial)),
+  data = agg_data
+)
+
+summary_acc <- summary(aov_acc)
+
+#RT
+# Match effect
+match_rt <- summary_rt[["Error: participant:match"]][[1]]
+
+F_match_rt <- match_rt["match", "F value"]
+p_match_rt <- match_rt["match", "Pr(>F)"]
+df1_match_rt <- match_rt["match", "Df"]
+df2_match_rt <- match_rt["Residuals", "Df"]
+
+# Trial effect
+trial_rt <- summary_rt[["Error: participant:trial"]][[1]]
+F_trial_rt <- trial_rt["trial", "F value"]
+p_trial_rt <- trial_rt["trial", "Pr(>F)"]
+df1_trial_rt <- trial_rt["trial", "Df"]
+df2_trial_rt <- trial_rt["Residuals", "Df"]
+
+# Interaction
+interaction_rt <- summary_rt[["Error: participant:match:trial"]][[1]]
+
+F_int_rt <- interaction_rt["match:trial", "F value"]
+p_int_rt <- interaction_rt["match:trial", "Pr(>F)"]
+df1_int_rt <- interaction_rt["match:trial", "Df"]
+df2_int_rt <- interaction_rt["Residuals", "Df"]
+
+#Accuracy
+# Match
+match_acc <- summary_acc[["Error: participant:match"]][[1]]
+
+F_match_acc <- match_acc["match", "F value"]
+p_match_acc <- match_acc["match", "Pr(>F)"]
+df1_match_acc <- match_acc["match", "Df"]
+df2_match_acc <- match_acc["Residuals", "Df"]
+
+# Trial
+trial_acc <- summary_acc[["Error: participant:trial"]][[1]]
+F_trial_acc <- trial_acc["trial", "F value"]
+p_trial_acc <- trial_acc["trial", "Pr(>F)"]
+df1_trial_acc <- trial_acc["trial", "Df"]
+df2_trial_acc <- trial_acc["Residuals", "Df"]
+
+# Interaction
+interaction_acc <- summary_acc[["Error: participant:match:trial"]][[1]]
+
+F_int_acc <- interaction_acc["match:trial", "F value"]
+p_int_acc <- interaction_acc["match:trial", "Pr(>F)"]
+df1_int_acc <- interaction_acc["match:trial", "Df"]
+df2_int_acc <- interaction_acc["Residuals", "Df"]
+```
+
+## Reaction Time - Interaction effects between trial and congruency
+In order to analyze the interaction between trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-setup1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(`r df1_match_rt`, `r df2_match_rt`)=`r round(F_match_rt,2)`, p `r ifelse(p_match_rt < .001, "<.001", paste0("=", sprintf("%.3f", p_match_rt)))`), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial had a significant main effect (F(`r df1_trial_rt`, `r df2_trial_rt`) = `r round(F_trial_rt, 2)`, p `r ifelse(p_trial_rt < .001, "< .001", paste0("= ", sprintf("%.3f", p_trial_rt)))`). This suggests there is a significant change in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(`r df1_int_rt`, `r df2_int_rt`) = `r round(F_int_rt, 2)`, p `r ifelse(p_int_rt < .001, "< .001", paste0("= ", sprintf("%.3f", p_int_rt)))`), meaning there is no significant effect of congruency on reaction time across time. 
+
+## Accuracy - Interaction effects between trial and congruency
+
+In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-setup2, there was a significant main effect found of congruency (F(`r df1_match_acc`, `r df2_match_acc`) = `r round(F_match_acc, 2)`, p `r ifelse(p_match_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_match_acc)))`), meaning there was a significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(`r df1_trial_acc`, `r df2_trial_acc`) = `r round(F_trial_acc, 2)`, p `r ifelse(p_trial_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_trial_acc)))`), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(`r df1_int_acc`, `r df2_int_acc`) = `r round(F_int_acc, 2)`, p `r ifelse(p_int_acc < .001, "< .001", paste0("= ", sprintf("%.3f", p_int_acc)))`), meaning there is no significant effect of congruency on accuracy across time. 
+
+```{python}
+#| echo: false
+#| label: fig-rt-overall
+#| fig-cap: "Changes in Mean Reaction Time Across Trials"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(4, 3))
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+mean_RT = [1.63, 1.1, 1.1]
+
+trials_number =np.arange(len(trials))
+coefficients = np.polyfit(trials_number, mean_RT, 1)
+p = np.poly1d(coefficients)
+ax.scatter(trials, mean_RT)
+ax.plot(trials_number, p(trials_number), "r--")
+ax.set_xticks(trials_number, trials)
+ax.set_xlabel("Trials")
+ax.set_ylabel("Reaction Time (seconds)")
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| label: fig-rt-congruency
+#| fig-cap: "Effects of Congruency on Reaction Time"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(4, 3))
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+congruent = [1.63,0.92,1.02]
+incongruent = [1.55,1.16,1.14]
+
+trials_number =np.arange(len(trials))
+width = 0.35
+plt.bar(trials_number-width/2, congruent, width, label="Congruent")
+plt.bar(trials_number+width/2, incongruent, width, label="Incongruent")
+plt.xlabel("Trials")
+plt.ylabel("Reaction Time (seconds)")
+plt.xticks(trials_number, trials)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| label: fig-acc-overall
+#| fig-cap: "Changes in Mean Accuracy Rates Across Trials"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(4, 3))
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+mean_acc = [0.82, 0.87, 0.9]
+trials_number =np.arange(len(trials))
+coefficients = np.polyfit(trials_number, mean_acc, 1)
+p = np.poly1d(coefficients)
+ax.scatter(trials_number, mean_acc)
+ax.plot(trials_number, p(trials_number), "r--")
+ax.set_xticks(trials_number, trials)
+ax.set_xlabel("Trials")
+ax.set_ylabel("Mean Accuracy Rate")
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| label: fig-acc-congruency
+#| fig-cap: "Effects of Congruency on Accuracy"
+#| fig-width: 3
+#| fig-height: 2
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(4, 3))
+trials = ["Trial 1", "Trial 2", "Trial 3"]
+cong = [0.92, 0.87, 0.97]
+incong = [0.76, 0.83, 0.85]
+
+trials_number = np.arange(len(trials))
+width = 0.35
+plt.bar(trials_number-width/2, cong, width, label="Congruent")
+plt.bar(trials_number+width/2, incong, width, label="Incongruent")
+plt.xlabel("Trials")
+plt.ylabel("Accuracy Rate")
+plt.xticks(trials_number, trials)
+plt.ylim(0, 1.3)
+plt.legend()
+plt.tight_layout()
+plt.show()
+```
+
+```{r tbl-setup1, echo=FALSE, tab.cap="Repeated Measures ANOVA for Reaction Time"}
+
+rt_table <- data.frame( 
+  Effect = c("Match", "Trial", "Match × Trial"), 
+  DFn = c(df1_match_rt, df1_trial_rt, df1_int_rt), 
+  DFd = c(df2_match_rt, df2_trial_rt, df2_int_rt), 
+  F = round(c(F_match_rt, F_trial_rt, F_int_rt), 2), 
+  p = c(p_match_rt, p_trial_rt, p_int_rt) )
+
+
+# Format p-values
+rt_table$p <- ifelse(rt_table$p < 0.001, "< .001", sprintf("%.3f", rt_table$p))
+
+knitr::kable(rt_table)
+```
+
+```{r tbl-setup2, echo=FALSE}
+acc_table <- data.frame(
+  Effect = c("Match", "Trial", "Match × Trial"),
+  DFn = c(df1_match_acc, df1_trial_acc, df1_int_acc),
+  DFd = c(df2_match_acc, df2_trial_acc, df2_int_acc),
+  F = round(c(F_match_acc, F_trial_acc, F_int_acc), 2),
+  p = c(p_match_acc, p_trial_acc, p_int_acc)
+)
+
+# Format p-values
+acc_table$p <- ifelse(acc_table$p < 0.001, "< .001", sprintf("%.3f", acc_table$p))
+
+knitr::kable(acc_table)
+```
+
 # Discussion
 
 To reiterate, the goal of this experiment was to replicate the classic Stroop effect, which predicts that participants will exhibit slower reaction times and lower accuracy when presented with incongruent stimuli compared to congruent ones. 
 
-Our results, however, speak otherwise. The results of the Repeated Measures ANOVA indicate that the main effect of word-colour matching, congruency, on reaction time was not statistically significant, **F(1,15)=0.200, p=0.661**. This finding contradicts the established literature which states that the automaticity of reading typically interferes with the more deliberate task of colour naming. In our sample, the mean reaction time across all conditions was approximately **1277.69 ms**, with an overall accuracy of **86.4%**. While the Stroop effect was not significant, there was a marginal effect of trial on reaction time, p=0.056. The mean reaction time decreased notably from trial 1 **(1633.85 ms) to trial 2 (1100.98 ms)** and remained stable in trial 3 **(1098.26 ms)**. Similarly, mean accuracy improved from **0.819 in Trial 1 to 0.900 in Trial 3**. These trends suggest a practice effect, where participants became more efficient at the task as the experiment progressed.
+Our results, however, speak otherwise. The results of the Repeated Measures ANOVA indicate that the main effect of word-colour matching, congruency, on reaction time was not statistically significant, (F(`r df1_match_rt`, `r df2_match_rt`)=`r round(F_match_rt,2)`, p `r ifelse(p_match_rt < .001, "<.001", paste0("=", sprintf("%.3f", p_match_rt)))`). This finding contradicts the established literature which states that the automaticity of reading typically interferes with the more deliberate task of colour naming. In our sample, the mean reaction time across all conditions was approximately 1277.69 ms, with an overall accuracy of 86.4%. While the Stroop effect was not significant, there was a marginal effect of trial on reaction time, p `r ifelse(p_trial_rt < .001, "< .001", paste0("= ", sprintf("%.3f", p_trial_rt)))`. The mean reaction time decreased notably from trial 1 (1633.85 ms) to trial 2 (1100.98 ms) and remained stable in trial 3 (1098.26 ms). Similarly, mean accuracy improved from 0.819 in Trial 1 to 0.900 in Trial 3. These trends suggest a practice effect, where participants became more efficient at the task as the experiment progressed.
 
-Moreover, a reason for the failure in statistical significance could be attributed to extreme outliers in the raw data, which significantly inflated the variance within the ANOVA. Several participants recorded reaction times that exceeded 10 seconds, which is typically uncharacteristic for a standard Stroop task; Participant 10 recorded a reaction time of **19,209 ms during trial 1, Participant 16 recorded 17,071 ms in trial 1, and Participant 3 exceeded 13,000 ms in trial 1**. This may have been caused by participants losing focus, being overwhelmed by a new task, looking for the key locations, or talking to the proctor.  Because the ANOVA uses the "Sum of Squares" to calculate the F-statistic, these massive deviations likely masked the smaller, millisecond-level differences typically associated with cognitive interference. Furthermore, as stated before, the automaticity theory suggests that reading is a highly practiced task that occurs without conscious effort, hence interfering with the slower process of colour naming. While our data did not show a significant difference between the match and non-match conditions, the overall high accuracy of **86.4%** suggests that the participants did successfully engage in cognitive control to ignore the word's meaning, even though the distraction of the words didn't significantly change the reaction times for this group. 
+Moreover, a reason for the failure in statistical significance could be attributed to extreme outliers in the raw data, which significantly inflated the variance within the ANOVA. Several participants recorded reaction times that exceeded 10 seconds, which is typically uncharacteristic for a standard Stroop task; Participant 10 recorded a reaction time of 19,209 ms during trial 1, Participant 15 recorded 17,071 ms in trial 1, and Participant 3 exceeded 13,000 ms in trial 1. This may have been caused by participants losing focus, being overwhelmed by a new task, looking for the key locations, or talking to the proctor.  Because the ANOVA uses the "Sum of Squares" to calculate the F-statistic, these massive deviations likely masked the smaller, millisecond-level differences typically associated with cognitive interference. Furthermore, as stated before, the automaticity theory suggests that reading is a highly practiced task that occurs without conscious effort, hence interfering with the slower process of colour naming. While our data did not show a significant difference between the match and non-match conditions, the overall high accuracy of 86.4% suggests that the participants did successfully engage in cognitive control to ignore the word's meaning, even though the distraction of the words didn't significantly change the reaction times for this group. 
 
 Two major limitations of this study were the small count of 10 words per Trial, for a total of 3 trials, and the small sample size. Furthermore, since we had randomized the congruent and incongruent words, some participants got more, and some got fewer, creating an uneven balance of conditions, which could have still worked if we had more words per trial. Additionally, since we did not exclude outliers in our data analysis, that means those data points definitely impacted the data analysis. Therefore, future replications should include a larger number of trials to increase statistical power, a larger pool of participants, and an outlier removal protocol to ensure that the final analysis accurately reflects cognitive processing speed rather than behavioural distractions.
 
