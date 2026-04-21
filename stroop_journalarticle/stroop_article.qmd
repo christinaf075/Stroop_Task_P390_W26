@@ -36,7 +36,6 @@ format:
       name: Journal Name
       formatting: preprint
       cite-style: authoryear
-jupyter: python3
 ---
 
 # Introduction
