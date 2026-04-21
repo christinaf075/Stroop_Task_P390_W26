@@ -230,19 +230,6 @@ Two participants were excluded due to the random occurence of having trials wher
 The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about `python mean_rt` seconds. Shown in @fig-rt-overall, reaction time decreased sharply between Trial 1 (M = `python trial1_rt`s) and Trial 2 (M = `python trial2_rt`s) before evening out in Trial 3 (M = `python trial3_rt`s). @fig-rt-congruency demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about `python match_rt` seconds while the mean reaction time for incongruent words across all trials was about `python nonmatch_rt` seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = `python match1_rt`s) was higher than that of incongruent words (M = `python nonmatch1_rt`s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = `python match2_rt`s) ended up lower than incongruent words (M = `python nonmatch2_rt`s). Trial 3 followed this same trend with congruent words (M = `python match3_rt`s) being lower than incongruent words (M = `python nonmatch3_rt`s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
 
 
-## Accuracy - Main Effects of Trial and Congruency
-The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about `python mean_accuracy`. Shown in @fig-acc-overall, accuracy in Trial 1 starts off fairly low (M = `python trial1_acc`%) and rises steadily through Trial 2 (M = `python trial2_acc`%) and reaches a peak at Trial 3 (M = `python trial3_acc`%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about `python match_acc`%, where incongruent words ended up with a mean accuracy of about `python nonmatch_acc`%. @fig-acc-congruency demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = `python match1_acc`%) and incongruent words (M = `python nonmatch1_acc`%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = `python match2_acc`%) and a rise in incongruent accuracy (M = `python nonmatch2_acc`%). However, Trial 3 saw a rise in both congruent accuracy (M = `python match3_acc`%) and incongruent accuracy (M = `python nonmatch3_acc`%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
-
-
-
-## Reaction Time - Interaction effects between trial and congruency
-In order to analyze the interaction between trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-setup1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1, 13)=0.07, p =0.799), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial had a significant main effect (F(2, 28) = 3.36, p = 0.049). This suggests there is a significant change in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2, 28) = 0.29, p = 0.752), meaning there is no significant effect of congruency on reaction time across time. 
-
-## Accuracy - Interaction effects between trial and congruency
-
-In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-setup2, there was a significant main effect found of congruency (F(1, 13) = 5.69, p = 0.033), meaning there was a significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2, 28) = 0.48, p = 0.621), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(2, 28) = 1.86, p = 0.175), meaning there is no significant effect of congruency on accuracy across time. 
-
-
 ::: {.cell}
 ::: {.cell-output-display}
 ![Changes in Mean Reaction Time Across Trials](stroop_article_files/figure-pdf/fig-rt-overall-1.pdf){#fig-rt-overall}
@@ -255,7 +242,7 @@ In order to analyze the effect of trial and congruency on accuracy, a 2-way repe
 ::: {.cell-output .cell-output-stdout}
 
 ```
-([<matplotlib.axis.XTick object at 0x7d259afbb5b0>, <matplotlib.axis.XTick object at 0x7d259ae986a0>, <matplotlib.axis.XTick object at 0x7d259ae76f50>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+([<matplotlib.axis.XTick object at 0x7a06f52c0d30>, <matplotlib.axis.XTick object at 0x7a06f52c1690>, <matplotlib.axis.XTick object at 0x7a06f529f970>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
 ```
 
 
@@ -266,6 +253,9 @@ In order to analyze the effect of trial and congruency on accuracy, a 2-way repe
 :::
 :::
 
+
+## Accuracy - Main Effects of Trial and Congruency
+The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about `python mean_accuracy`. Shown in @fig-acc-overall, accuracy in Trial 1 starts off fairly low (M = `python trial1_acc`%) and rises steadily through Trial 2 (M = `python trial2_acc`%) and reaches a peak at Trial 3 (M = `python trial3_acc`%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about `python match_acc`%, where incongruent words ended up with a mean accuracy of about `python nonmatch_acc`%. @fig-acc-congruency demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = `python match1_acc`%) and incongruent words (M = `python nonmatch1_acc`%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = `python match2_acc`%) and a rise in incongruent accuracy (M = `python nonmatch2_acc`%). However, Trial 3 saw a rise in both congruent accuracy (M = `python match3_acc`%) and incongruent accuracy (M = `python nonmatch3_acc`%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
 
 
 ::: {.cell}
@@ -280,7 +270,7 @@ In order to analyze the effect of trial and congruency on accuracy, a 2-way repe
 ::: {.cell-output .cell-output-stdout}
 
 ```
-([<matplotlib.axis.XTick object at 0x7d259ad37190>, <matplotlib.axis.XTick object at 0x7d259aee5870>, <matplotlib.axis.XTick object at 0x7d259aee4790>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+([<matplotlib.axis.XTick object at 0x7a06f52f7610>, <matplotlib.axis.XTick object at 0x7a06f5336b00>, <matplotlib.axis.XTick object at 0x7a06f53128c0>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
 ```
 
 
@@ -302,6 +292,11 @@ In order to analyze the effect of trial and congruency on accuracy, a 2-way repe
 
 
 
+
+## Reaction Time - Interaction effects between trial and congruency
+In order to analyze the interaction between trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-setup1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1, 13)=0.07, p =0.799), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial had a significant main effect (F(2, 28) = 3.36, p = 0.049). This suggests there is a significant change in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2, 28) = 0.29, p = 0.752), meaning there is no significant effect of congruency on reaction time across time. 
+
+
 ::: {#tbl-setup1 .cell}
 ::: {.cell-output-display}
 
@@ -318,6 +313,10 @@ Table: Repeated Measures ANOVA for Reaction Time
 :::
 :::
 
+
+## Accuracy - Interaction effects between trial and congruency
+
+In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-setup2, there was a significant main effect found of congruency (F(1, 13) = 5.69, p = 0.033), meaning there was a significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2, 28) = 0.48, p = 0.621), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(2, 28) = 1.86, p = 0.175), meaning there is no significant effect of congruency on accuracy across time. 
 
 
 ::: {#tbl-setup2 .cell}

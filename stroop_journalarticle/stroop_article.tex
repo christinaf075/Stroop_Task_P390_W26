@@ -365,6 +365,36 @@ lower than incongruent words (M = \texttt{python\ nonmatch3\_rt}s).
 However, unlike the overall results the mean reaction time for congruent
 words rose slightly from trial 2 to trial 3.
 
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{stroop_article_files/figure-pdf/fig-rt-overall-1.pdf}}
+
+}
+
+\caption{\label{fig-rt-overall}Changes in Mean Reaction Time Across
+Trials}
+
+\end{figure}%
+
+\begin{verbatim}
+([<matplotlib.axis.XTick object at 0x7a06f52c0d30>, <matplotlib.axis.XTick object at 0x7a06f52c1690>, <matplotlib.axis.XTick object at 0x7a06f529f970>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+\end{verbatim}
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{stroop_article_files/figure-pdf/fig-rt-congruency-3.pdf}}
+
+}
+
+\caption{\label{fig-rt-congruency}Effects of Congruency on Reaction
+Time}
+
+\end{figure}%
+
 \subsection{Accuracy - Main Effects of Trial and
 Congruency}\label{accuracy---main-effects-of-trial-and-congruency}
 
@@ -391,67 +421,6 @@ incongruent accuracy (M = \texttt{python\ nonmatch3\_acc}\%). Although
 there was a rise in both congruent and incongruent accuracy, congruent
 words remained higher than incongruent words through all trials.
 
-\subsection{Reaction Time - Interaction effects between trial and
-congruency}\label{reaction-time---interaction-effects-between-trial-and-congruency}
-
-In order to analyze the interaction between trial and congruency on
-reaction time, a 2-way repeated measures ANOVA was conducted.
-Demonstrated in Table~\ref{tbl-setup1}, the results yielded
-insignificant effects. There was no significant main effect found of
-congruency (F(1, 13)=0.07, p =0.799), meaning there was not a noticeable
-difference of reaction time between congruent and incongruent
-conditions. Trial had a significant main effect (F(2, 28) = 3.36, p =
-0.049). This suggests there is a significant change in reaction time
-among trials. In addition, the interaction between congruency and trial
-showed no significance (F(2, 28) = 0.29, p = 0.752), meaning there is no
-significant effect of congruency on reaction time across time.
-
-\subsection{Accuracy - Interaction effects between trial and
-congruency}\label{accuracy---interaction-effects-between-trial-and-congruency}
-
-In order to analyze the effect of trial and congruency on accuracy, a
-2-way repeated measures ANOVA was conducted. Demonstrated in
-Table~\ref{tbl-setup2}, there was a significant main effect found of
-congruency (F(1, 13) = 5.69, p = 0.033), meaning there was a significant
-difference of accuracy between congruent and incongruent trials. There
-was no significant main effect found of trial (F(2, 28) = 0.48, p =
-0.621), meaning accuracy did not noticeably differ between trials.
-Unlike the previous ANOVA where trial had a slight trend, this one did
-not provide a trend of trial. Additionally, the interaction between
-congruency and trial showed no significance (F(2, 28) = 1.86, p =
-0.175), meaning there is no significant effect of congruency on accuracy
-across time.
-
-\begin{figure}[H]
-
-\centering{
-
-\pandocbounded{\includegraphics[keepaspectratio]{stroop_article_files/figure-pdf/fig-rt-overall-1.pdf}}
-
-}
-
-\caption{\label{fig-rt-overall}Changes in Mean Reaction Time Across
-Trials}
-
-\end{figure}%
-
-\begin{verbatim}
-([<matplotlib.axis.XTick object at 0x7d259afbb5b0>, <matplotlib.axis.XTick object at 0x7d259ae986a0>, <matplotlib.axis.XTick object at 0x7d259ae76f50>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
-\end{verbatim}
-
-\begin{figure}[H]
-
-\centering{
-
-\pandocbounded{\includegraphics[keepaspectratio]{stroop_article_files/figure-pdf/fig-rt-congruency-3.pdf}}
-
-}
-
-\caption{\label{fig-rt-congruency}Effects of Congruency on Reaction
-Time}
-
-\end{figure}%
-
 \begin{figure}[H]
 
 \centering{
@@ -466,7 +435,7 @@ Trials}
 \end{figure}%
 
 \begin{verbatim}
-([<matplotlib.axis.XTick object at 0x7d259ad37190>, <matplotlib.axis.XTick object at 0x7d259aee5870>, <matplotlib.axis.XTick object at 0x7d259aee4790>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
+([<matplotlib.axis.XTick object at 0x7a06f52f7610>, <matplotlib.axis.XTick object at 0x7a06f5336b00>, <matplotlib.axis.XTick object at 0x7a06f53128c0>], [Text(0, 0, 'Trial 1'), Text(1, 0, 'Trial 2'), Text(2, 0, 'Trial 3')])
 \end{verbatim}
 
 \begin{verbatim}
@@ -485,6 +454,21 @@ Trials}
 
 \end{figure}%
 
+\subsection{Reaction Time - Interaction effects between trial and
+congruency}\label{reaction-time---interaction-effects-between-trial-and-congruency}
+
+In order to analyze the interaction between trial and congruency on
+reaction time, a 2-way repeated measures ANOVA was conducted.
+Demonstrated in Table~\ref{tbl-setup1}, the results yielded
+insignificant effects. There was no significant main effect found of
+congruency (F(1, 13)=0.07, p =0.799), meaning there was not a noticeable
+difference of reaction time between congruent and incongruent
+conditions. Trial had a significant main effect (F(2, 28) = 3.36, p =
+0.049). This suggests there is a significant change in reaction time
+among trials. In addition, the interaction between congruency and trial
+showed no significance (F(2, 28) = 0.29, p = 0.752), meaning there is no
+significant effect of congruency on reaction time across time.
+
 \begin{longtable}[]{@{}lrrrl@{}}
 
 \caption{\label{tbl-setup1}Repeated Measures ANOVA for Reaction Time}
@@ -502,6 +486,22 @@ Trial & 2 & 28 & 3.36 & 0.049 \\
 Match × Trial & 2 & 28 & 0.29 & 0.752 \\
 
 \end{longtable}
+
+\subsection{Accuracy - Interaction effects between trial and
+congruency}\label{accuracy---interaction-effects-between-trial-and-congruency}
+
+In order to analyze the effect of trial and congruency on accuracy, a
+2-way repeated measures ANOVA was conducted. Demonstrated in
+Table~\ref{tbl-setup2}, there was a significant main effect found of
+congruency (F(1, 13) = 5.69, p = 0.033), meaning there was a significant
+difference of accuracy between congruent and incongruent trials. There
+was no significant main effect found of trial (F(2, 28) = 0.48, p =
+0.621), meaning accuracy did not noticeably differ between trials.
+Unlike the previous ANOVA where trial had a slight trend, this one did
+not provide a trend of trial. Additionally, the interaction between
+congruency and trial showed no significance (F(2, 28) = 1.86, p =
+0.175), meaning there is no significant effect of congruency on accuracy
+across time.
 
 \begin{longtable}[]{@{}lrrrl@{}}
 
