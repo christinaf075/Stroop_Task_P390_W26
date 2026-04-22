@@ -94,7 +94,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="stroop_presentation_files/libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
   <link rel="stylesheet" href="styles.css">
   <link href="stroop_presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -228,7 +248,8 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 </section>
 <section id="background3-key-findings" class="slide level2" data-background-image="images/Screenshot 2026-03-30 231455.png">
 <h2>Background(3): Key Findings</h2>
-<p><br> Stroop (1935) found that participants were slower and less accurate when naming colors on incongruent trials compared to congruent ones</p>
+<p><br></p>
+<p><span class="citation" data-cites="Stroop1935">Stroop (<a href="#/references" role="doc-biblioref" onclick="">1935</a>)</span> found that participants were slower and less accurate when naming colors on incongruent trials compared to congruent ones</p>
 <p><br></p>
 <ul>
 <li>This effect has been replicated across hundreds of studies, making it one of the most reliable findings in cognitive psychology</li>
@@ -240,7 +261,7 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 <div class="column" style="width:40%;">
 <h3 id="relative-speed-of-processing">Relative Speed of Processing</h3>
 <ul>
-<li>Words are read faster than colors are named, so the word meaning always reaches the response stage first and interferes with color naming</li>
+<li>Words are read faster than colors are named, so the word meaning always reaches the response stage first and interferes with color naming <span class="citation" data-cites="MacLeod1991">(<a href="#/references" role="doc-biblioref" onclick="">MacLeod 1991</a>)</span></li>
 </ul>
 </div><div class="column" style="width:10%;">
 
@@ -328,7 +349,7 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">RT</a></li><li><a href="#tabset-1-2">Accuracy</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="b0797c20" class="cell" data-execution_count="1">
+<div id="faa1a610" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -339,7 +360,7 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 </div>
 </div>
 <div id="tabset-1-2">
-<div id="d7a2350c" class="cell" data-execution_count="2">
+<div id="c1f4531b" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -364,7 +385,7 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">RT</a></li><li><a href="#tabset-2-2">Accuracy</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div id="2457e20c" class="cell" data-execution_count="3">
+<div id="bb0e96db" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -375,7 +396,7 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 </div>
 </div>
 <div id="tabset-2-2">
-<div id="c2e8fc57" class="cell" data-execution_count="4">
+<div id="fbf4cea9" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -416,13 +437,20 @@ Christina Fan, Alexia Nijgorodov, Daniella Cisorio, Diya Renjan
 <li>High accuracy (90%) and keyboard latency further confounded results</li>
 <li>Due to these factors and a small sample (n = 16), we fail to reject the null hypothesis</li>
 </ul>
-</section>
-<section id="references" class="slide level2" data-background-image="images/Screenshot 2026-03-30 231455.png">
-<h2>References</h2>
-<p>MacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integrative review. Psychological Bulletin, 109(2), 163–203. <a href="https://doi.org/10.1037/0033-2909.109.2.163">https://doi.org/10.1037/0033-2909.109.2.163</a></p>
-<p><br></p>
-<p>Stroop, J. R. (1935). Studies of interference in serial verbal reactions. Journal of Experimental Psychology, 18(6), 643–662. <a href="https://doi.org/10.1037/h0054651">https://doi.org/10.1037/h0054651</a></p>
 </section></section>
+<section id="references" class="title-slide slide level1 smaller scrollable" data-background-image="images/Screenshot 2026-03-30 231455.png">
+<h1>References</h1>
+<p><br> <br></p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-MacLeod1991" class="csl-entry" role="listitem">
+MacLeod, Colin M. 1991. <span>“Half a Century of Research on the Stroop Effect: An Integrative Review.”</span> <em>Psychological Bulletin</em> 109 (2): 163–203. <a href="https://doi.org/10.1037/0033-2909.109.2.163">https://doi.org/10.1037/0033-2909.109.2.163</a>.
+</div>
+<div id="ref-Stroop1935" class="csl-entry" role="listitem">
+Stroop, J. R. 1935. <span>“Studies of Interference in Serial Verbal Reactions.”</span> <em>Journal of Experimental Psychology</em> 18 (6): 643–62. <a href="https://doi.org/10.1037/h0054651">https://doi.org/10.1037/h0054651</a>.
+</div>
+</div>
+</section>
+
 <section id="section" class="title-slide slide level1 center" data-background="#43464B" data-background-image="images/thankyou.jpeg">
 <h1></h1>
 

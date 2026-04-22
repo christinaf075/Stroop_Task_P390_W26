@@ -6,6 +6,7 @@ css: styles.css
 resources: stroop_prt.pdf
 title-slide-attributes:
   data-background-image: "/images/Screenshot 2026-03-30 231455.png"
+bibliography: pbib.bib
 ---
 
 # Introduction {background-image="images/Screenshot 2026-03-30 231455.png"}
@@ -26,7 +27,8 @@ title-slide-attributes:
 
 ## Background(3): Key Findings {background-image="images/Screenshot 2026-03-30 231455.png"}
 <br/>
-Stroop (1935) found that participants were slower and less accurate when naming colors on incongruent trials compared to congruent ones 
+
+@Stroop1935 found that participants were slower and less accurate when naming colors on incongruent trials compared to congruent ones 
 
 <br/>
 
@@ -37,7 +39,7 @@ Stroop (1935) found that participants were slower and less accurate when naming 
 
 ::: {.column width="40%"}
 ### Relative Speed of Processing
-- Words are read faster than colors are named, so the word meaning always reaches the response stage first and interferes with color naming 
+- Words are read faster than colors are named, so the word meaning always reaches the response stage first and interferes with color naming (@MacLeod1991)
 :::
 ::: {.column width="10%"}
 :::
@@ -239,12 +241,12 @@ Two 2-Way Repeated Measures ANOVA tests were performed examining the main effect
 - High accuracy (90%) and keyboard latency further confounded results
 - Due to these factors and a small sample (n = 16), we fail to reject the null hypothesis
 
-## References {background-image="images/Screenshot 2026-03-30 231455.png"}
-
-MacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integrative review. Psychological Bulletin, 109(2), 163–203. [https://doi.org/10.1037/0033-2909.109.2.163](https://doi.org/10.1037/0033-2909.109.2.163)
+# References {background-image="images/Screenshot 2026-03-30 231455.png"}
 
 <br/>
+<br/>
 
-Stroop, J. R. (1935). Studies of interference in serial verbal reactions. Journal of Experimental Psychology, 18(6), 643–662. [https://doi.org/10.1037/h0054651](https://doi.org/10.1037/h0054651)
+::: {#refs}
+:::
 
 # {background="#43464B" background-image="images/thankyou.jpeg"}

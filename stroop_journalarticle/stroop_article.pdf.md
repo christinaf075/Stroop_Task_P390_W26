@@ -36,7 +36,6 @@ format:
       name: Journal Name
       formatting: preprint
       cite-style: authoryear
-engine: python
 ---
 
 # Introduction
@@ -56,7 +55,7 @@ Fifteen participants in the age range of 19-25 were recruited from an undergradu
 ## Experimental Task Design
 Participants are introduced to the experiment with instructions describing the experiment protocol. After reading, participants are instructed to press the spacebar to proceed to the first trial of the experiment. There are a total of 3 trials, with 10 words being shown to participants in each trial. Each word is shown on the screen for 500 ms before disappearing, and participants are required to press a key to indicate the color of the word. The next word will not appear until participants give a response to the current word. @fig-experiment_visual shows an illustration of the experiment protocol.
 
-![Experiment Protocol Flowchart](article_images/task_flowchart.png){#fig-experiment_visual width="60%"}
+![Experiment Protocol Flowchart](article_images/task_flowchart.png){#fig-experiment_visual width="100%"}
 
 The program randomly generates color words from the list: red, green, blue, yellow and the color of those words are also randomly selected among those colors. Thus, the chances of a word presentation being congruent or incongruent are random. The keys "r", "g","b","y" are assigned to the respective colors red, green, blue, yellow for participants to give their response when reporting the color of the word. Participants are able to exit the experiment at any time by pressing the "Esc" key.
 
@@ -72,27 +71,13 @@ Two participants were excluded due to the random occurence of having trials wher
 
 
 ::: {.cell}
-::: {.cell-output .cell-output-stdout}
 
-```
-1.2776375000000002
-```
-
-
-:::
 :::
 
 
 
 ::: {.cell}
-::: {.cell-output .cell-output-stdout}
 
-```
-0.8645833333333334
-```
-
-
-:::
 :::
 
 
@@ -230,7 +215,7 @@ Two participants were excluded due to the random occurence of having trials wher
 
 
 ## Reaction Time - Main Effects of Trial and Congruency
-The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about 1.28 seconds. Shown in @fig-rt-overall, reaction time decreased sharply between Trial 1 (M = 1.63s) and Trial 2 (M = 1.1s) before evening out in Trial 3 (M = 1.1s). @fig-rt-congruency demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about 1.18 seconds while the mean reaction time for incongruent words across all trials was about 1.28 seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = 1.63s) was higher than that of incongruent words (M = 1.56s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = 0.92s) ended up lower than incongruent words (M = 1.16s). Trial 3 followed this same trend with congruent words (M = 1.01s) being lower than incongruent words (M = 1.14s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
+The overall results including both congruent and incongruent words were analyzed first. The mean reaction time across all trials was about 1.28 seconds. Shown in @fig-rt-overall, reaction time decreased sharply between Trial 1 (M = 1.63 s) and Trial 2 (M = 1.1 s) before evening out in Trial 3 (M = 1.1 s). @fig-rt-congruency demonstrates the average reaction times of congruent and incongruent words. The mean reaction time for congruent words across all trials was about 1.18 seconds while the mean reaction time for incongruent words across all trials was about 1.28 seconds. Trial 1 went against the hypothesis as the mean reaction time for congruent words (M = 1.63 s) was higher than that of incongruent words (M = 1.56 s). However, this was not the same for trials 2 and 3. In trial 2, the mean reaction time for congruent words (M = 0.92 s) ended up lower than incongruent words (M = 1.16 s). Trial 3 followed this same trend with congruent words (M = 1.01 s) being lower than incongruent words (M = 1.14 s). However, unlike the overall results the mean reaction time for congruent words rose slightly from trial 2 to trial 3.
 
 
 ::: {.cell}
@@ -249,7 +234,7 @@ The overall results including both congruent and incongruent words were analyzed
 
 
 ## Accuracy - Main Effects of Trial and Congruency
-The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy across all trials coming out to about 0.86. Shown in @fig-acc-overall, accuracy in Trial 1 starts off fairly low (M = 0.82%) and rises steadily through Trial 2 (M = 0.88%) and reaches a peak at Trial 3 (M = 0.9%). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about 0.92%, where incongruent words ended up with a mean accuracy of about 0.81%. @fig-acc-congruency demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = 0.92%) and incongruent words (M = 0.76%). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = 0.88%) and a rise in incongruent accuracy (M = 0.83%). However, Trial 3 saw a rise in both congruent accuracy (M = 0.97%) and incongruent accuracy (M = 0.85%). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
+The overall results including both congruent and incongruent words were analyzed first, with the mean accuracy rate across all trials coming out to about 0.86. Shown in @fig-acc-overall, accuracy in Trial 1 starts off fairly low (M = 0.82) and rises steadily through Trial 2 (M = 0.88) and reaches a peak at Trial 3 (M = 0.9). When compared to the average accuracy based on congruency, the trend shifts away from a steady rise. The mean accuracy for congruent words across all trials was about 0.92, where incongruent words ended up with a mean accuracy of about 0.81. @fig-acc-congruency demonstrates the mean accuracy based on each trial. Trial 1 started with a large gap between congruent words (M = 0.92) and incongruent words (M = 0.76). Despite congruent accuracy remaining higher than incongruent accuracy, Trial 2 saw a drop in congruent accuracy (M = 0.88) and a rise in incongruent accuracy (M = 0.83). However, Trial 3 saw a rise in both congruent accuracy (M = 0.97) and incongruent accuracy (M = 0.85). Although there was a rise in both congruent and incongruent accuracy, congruent words remained higher than incongruent words through all trials.
 
 
 ::: {.cell}
@@ -261,15 +246,6 @@ The overall results including both congruent and incongruent words were analyzed
 
 
 ::: {.cell}
-::: {.cell-output .cell-output-stdout}
-
-```
-(0.0, 1.3)
-```
-
-
-:::
-
 ::: {.cell-output-display}
 ![Effects of Congruency on Accuracy](stroop_article_files/figure-pdf/fig-acc-congruency-7.pdf){#fig-acc-congruency}
 :::
@@ -277,7 +253,7 @@ The overall results including both congruent and incongruent words were analyzed
 
 
 ## Reaction Time - Interaction effects between trial and congruency
-In order to analyze the interaction between trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-setup1, the results yielded insignificant effects. There was no significant main effect found of congruency (F(1, 13)=0.07, p =0.799), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial had a significant main effect (F(2, 28) = 3.36, p = 0.049). This suggests there is a significant change in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2, 28) = 0.29, p = 0.752), meaning there is no significant effect of congruency on reaction time across time. 
+In order to analyze the interaction between trial and congruency on reaction time, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-setup1, the results yielded two insignificant effects and one significant effect. There was no significant main effect found of congruency (F(1, 13)=0.07, p =0.80), meaning there was not a noticeable difference of reaction time between congruent and incongruent conditions. Trial had a significant main effect (F(2, 28) = 3.36, p = 0.05). This suggests there is a significant change in reaction time among trials. In addition, the interaction between congruency and trial showed no significance (F(2, 28) = 0.29, p = 0.75), meaning there is no significant effect of congruency on reaction time across time. 
 
 
 ::: {#tbl-setup1 .cell}
@@ -299,7 +275,7 @@ Table: Repeated Measures ANOVA for Reaction Time
 
 ## Accuracy - Interaction effects between trial and congruency
 
-In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-setup2, there was a significant main effect found of congruency (F(1, 13) = 5.69, p = 0.033), meaning there was a significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2, 28) = 0.48, p = 0.621), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a slight trend, this one did not provide a trend of trial. Additionally, the interaction between congruency and trial showed no significance (F(2, 28) = 1.86, p = 0.175), meaning there is no significant effect of congruency on accuracy across time. 
+In order to analyze the effect of trial and congruency on accuracy, a 2-way repeated measures ANOVA was conducted. Demonstrated in @tbl-setup2, there was a significant main effect found of congruency (F(1, 13) = 5.69, p = 0.03), meaning there was a significant difference of accuracy between congruent and incongruent trials. There was no significant main effect found of trial (F(2, 28) = 0.48, p = 0.62), meaning accuracy did not noticeably differ between trials. Unlike the previous ANOVA where trial had a significant main effect, this one did not provide an effect of trial. Additionally, the interaction between congruency and trial showed no significance (F(2, 28) = 1.86, p = 0.17), meaning there is no significant effect of congruency on accuracy across time. 
 
 
 ::: {#tbl-setup2 .cell}
@@ -321,7 +297,7 @@ In order to analyze the effect of trial and congruency on accuracy, a 2-way repe
 
 To reiterate, the goal of this experiment was to replicate the classic Stroop effect, which predicts that participants will exhibit slower reaction times and lower accuracy when presented with incongruent stimuli compared to congruent ones. 
 
-Our results, however, speak otherwise. The results of the Repeated Measures ANOVA indicate that the main effect of word-colour matching, congruency, on reaction time was not statistically significant, (F(1, 13)=0.07, p =0.799). This finding contradicts the established literature which states that the automaticity of reading typically interferes with the more deliberate task of colour naming. In our sample, the mean reaction time across all conditions was approximately 1277.69 ms, with an overall accuracy of 86.4%. While the Stroop effect was not significant, there was a marginal effect of trial on reaction time, p = 0.049. The mean reaction time decreased notably from trial 1 (1633.85 ms) to trial 2 (1100.98 ms) and remained stable in trial 3 (1098.26 ms). Similarly, mean accuracy improved from 0.819 in Trial 1 to 0.900 in Trial 3. These trends suggest a practice effect, where participants became more efficient at the task as the experiment progressed.
+Our results, however, speak otherwise. The results of the Repeated Measures ANOVA indicate that the main effect of word-colour matching, congruency, on reaction time was not statistically significant, (F(1, 13)=0.07, p =0.80). This finding contradicts the established literature which states that the automaticity of reading typically interferes with the more deliberate task of colour naming. In our sample, the mean reaction time across all conditions was approximately 1277.69 ms, with an overall accuracy of 86.4%. While the Stroop effect was not significant, there was a marginal effect of trial on reaction time, p = 0.05. The mean reaction time decreased notably from trial 1 (1633.85 ms) to trial 2 (1100.98 ms) and remained stable in trial 3 (1098.26 ms). Similarly, mean accuracy improved from 0.819 in Trial 1 to 0.900 in Trial 3. These trends suggest a practice effect, where participants became more efficient at the task as the experiment progressed.
 
 Moreover, a reason for the failure in statistical significance could be attributed to extreme outliers in the raw data, which significantly inflated the variance within the ANOVA. Several participants recorded reaction times that exceeded 10 seconds, which is typically uncharacteristic for a standard Stroop task; Participant 10 recorded a reaction time of 19,209 ms during trial 1, Participant 15 recorded 17,071 ms in trial 1, and Participant 3 exceeded 13,000 ms in trial 1. This may have been caused by participants losing focus, being overwhelmed by a new task, looking for the key locations, or talking to the proctor.  Because the ANOVA uses the "Sum of Squares" to calculate the F-statistic, these massive deviations likely masked the smaller, millisecond-level differences typically associated with cognitive interference. Furthermore, as stated before, the automaticity theory suggests that reading is a highly practiced task that occurs without conscious effort, hence interfering with the slower process of colour naming. While our data did not show a significant difference between the match and non-match conditions, the overall high accuracy of 86.4% suggests that the participants did successfully engage in cognitive control to ignore the word's meaning, even though the distraction of the words didn't significantly change the reaction times for this group. 
 
