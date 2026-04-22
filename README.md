@@ -18,9 +18,9 @@ git clone https://github.com/christinaf075/Stroop_Task_P390_W26.git
 
 ## Setup
 1. Go to the main directory of the repo in your terminal
-2. Create a virtual environment by entering: python3 -m venv stroop
-3. Activate it: source stroop/bin/activate
-4. Install required packages by entering: pip install -r requirements.txt
+2. Create a virtual environment by entering: `python3 -m venv stroop`
+3. Activate it: `source stroop/bin/activate`
+4. Install required packages by entering: `pip install -r requirements.txt`
 
 ## Navigation
 1. Open `stroop_experiment.py` to run the experiment.
