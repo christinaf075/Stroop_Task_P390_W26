@@ -11,7 +11,7 @@ Ensure you have the following installed on your device:
 - R (any version after 4.0)
   - Ensure you have packages "knitr", "reticulate", and "rmarkdown" installed.
   - If not: `install.packages(c("reticulate", "knitr", "rmarkdown"))`
-- **Note: This project uses both R and Python. The reticulate package is used to run Python code inside R. Make sure that R is using the same Python environment that installed** `requirements.txt` 
+- **Note: This project uses both R and Python. The reticulate package is used to run Python code inside R. Make sure that R is using the same Python environment that installed** `requirements.txt` **(see Setup section below).**
 
 ## Clone the repo
 
