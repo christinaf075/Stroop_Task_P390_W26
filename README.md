@@ -13,7 +13,7 @@ Ensure you have the following installed on your device:
 ## Clone the repo
 
 ```bash
-git clone https://github.com/h364lee/psych420_q_learning.git](https://github.com/christinaf075/Stroop_Task_P390_W26.git
+git clone https://github.com/christinaf075/Stroop_Task_P390_W26.git
 ```
 
 ## Setup
