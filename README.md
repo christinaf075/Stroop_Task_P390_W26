@@ -9,6 +9,8 @@ A Stroop Task Study coded on Pygame for a PSYCH seminar course
 Ensure you have the following installed on your device:
 - Python (3.10+ recommended)
 - R (any version after 4.0)
+  - Ensure you have packages "knitr", "reticulate", and "rmarkdown" installed. If not: `install.packages(c("reticulate", "knitr", "rmarkdown"))`
+**Note: This project uses both R and Python. The reticulate package is used to run Python code inside R. Make sure that R is using the same Python environment where the requirements were installed.**
 
 ## Clone the repo
 
